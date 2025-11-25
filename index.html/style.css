@@ -213,6 +213,7 @@ body.loaded #content {
   justify-content: center;
   transition: transform 0.5s ease;
   z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
 }
 
 .overlay-menu.hidden {
