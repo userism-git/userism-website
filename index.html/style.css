@@ -741,3 +741,35 @@ body.event {
 .article-content {
     transition: all 0.3s ease;
 }
+/* ------------------------------------ */
+/* Articles Page Styles                 */
+/* ------------------------------------ */
+/* Articles header section */
+.articles-header {
+    padding: 30px 0; /* Adjust vertical padding */
+    background: transparent; /* Or set a background color */
+    margin: 0; /* Remove default margins */
+}
+
+.articles-header .content {
+    text-align: center;
+    margin-bottom: 1rem; /* Space below the header content */
+    padding: 0 20px; /* Horizontal padding */
+    max-width: 800px; /* Optional: Limit width for better readability */
+    margin-left: auto; /* Center the content block */
+    margin-right: auto;
+}
+
+/* Style for the h1 in the articles header */
+.articles-header h1 {
+    margin: 0 0 10px; /* Top, bottom, left/right margins */
+    font-size: 2rem; /* Adjust font size */
+    color: #333; /* Text color */
+}
+
+/* Style for the p in the articles header */
+.articles-header p {
+    margin: 0; /* Remove default margins */
+    font-size: 1rem; /* Adjust font size */
+    color: #666; /* Text color */
+}
