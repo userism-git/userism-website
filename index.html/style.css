@@ -746,9 +746,10 @@ body.event {
 /* ------------------------------------ */
 /* Articles header section */
 .articles-header {
-    padding: 30px 0; /* Adjust vertical padding */
-    background: transparent; /* Or set a background color */
-    margin: 0; /* Remove default margins */
+  margin-top: 80px;
+    padding: 30px 0; 
+    background: transparent; 
+    margin: 0; 
 }
 
 .articles-header .content {
