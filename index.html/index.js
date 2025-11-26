@@ -1,3 +1,4 @@
+   console.log("JavaScript loaded!");
 // Wait for everything to load
 window.addEventListener("load", () => {
   const intro = document.getElementById("intro");
@@ -105,7 +106,6 @@ window.addEventListener("click", e => {
 });
 // Articles toggle thingy
 function toggleArticle(element) {
-    // Toggle the visibility of the article content
     const content = element.nextElementSibling;
     content.classList.toggle('open');
 }
