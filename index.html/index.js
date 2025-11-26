@@ -107,9 +107,5 @@ window.addEventListener("click", e => {
 function toggleArticle(element) {
     // Toggle the visibility of the article content
     const content = element.nextElementSibling;
-    if (content.style.display === "block") {
-        content.style.display = "none";
-    } else {
-        content.style.display = "block";
-    }
-}  
+    content.classList.toggle('open');
+}
