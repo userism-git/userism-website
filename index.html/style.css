@@ -738,3 +738,6 @@ body.event {
         grid-template-columns: 1fr;
     }
 }
+.article-content {
+    transition: all 0.3s ease;
+}
