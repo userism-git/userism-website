@@ -112,3 +112,4 @@ function toggleArticle(element) {
     } else {
         content.style.display = "block";
     }
+}  
