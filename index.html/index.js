@@ -95,16 +95,34 @@ function toggleArticle(element) {
 
 // Image fancy animation
 window.addEventListener("load", () => {
+  console.log("Animation script starting...");
+  
+  // Check if image exists
+  const imageEl = document.querySelector(".image");
+  console.log("Image element found:", imageEl);
+  
+  if (!imageEl) {
+    console.error("No .image element found!");
+    return;
+  }
+
+  // Split the image into cells
   const results = Splitting({
     target: ".image",
     by: "cells",
     image: true,
     rows: 8
   });
+  
+  console.log("Splitting results:", results);
 
-  function myCallback(el) {
-    var a = new TimelineMax();
-    return a.staggerFromTo(
+  function playAnimation() {
+    console.log("Playing animation!");
+    const cells = document.querySelectorAll(".cell");
+    console.log("Found cells:", cells.length);
+    
+    var timeline = new TimelineMax();
+    timeline.staggerFromTo(
       ".cell",
       0.5,
       {
@@ -120,13 +138,17 @@ window.addEventListener("load", () => {
     );
   }
 
+  // Use Waypoint to trigger animation
   $(".image").waypoint(
     function(direction) {
-      myCallback();
-      this.destroy(); // Play animation once and stop watching
+      console.log("Waypoint triggered! Direction:", direction);
+      playAnimation();
+      this.destroy();
     },
     {
-      offset: "80%" // Trigger when image is 80% down the screen
+      offset: "bottom-in-view" // Trigger when bottom of element enters viewport
     }
   );
+  
+  console.log("Waypoint setup complete");
 });
