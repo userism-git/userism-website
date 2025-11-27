@@ -17,7 +17,6 @@ window.addEventListener("load", () => {
   }, 500); // adjust delay before fade
 });
 
-<script>
  {
   const section = document.getElementById("typewriter-section");
   const rect = section.getBoundingClientRect();
@@ -33,9 +32,7 @@ window.addEventListener("load", () => {
   // Update the text content
   target.textContent = message.substring(0, charsToShow);
 });
-</script>
 
-<script>
 (function () {
   const langBtn = document.querySelector('.lang-btn');
   const langSwitcher = document.querySelector('.lang-switcher');
@@ -68,7 +65,6 @@ window.addEventListener("load", () => {
     }
   });
 })();
-</script>
 
 // 🔍 SEARCH FUNCTIONALITY
 const searchInput = document.getElementById("projectSearch");
@@ -103,6 +99,7 @@ closeModal.addEventListener("click", () => modal.style.display = "none");
 window.addEventListener("click", e => {
   if (e.target === modal) modal.style.display = "none";
 });
+
 //Articles thingy to make them open
 function toggleArticle(element) {
     const content = element.nextElementSibling;
