@@ -18,25 +18,6 @@ window.addEventListener("load", () => {
   }, 500); // adjust delay before fade
 });
 
-<script>
- {
-  const section = document.getElementById("typewriter-section");
-  const rect = section.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
-
-  // Progress from 0 → 1
-  let progress = 1 - rect.top / windowHeight;
-  progress = Math.min(Math.max(progress, 0), 1);
-
-  // How many characters should be shown
-  const charsToShow = Math.floor(progress * message.length);
-
-  // Update the text content
-  target.textContent = message.substring(0, charsToShow);
-});
-</script>
-
-<script>
 (function () {
   const langBtn = document.querySelector('.lang-btn');
   const langSwitcher = document.querySelector('.lang-switcher');
@@ -69,7 +50,6 @@ window.addEventListener("load", () => {
     }
   });
 })();
-</script>
 
 // 🔍 SEARCH FUNCTIONALITY
 const searchInput = document.getElementById("projectSearch");
@@ -104,8 +84,11 @@ closeModal.addEventListener("click", () => modal.style.display = "none");
 window.addEventListener("click", e => {
   if (e.target === modal) modal.style.display = "none";
 });
+
 // Articles toggle thingy
 function toggleArticle(element) {
+    console.log("Toggle clicked!", element);
     const content = element.nextElementSibling;
+    console.log("Content element:", content);
     content.classList.toggle('open');
 }
