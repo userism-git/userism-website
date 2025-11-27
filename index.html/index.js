@@ -50,7 +50,7 @@ window.addEventListener("load", () => {
     }
   });
 })();
-
+/*
 // 🔍 SEARCH FUNCTIONALITY
 const searchInput = document.getElementById("projectSearch");
 const items = document.querySelectorAll(".project-item");
@@ -84,7 +84,7 @@ closeModal.addEventListener("click", () => modal.style.display = "none");
 window.addEventListener("click", e => {
   if (e.target === modal) modal.style.display = "none";
 });
-
+*/
 // Articles toggle thingy
 function toggleArticle(element) {
     console.log("Toggle clicked!", element);
