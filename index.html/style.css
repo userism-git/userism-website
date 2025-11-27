@@ -8,8 +8,6 @@ body.home {
   font-family: 'Inter', sans-serif;
   font-weight: normal;
   font-size: 15px;
-  line-height: 38px;
-  margin: 0 auto 2rem
   color: #000000;
   overflow-y: scroll;
   background: white
