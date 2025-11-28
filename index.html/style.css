@@ -729,17 +729,6 @@ body.event {
 /* ------------------------------------ */
 /* Articles Page Styles                 */
 /* ------------------------------------ */
-body.articles {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 38px;
-  color: #000000;
-  overflow-y: scroll;
-  background: #00FFFF;
-  
 /* Grid layout for articles */
 .articles-grid {
     display: grid;
