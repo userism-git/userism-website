@@ -87,10 +87,16 @@ window.addEventListener("click", e => {
 */
 // Articles toggle thingy
 function toggleArticle(element) {
-    console.log("Toggle clicked!", element);
     const content = element.nextElementSibling;
-    console.log("Content element:", content);
-    content.classList.toggle('open');
+    const modal = document.getElementById('articleModal');
+    const modalContent = document.getElementById('modalContent');
+    
+    modalContent.innerHTML = content.innerHTML;
+    modal.classList.add('active');
+}
+
+function closeArticle() {
+    document.getElementById('articleModal').classList.remove('active');
 }
 
 // Image fancy animation
