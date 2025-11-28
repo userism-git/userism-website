@@ -76,8 +76,8 @@ body.about {
   color: #000;
 }
 .about-photo {
-  width: 80%;
-  max-width: 800px;
+  width: 40%;
+  max-width: 300px;
   border-radius: 12px;
   display: block;
   margin: 40px auto;
