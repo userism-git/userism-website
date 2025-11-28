@@ -498,7 +498,7 @@ body.projects {
   line-height: 38px;
   color: #000000;
   overflow-y: scroll;
-  background: white;
+  background: #FF00FF;
 }
 
 .projects-header .content {
@@ -565,7 +565,7 @@ body.projects {
 /* --- PROJECTS SCROLLER SECTION --- */
 .projects-scroller-section {
   padding: 40px 20px;
-  background: #f0faff;
+  background: #FF00FF;
   border-top: 3px solid cyan;
   margin-top: 60px;
 }
@@ -656,7 +656,7 @@ body.projects {
 body.event {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background-color: #fa02dd;
+  background-color: #FFFF00;
   color: #111;
 }
 
@@ -729,6 +729,17 @@ body.event {
 /* ------------------------------------ */
 /* Articles Page Styles                 */
 /* ------------------------------------ */
+body.articles {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 38px;
+  color: #000000;
+  overflow-y: scroll;
+  background: #00FFFF;
+  
 /* Grid layout for articles */
 .articles-grid {
     display: grid;
