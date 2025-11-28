@@ -247,6 +247,9 @@ body.loaded #content {
   color: magenta;
   font-weight: 800;
 }
+body.projects .overlay-menu a.active {
+  color: white;
+}
 @media (max-width: 768px) {
   .overlay-menu ul {
     gap: 0.8rem;
