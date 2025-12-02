@@ -775,6 +775,13 @@ body.articles {
     font-weight: 600;
 }
 
+.article-date {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 0.5rem;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .articles-grid {
