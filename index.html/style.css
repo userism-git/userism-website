@@ -16,10 +16,11 @@ body.home {
 /* HOMEPAGE-SPECIFIC STYLES */ 
 /* ========================================= */ 
 .landing-logo { 
-width: 100px; /* adjust size */ 
-height: auto; 
-display: block;
-margin: 0 auto 80px auto;  }/* centers the image */
+  width: 80px; /* più piccolo */
+  height: auto; 
+  display: inline-block; /* non più block */
+  margin: 0; /* rimuove il margin auto */
+}
 
 /* Improve long-text readability */
 #main-feed p {
@@ -277,11 +278,11 @@ body.projects .overlay-menu a.active {
 
 /* Page sections */
 .page-section {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem; /* era 4rem - riduci a 2rem */
 }
 
 /* Contact form */
@@ -756,6 +757,19 @@ body.articles {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
+}
+
+.article-meta {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 10px 0;
+}
+
+.article-preview {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 10px 0;
+    color: #333;
 }
 
 /* Style for article cards */
