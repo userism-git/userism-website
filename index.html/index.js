@@ -23,32 +23,34 @@ window.addEventListener("load", () => {
   const langSwitcher = document.querySelector('.lang-switcher');
   const langMenu = document.querySelector('.lang-menu');
 
-  // Toggle menu
-  langBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const expanded = langBtn.getAttribute('aria-expanded') === 'true';
-    langBtn.setAttribute('aria-expanded', String(!expanded));
-    langSwitcher.classList.toggle('active', !expanded);
-    langMenu.setAttribute('aria-hidden', String(expanded));
-  });
+  if (langBtn && langSwitcher && langMenu) {
+    // Toggle menu
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = langBtn.getAttribute('aria-expanded') === 'true';
+      langBtn.setAttribute('aria-expanded', String(!expanded));
+      langSwitcher.classList.toggle('active', !expanded);
+      langMenu.setAttribute('aria-hidden', String(expanded));
+    });
 
-  // Close menu on outside click
-  document.addEventListener('click', (e) => {
-    if (!langSwitcher.contains(e.target)) {
-      langSwitcher.classList.remove('active');
-      langBtn.setAttribute('aria-expanded', 'false');
-      langMenu.setAttribute('aria-hidden', 'true');
-    }
-  });
+    // Close menu on outside click
+    document.addEventListener('click', (e) => {
+      if (!langSwitcher.contains(e.target)) {
+        langSwitcher.classList.remove('active');
+        langBtn.setAttribute('aria-expanded', 'false');
+        langMenu.setAttribute('aria-hidden', 'true');
+      }
+    });
 
-  // Close menu on ESC key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      langSwitcher.classList.remove('active');
-      langBtn.setAttribute('aria-expanded', 'false');
-      langMenu.setAttribute('aria-hidden', 'true');
-    }
-  });
+    // Close menu on ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        langSwitcher.classList.remove('active');
+        langBtn.setAttribute('aria-expanded', 'false');
+        langMenu.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
 })();
 /*
 // 🔍 SEARCH FUNCTIONALITY
