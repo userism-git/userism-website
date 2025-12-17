@@ -178,25 +178,6 @@ As userocracy is put into place, benefits will equally unfold for everyone.
 
   <!-- SCRIPTS: combined and fixed -->
   <script>
-    // Overlay menu visibility on scroll
-    (function () {
-      let lastScrollY = window.scrollY;
-      const menu = document.querySelector('.overlay-menu');
-      let isScrolling;
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > lastScrollY) {
-          menu.classList.add('hidden');
-        } else {
-          menu.classList.remove('hidden');
-        }
-        lastScrollY = window.scrollY;
-        clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-          menu.classList.remove('hidden');
-        }, 800);
-      });
-    })();
-
     // Language switcher
     (function () {
       const langBtn = document.querySelector('.lang-btn');
