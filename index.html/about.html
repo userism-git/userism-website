@@ -11,7 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="about">
-  
+
+  <!-- old HTML, now it all works with JS   
   <nav class="overlay-menu">
     <ul>
       <li><a href="index.html">Home</a></li>      
@@ -21,7 +22,7 @@
       <li><a href="about.html" class="active">About</a></li>
     </ul>
   </nav>
-<!-- Language Switcher
+Language Switcher
 <div class="lang-switcher" aria-label="Language selector">
   <button class="lang-btn" aria-expanded="false" aria-controls="lang-menu">🌐</button>
   <div class="lang-menu" id="lang-menu" role="menu" aria-hidden="true">
@@ -49,7 +50,7 @@
     <div class="article-meta">
     </div>
     <div class="article-title" onclick="toggleArticle(this)">
-        <button style="padding: 8px 16px; background: black; color: white; border: none; border-radius: 4px; cursor: pointer;">Read more</button>
+        <button style="padding: 8px 16px; background: black; color: white; border: none; border-radius: 4px; cursor: pointer;">Read more about us</button>
     </div>
             <div class="article-content">
                 <p>
@@ -111,7 +112,9 @@
         }
       });
     })();</script>
+  
    <script src="index.js"></script>
+  
   <div id="articleModal" class="article-modal">
     <span class="close-modal" onclick="closeArticle()">&times;</span>
     <div class="modal-article-content" id="modalContent"></div>
