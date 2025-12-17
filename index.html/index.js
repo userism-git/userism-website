@@ -23,7 +23,7 @@ const headerHTML = `
 // Inserisci la navbar e attiva il link corretto
 function loadHeader() {
   // Inserisci la navbar all'inizio del body
-  document.body.insertAdjacentHTML('afterbegin', headerHTML);
+  document.body.insertAdjacentHTML('beforeend', headerHTML);
   
   // Trova la pagina corrente dall'URL
   const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
