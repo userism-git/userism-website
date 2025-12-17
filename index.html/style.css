@@ -211,7 +211,7 @@ body.loaded #content {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.80);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   display: flex;
@@ -220,11 +220,6 @@ body.loaded #content {
   min-height: 50px;
   transition: transform 0.5s ease;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
-}
-
-.overlay-menu.hidden {
-  transform: translateY(-100%);
 }
 
 .overlay-menu ul {
