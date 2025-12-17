@@ -1,4 +1,54 @@
-   console.log("JavaScript loaded!");
+// ========================================
+// DYNAMIC HEADER - thank you claude!
+// ========================================
+
+const headerHTML = `
+  <nav class="overlay-menu">
+    <a href="index.html" class="home-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="articles.html" data-page="articles">Articles</a></li>
+      <li><a href="events.html" data-page="events">Events</a></li>
+      <li><a href="projects.html" data-page="projects">Projects</a></li>
+      <li><a href="about.html" data-page="about">About</a></li>
+    </ul>
+  </nav>
+`;
+
+// Inserisci la navbar e attiva il link corretto
+function loadHeader() {
+  // Inserisci la navbar all'inizio del body
+  document.body.insertAdjacentHTML('afterbegin', headerHTML);
+  
+  // Trova la pagina corrente dall'URL
+  const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+  
+  // Attiva l'icona Home se siamo su index
+  if (currentPage === 'index' || currentPage === '') {
+    const homeIcon = document.querySelector('.home-icon');
+    if (homeIcon) homeIcon.classList.add('active');
+  }
+  
+  // Attiva il link corretto per le altre pagine
+  const links = document.querySelectorAll('.nav-links a');
+  links.forEach(link => {
+    const pageName = link.getAttribute('data-page');
+    if (currentPage === pageName) {
+      link.classList.add('active');
+    }
+  });
+}
+
+// Carica la navbar quando il DOM è pronto
+document.addEventListener('DOMContentLoaded', loadHeader);
+//end of header
+
+console.log("JavaScript loaded!");
 // Wait for everything to load
 window.addEventListener("load", () => {
   const intro = document.getElementById("intro");
