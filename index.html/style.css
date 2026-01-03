@@ -806,8 +806,8 @@ body.articles {
 
 /* Style for article titles (clickable) */
 .article-title {
-    padding: 15px;
-    background-color: white;
+    padding: 20px;
+    background-color: red;
     cursor: pointer;
     font-weight: 600;
 }
