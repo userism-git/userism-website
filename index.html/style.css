@@ -821,14 +821,6 @@ body.articles {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-/*closed grid*/
-.article-content {
-  background: pink;  
-  padding: 15px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-}
 
 .article-content.open {
     max-height: 1000px;
@@ -842,7 +834,7 @@ body.articles {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    background: pink;
     z-index: 9999;
     overflow-y: auto;
 }
