@@ -797,9 +797,8 @@ body.articles {
 
 /* Style for article cards */
 .article-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
+    border-radius: 12px;
+    overflow: visible;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background: white;
 }
