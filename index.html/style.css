@@ -785,8 +785,7 @@ body.articles {
 
 .article-meta {
     font-size: 0.85rem;
-    color: #666;
-    margin: 10px 0;
+  padding: 0.5rem; 
   background: green;
 }
 
@@ -806,8 +805,8 @@ body.articles {
     background: white;
 }
 
-/* Style for article titles (clickable) */
-.article-title {
+/* Style for article actions (clickable) */
+.article-actions {
     padding: 20px;
     background-color: red;
     cursor: pointer;
