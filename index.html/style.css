@@ -798,8 +798,7 @@ body.articles {
 /* Style for article cards */
 .article-card {
     border-radius: 12px;
-    overflow: visible;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
     background: white;
 }
 
@@ -810,23 +809,22 @@ body.articles {
     cursor: pointer;
     font-weight: 600;
 }
-
 .article-date {
     display: block;
     font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: red;
     margin-top: 0.5rem;
 }
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .articles-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-/* Per la griglia chiusa*/
+/*closed grid*/
 .article-content {
-    padding: 0 15px;
+  background: pink;  
+  padding: 15px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease, padding 0.4s ease;
@@ -859,8 +857,8 @@ body.articles {
     padding: 60px 40px;
     background: white;
     border-radius: 12px;
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
 }
 
 .close-modal {
@@ -880,7 +878,7 @@ body.articles {
 }
 /* Articles header section */
 .articles-header {
-    margin-top: 80px;
+    margin-top: 40px;
     padding: 120px 0 80px 0;
     background: transparent; 
     margin: 0; 
