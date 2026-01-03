@@ -780,12 +780,14 @@ body.articles {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
+      background: purple;
 }
 
 .article-meta {
     font-size: 0.85rem;
     color: #666;
     margin: 10px 0;
+  background: green;
 }
 
 .article-preview {
