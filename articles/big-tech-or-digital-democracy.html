@@ -57,6 +57,50 @@ In the absence of political will, initiative falls to citizens. A vision of digi
          </i>
        </p>
     </article>
+    
+    <div style="margin-top: 40px; display: flex; gap: 10px; flex-wrap: wrap;">
+    <!-- Back Button -->
+    <a href="articles.html" style="
+        display: inline-block;
+        background-color: #00FFFF; 
+        color: #000000; 
+        padding: 12px 24px; 
+        text-decoration: none; 
+        font-weight: bold; 
+        border-radius: 5px;
+        font-family: sans-serif;
+        border: 1px solid #000;
+    ">← Back to Articles</a>
+
+    <!-- Share Button -->
+    <button onclick="shareArticle()" style="
+        display: inline-block;
+        background-color: #00FFFF; 
+        color: #000000; 
+        padding: 12px 24px; 
+        cursor: pointer;
+        font-weight: bold; 
+        border-radius: 5px;
+        font-family: sans-serif;
+        border: 1px solid #000;
+    ">Share ↗</button>
+</div>
+
+<script>
+function shareArticle() {
+    if (navigator.share) {
+        navigator.share({
+            title: document.title,
+            text: 'Check out this article: ' + document.title,
+            url: window.location.href
+        }).catch(console.error);
+    } else {
+        // Fallback for browsers that don't support native share
+        alert("Sharing is not supported on this browser. You can copy the URL to share!");
+    }
+}
+</script>
+
     <script src="index.js"></script>
 </body>
 </html>
