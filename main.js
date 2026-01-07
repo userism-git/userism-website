@@ -45,8 +45,6 @@ function initHamburgerMenu() {
   const overlayHTML = `
     <div class="menu-overlay">
       <div class="menu-content">
-        <button class="menu-close" aria-label="Close menu">×</button>
-        
         <nav class="overlay-nav">
           <a href="index.html" data-page="index">Home</a>
           <a href="articles.html" data-page="articles">Articles</a>
@@ -55,41 +53,50 @@ function initHamburgerMenu() {
           <a href="about.html" data-page="about">About</a>
         </nav>
         
-        <div class="language-selector">
-          <h3>Language</h3>
-          <div class="lang-options">
-            <a href="index.html" class="lang-option active">EN</a>
-            <a href="index-fr.html" class="lang-option">FR</a>
-            <a href="index-it.html" class="lang-option">IT</a>
-            <a href="index-es.html" class="lang-option">ES</a>
-            <a href="index-zh.html" class="lang-option">中文</a>
-          </div>
+        <button class="language-btn">
+          <span class="globe-icon">🌐</span>
+          Language
+        </button>
+        
+        <div class="language-dropdown">
+          <a href="index.html" class="lang-option active">English</a>
+          <a href="index-fr.html" class="lang-option">Français</a>
+          <a href="index-it.html" class="lang-option">Italiano</a>
+          <a href="index-es.html" class="lang-option">Español</a>
+          <a href="index-zh.html" class="lang-option">中文</a>
         </div>
       </div>
     </div>
   `;
   
   // Insert into page
-  document.body.insertAdjacentHTML('afterbegin', hamburgerHTML);
   document.body.insertAdjacentHTML('afterbegin', overlayHTML);
+  document.body.insertAdjacentHTML('afterbegin', hamburgerHTML);
   
-  // Get elements
+  // Small delay to ensure elements are in DOM
+  setTimeout(() => {
+    setupMenuListeners();
+    activateCurrentPage();
+  }, 10);
+}
+
+function setupMenuListeners() {
   const hamburger = document.querySelector('.hamburger-btn');
   const overlay = document.querySelector('.menu-overlay');
-  const closeBtn = document.querySelector('.menu-close');
   const menuLinks = document.querySelectorAll('.overlay-nav a');
+  const langBtn = document.querySelector('.language-btn');
+  const langDropdown = document.querySelector('.language-dropdown');
   
-  // Highlight current page
-  activateCurrentPage();
+  if (!hamburger || !overlay) {
+    console.error('Menu elements not found');
+    return;
+  }
   
-  // Open menu
-  hamburger.addEventListener('click', () => {
-    openMenu();
-  });
-  
-  // Close menu
-  closeBtn.addEventListener('click', () => {
-    closeMenu();
+  // Toggle menu with hamburger
+  hamburger.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleMenu();
   });
   
   // Close when clicking outside menu content
@@ -106,12 +113,29 @@ function initHamburgerMenu() {
     });
   });
   
+  // Toggle language dropdown
+  if (langBtn && langDropdown) {
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langDropdown.classList.toggle('active');
+    });
+  }
+  
   // Close on escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('active')) {
       closeMenu();
     }
   });
+  
+  function toggleMenu() {
+    const isOpen = overlay.classList.contains('active');
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
   
   function openMenu() {
     overlay.classList.add('active');
@@ -125,6 +149,10 @@ function initHamburgerMenu() {
     hamburger.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    // Also close language dropdown
+    if (langDropdown) {
+      langDropdown.classList.remove('active');
+    }
   }
 }
 
@@ -146,13 +174,25 @@ function activateCurrentPage() {
 // ==========================================
 function initIntroAnimation() {
   const intro = document.getElementById("intro");
-  if (!intro) return;
+  
+  if (!intro) {
+    console.warn('No intro element found - skipping animation');
+    document.body.classList.add("loaded");
+    return;
+  }
 
+  console.log('Starting intro animation...');
+  
   setTimeout(() => {
     intro.style.opacity = "0";
+    intro.style.transition = `opacity ${CONFIG.INTRO_FADE}ms ease`;
+    
     setTimeout(() => {
       intro.style.display = "none";
+      intro.style.visibility = "hidden";
       document.body.classList.add("loaded");
+      document.body.style.overflow = ''; // Re-enable scrolling
+      console.log('Intro animation complete');
     }, CONFIG.INTRO_FADE);
   }, CONFIG.INTRO_DELAY);
 }
