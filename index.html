@@ -17,104 +17,86 @@
     <img src="assets/images/user.png" class="intro-logo" alt="Userism logo">
   </div>
 
-    <!-- Landing -->
-<section id="landing" class="page-section gradient-cmy" 
-  style="background-color: #FF00FF; 
-  display: flex; 
-  justify-content: center;">
-  <div class="content" style="display: flex; align-items: center; gap: 20px;">
-    <img src="assets/images/user.png" class="landing-logo" alt="Userism" style="margin: 0;">
-    <h1 style="margin: 0;">All power to the users, one bright future for all.</h1>
-  </div>
-</section>
+  <!-- Landing -->
+  <section id="landing" class="page-section gradient-cmy" 
+    style="background-color: #FF00FF; 
+    display: flex; 
+    justify-content: center;">
+    <div class="content" style="display: flex; align-items: center; gap: 20px;">
+      <img src="assets/images/user.png" class="landing-logo" alt="Userism" style="margin: 0;">
+      <h1 style="margin: 0;">All power to the users, one bright future for all.</h1>
+    </div>
+  </section>
+
   <!-- Articles -->
-<section id="articles" class="page-section gradient-cmy" style="background-color: #00FFFF;">
-  <div class="content">
-    <div id="articles-preview" class="articles-grid">
-      <p>Loading articles...</p>
-    </div>
-  </div>
-</section>
-    
-    <!-- Upcoming events -->
-<section id="events" class="page-section gradient-cmy" style="background-color: #FFFF00;">
-  <div class="content">
-    <div id="events-preview" class="event-list">
-      <p>Loading events...</p>
-    </div>
-  </div>
-</section>
-    
-<section id="typewriter-section" 
-  style="height:100vh; 
-  background-color: #00FFFF; 
-  display: flex; 
-  align-items: center;">
-  <div id="typewriter-text"></div>
-</section>
-
-<script>
-// ✦ SCROLL-CONTROLLED TYPEWRITER ✦
-const message = `Did you know that everytime you scroll, click or tap, you hold power?`;
-
-const output = document.getElementById("typewriter-text");
-const section = document.getElementById("typewriter-section");
-
-window.addEventListener("scroll", () => {
-  const rect = section.getBoundingClientRect();
-  const windowH = window.innerHeight;
-
-  // Calculate scroll progress inside this section (0 → 1)
-  let progress = 1 - rect.top / windowH;
-  progress = Math.max(0, Math.min(1, progress));
-
-  // Number of letters to show
-  const chars = Math.floor(message.length * progress);
-
-  // Reveal text
-  output.textContent = message.substring(0, chars);
-});
-</script>
-
-    <!-- Main Feed (fixed id) -->
-    <section id="main-feed" class="page-section gradient-cmy-alt">
-      <div class="content">
-        <h2>Here's why:</h2>
-        <div class="main-feed">
-  <h3>User and the end of work</h3>
-  <p>
-    With the advent of digital, everything changes. 
-    Work, intended as phisical and mental effort to produce value, is slowly replaced by automation. 
-    Only human needs and desires remain the same, but freed from most phisical constraints. 
-    Users live freely in a truly human age.
-  </p>
- <img src="assets/images/eniac.png" alt="Early users" class="about-photo">
-  <h3>Consumers and the digital gesture</h3>
-  <p>
-As tasks get automated and products generated, a simple gesture becomes the source of power. 
-It’s the digital gesture, such as a hand holding a device – the moment where human intention meets digital potential. 
-Without it, no technology has meaning, and no product carries any value. 
-Consumption, therefore, becomes far more relevant than production.
-   </p> 
- <img src="assets/images/powerful users.jpg" alt="Later users, much more powerful" class="about-photo">
-
-  <h3>Courage and beautiful future</h3>
-  <p>
-  Humans are at their most powerful in the digital age. 
-Today, there are better chances of a bright future for everyone than ever in history. 
-However, digital control is unequally distrubuted across countries and societies, a hindrance to potential progress. 
-That’s why we believe it should be users right to own it, not be afraid of it nor of its consequences. 
-As userocracy is put into place, benefits will equally unfold for everyone.
-  </p>
- <img src="assets/images/users shop.jpg" alt="Contemporary users" class="about-photo">  
+  <section id="articles" class="page-section gradient-cmy" style="background-color: #00FFFF;">
+    <div class="content">
+      <div id="articles-preview" class="articles-grid">
+        <p>Loading articles...</p>
       </div>
-    </section>
+    </div>
+  </section>
     
-    <!-- Contact -->
-    <section id="contact" class="page-section gradient-cmy" style="background-color: #FFFF00;">
-      <div class="content">
- <h2>Contact us</h2>
+  <!-- Upcoming events -->
+  <section id="events" class="page-section gradient-cmy" style="background-color: #FFFF00;">
+    <div class="content">
+      <div id="events-preview" class="event-list">
+        <p>Loading events...</p>
+      </div>
+    </div>
+  </section>
+    
+  <!-- Typewriter section -->
+  <section id="typewriter-section" 
+    style="height:100vh; 
+    background-color: #00FFFF; 
+    display: flex; 
+    align-items: center;">
+    <div id="typewriter-text"></div>
+  </section>
+
+  <!-- Main Feed -->
+  <section id="main-feed" class="page-section gradient-cmy-alt">
+    <div class="content">
+      <h2>Here's why:</h2>
+      <div class="main-feed">
+        <h3>User and the end of work</h3>
+        <p>
+          With the advent of digital, everything changes. 
+          Work, intended as phisical and mental effort to produce value, is slowly replaced by automation. 
+          Only human needs and desires remain the same, but freed from most phisical constraints. 
+          Users live freely in a truly human age.
+        </p>
+        <img src="assets/images/eniac.png" alt="Early users" class="about-photo">
+        
+        <h3>Consumers and the digital gesture</h3>
+        <p>
+          As tasks get automated and products generated, a simple gesture becomes the source of power. 
+          It's the digital gesture, such as a hand holding a device – the moment where human intention meets digital potential. 
+          Without it, no technology has meaning, and no product carries any value. 
+          Consumption, therefore, becomes far more relevant than production.
+        </p> 
+        <img src="assets/images/powerful users.jpg" alt="Later users, much more powerful" class="about-photo">
+
+        <h3>Courage and beautiful future</h3>
+        <p>
+          Humans are at their most powerful in the digital age. 
+          Today, there are better chances of a bright future for everyone than ever in history. 
+          However, digital control is unequally distrubuted across countries and societies, a hindrance to potential progress. 
+          That's why we believe it should be users right to own it, not be afraid of it nor of its consequences. 
+          As userocracy is put into place, benefits will equally unfold for everyone.
+        </p>
+        <img src="assets/images/users shop.jpg" alt="Contemporary users" class="about-photo">  
+      </div>
+    </div>
+  </section>
+    
+  <!-- Contact -->
+  <section id="contact" class="page-section gradient-cmy" style="background-color: #FFFF00;">
+    <div class="content">
+      <h2>Contact us</h2>
       <p>Interested? Share your thoughts or step in and join us. All contact options are available <a href="about.html">here</a>.</p>
+      <p>
         We speak English, French, Italian and Spanish 
         <br><br>Martina (🇫🇷🇪🇸🇬🇧)
         <br>martina@baus.ec
@@ -131,70 +113,22 @@ As userocracy is put into place, benefits will equally unfold for everyone.
         <br><a href="https://t.me/userismupdates">Telegram</a>
         <br><a href="https://github.com/userism-git">GitHub</a>
       </p>
-      </div>
-    </section>
-
-     <!-- Articles modal -->
-    <div id="articleModal" class="article-modal">
-        <span class="close-modal" onclick="closeArticle()">&times;</span>
-        <div class="modal-article-content" id="modalContent"></div>
     </div>
+  </section>
 
-    <footer class="footer-carousel">
-      <div class="scroll-text" aria-hidden="true">
-        2025 Userism.net — An open work by Renato and Martina. 2025 Userism.net — An open work by Renato and Martina.— 2025 Userism.net — An open work by Renato and Martina.
-        2025 Userism.net — An open work by Renato and Martina. 2025 Userism.net — An open work by Renato and Martina. — 2025 Userism.net — An open work by Renato and Martina.
-      </div>
-    </footer>
-  </div> <!-- /#content -->
+  <!-- Articles modal -->
+  <div id="articleModal" class="article-modal">
+    <span class="close-modal" onclick="closeArticle()">&times;</span>
+    <div class="modal-article-content" id="modalContent"></div>
+  </div>
 
-  <!-- SCRIPTS: combined and fixed -->
-  <script>
-    // Language switcher
-    (function () {
-      const langBtn = document.querySelector('.lang-btn');
-      const langSwitcher = document.querySelector('.lang-switcher');
-      const langMenu = document.querySelector('.lang-menu');
-
-      langBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const expanded = langBtn.getAttribute('aria-expanded') === 'true';
-        langBtn.setAttribute('aria-expanded', String(!expanded));
-        langMenu.style.display = expanded ? 'none' : 'flex';
-      });
-
-      // Close on outside click
-      document.addEventListener('click', (e) => {
-        if (!langSwitcher.contains(e.target)) {
-          langBtn.setAttribute('aria-expanded', 'false');
-          langMenu.style.display = 'none';
-        }
-      });
-    })();
-
-    // Intro / preloader logic
-    (function () {
-      window.addEventListener("load", () => {
-        const intro = document.getElementById("intro");
-        const content = document.getElementById("content");
-
-        // If you used global "body { overflow: hidden }" in CSS, re-enable scrolling here:
-        document.body.style.overflow = ''; // restores default (auto)
-
-        // reveal content for screen readers / accessibility
-        content.setAttribute('aria-hidden', 'false');
-
-        setTimeout(() => {
-          intro.style.opacity = "0";
-          setTimeout(() => {
-            intro.style.display = "none";
-            document.body.classList.add("loaded");
-          }, 1000); // match your CSS transition time
-        }, 700); // delay before fade
-      });
-    })();
-  </script>
-  
-<script src="index.js"></script>
+  <footer class="footer-carousel">
+    <div class="scroll-text" aria-hidden="true">
+      2025 Userism.net — An open work by Renato and Martina. 2025 Userism.net — An open work by Renato and Martina.— 2025 Userism.net — An open work by Renato and Martina.
+      2025 Userism.net — An open work by Renato and Martina. 2025 Userism.net — An open work by Renato and Martina. — 2025 Userism.net — An open work by Renato and Martina.
+    </div>
+  </footer>
+  <!-- Load main.js - it handles everything -->
+  <script src="main.js"></script>
 </body>
 </html>
