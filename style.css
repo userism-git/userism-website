@@ -962,3 +962,235 @@ body.articles {
     left: calc(-100% * var(--col-index));
     top: calc(-100% * var(--row-index));
   }
+/* =============================================== */
+/* HAMBURGER MENU & OVERLAY */
+/* =============================================== */
+
+/* HAMBURGER BUTTON (☰) */
+.hamburger-btn {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10000;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.3s ease;
+}
+
+.hamburger-btn:hover {
+  transform: scale(1.1);
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger animation when open */
+.hamburger-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* OVERLAY MENU */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+  transform: translateY(-20px);
+  transition: transform 0.4s ease;
+}
+
+.menu-overlay.active .menu-content {
+  transform: translateY(0);
+}
+
+/* Close button */
+.menu-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 3rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.menu-close:hover {
+  transform: rotate(90deg);
+  color: #00FFFF;
+}
+
+/* Navigation links */
+.overlay-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.overlay-nav a {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+  letter-spacing: 2px;
+}
+
+.overlay-nav a:hover {
+  color: #00FFFF;
+}
+
+.overlay-nav a.active {
+  color: #FF00FF;
+}
+
+.overlay-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #00FFFF;
+  transition: width 0.3s ease;
+}
+
+.overlay-nav a:hover::after {
+  width: 100%;
+}
+
+/* Language selector */
+.language-selector {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.language-selector h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.lang-options {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.lang-option {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.lang-option:hover {
+  color: #00FFFF;
+  border-color: #00FFFF;
+  transform: translateY(-2px);
+}
+
+.lang-option.active {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger-btn {
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  .overlay-nav a {
+    font-size: 2rem;
+  }
+  
+  .menu-close {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay-nav a {
+    font-size: 1.5rem;
+  }
+  
+  .lang-option {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Fix intro/preloader */
+body.loaded #intro,
+body.loaded #preloader {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Hide old bottom nav (optional) */
+/* Uncomment this if you want ONLY the hamburger menu */
+/*
+.overlay-menu {
+  display: none !important;
+}
+*/

@@ -66,28 +66,6 @@
 </div>
   </footer>
 
-  <!-- Include your JS for menu, language switcher, etc. -->
-  <script>// Language switcher
-    (function () {
-      const langBtn = document.querySelector('.lang-btn');
-      const langSwitcher = document.querySelector('.lang-switcher');
-      const langMenu = document.querySelector('.lang-menu');
-
-      langBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const expanded = langBtn.getAttribute('aria-expanded') === 'true';
-        langBtn.setAttribute('aria-expanded', String(!expanded));
-        langMenu.style.display = expanded ? 'none' : 'flex';
-      });
-
-      // Close on outside click
-      document.addEventListener('click', (e) => {
-        if (!langSwitcher.contains(e.target)) {
-          langBtn.setAttribute('aria-expanded', 'false');
-          langMenu.style.display = 'none';
-        }
-      });
-    })();</script>
-  <script src="index.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
