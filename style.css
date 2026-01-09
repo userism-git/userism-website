@@ -568,8 +568,11 @@ body.loaded #intro {
 
 @media (max-width: 480px) {
    #articles-preview.articles-grid {
+    display: grid; 
     grid-template-columns: 1fr;
-    justify-items: stretch;
+    margin: 0 auto;
+    width: 80%; /* optional: control container width */
+}
   }
   .hamburger-btn {
     padding: 0.4rem;
