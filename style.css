@@ -54,7 +54,7 @@ p {
   line-height: 1.75;
   font-size: clamp(0.95rem, 2vw, 1.1rem);
   max-width: 100%;
-  padding: 0 1rem; /* Ajoute du padding sur mobile */
+
 }
 
 /* =============================================== */
@@ -614,7 +614,7 @@ body.loaded #intro {
 }
 
 /* =============================================== */
-/* PAGE WRAPPER - MARGES GLOBALES */
+/* PAGE WRAPPER */
 /* =============================================== */
 .page-wrapper {
   max-width: 1400px;
@@ -622,18 +622,18 @@ body.loaded #intro {
   padding: 2rem clamp(1rem, 5vw, 4rem);
 }
 
-/* Sections spécifiques */
+/* Specific sections */
 section {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
-/* Headers de pages */
+/* Headers of pages */
 .articles-header,
 .page-section {
   padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 5vw, 4rem);
 }
 
-/* Container pour le contenu */
+/* Container for the content */
 .content {
   width: 100%;
   max-width: 1200px;
@@ -641,7 +641,7 @@ section {
   padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
-/* Grids et listes */
+/* Grids and lists */
 .articles-grid,
 .event-list {
   padding: clamp(1rem, 3vw, 2rem);
