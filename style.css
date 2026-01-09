@@ -263,7 +263,7 @@ body.loaded #intro {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(1rem, 4vw, 2rem);
+  padding-block: clamp(2rem, 6vw, 4rem);
 }
 
 .content {
@@ -326,7 +326,7 @@ body.loaded #intro {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
-  padding: 20px;
+  padding: 0px;
   width: 100%;
   max-width: 100%;
 }
@@ -555,7 +555,7 @@ body.loaded #intro {
   .articles-grid {
     grid-template-columns: 1fr;
     gap: 15px;
-    padding: 15px;
+    padding: 0px;
   }
 
   .page-section {
@@ -596,7 +596,7 @@ body.loaded #intro {
   .articles-grid {
     grid-template-columns: 1fr;
     gap: 12px;
-    padding: 10px;
+    padding: 0px;
   }
   
   #typewriter-text {
@@ -638,14 +638,6 @@ section {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 clamp(1rem, 3vw, 2rem);
-}
-
-/* Grids and lists */
-.articles-grid,
-.event-list {
-  padding: clamp(1rem, 3vw, 2rem);
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 /* Text content areas */
