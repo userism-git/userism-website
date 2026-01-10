@@ -675,12 +675,14 @@ section {
   }
 }
 
-/*social icons*/
-
+/* =============================================== */
+/* SOCIAL NETWORK ICONS */
+/* =============================================== */
 .social-icons {
     display: flex;
     gap: 20px;
     align-items: center;
+    margin: 0 auto;
 }
 
 .social-icons a {
