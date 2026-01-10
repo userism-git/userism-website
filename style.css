@@ -720,7 +720,7 @@ section {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientFlow 64s linear infinite;
+  animation: gradientFlow 256s linear infinite;
 }
 
 @keyframes gradientFlow {
