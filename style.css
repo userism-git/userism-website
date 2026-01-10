@@ -682,17 +682,20 @@ section {
     display: flex;
     gap: 20px;
     align-items: center;
+    justify-content: flex-start;
+    max-width: 800px;
     margin: 0 auto;
+    width: 100%; 
+  
 }
-
 .social-icons a {
     color: #000;
     text-decoration: none;
-    transition: opacity 0.3s;
+    transition: color 0.3s;
 }
 
 .social-icons a:hover {
-    opacity: 0.6;
+    color: magenta;
 }
 
 .social-icons svg {
