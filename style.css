@@ -268,7 +268,7 @@ body.loaded #intro {
 
 .content {
   width: 100%;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -642,7 +642,7 @@ section {
 /* Container for the content */
 .content {
   width: 100%;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 clamp(1rem, 3vw, 2rem);
 }
