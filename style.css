@@ -708,16 +708,21 @@ section {
 /* GLOW INDEX HOMEPAGE TITLE */
 /* =============================================== */
 .glow-text {
-  background: linear-gradient(45deg, #00FFFF, #FF00FF, #FFFF00);
-  background-size: 200% 200%;
+  background: linear-gradient(
+    90deg,
+    var(--color-cyan),
+    var(--color-magenta),
+    var(--color-yellow),
+    var(--color-cyan)
+  );
+  background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.7));
-  animation: gradientGlow 4s ease infinite;
+  animation: gradientFlow 8s linear infinite;
 }
 
-@keyframes gradientGlow {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
