@@ -328,7 +328,7 @@ body.loaded #intro {
   gap: 20px;
   padding: 0px;
   width: 100%;
-  max-width: 100%;
+  max-width: 800px;
 }
 
 .article-card {
