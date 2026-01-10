@@ -673,3 +673,27 @@ section {
     padding: 1rem;
   }
 }
+
+/*social icons*/
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.social-icons a {
+    color: #000;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.social-icons a:hover {
+    opacity: 0.6;
+}
+
+.social-icons svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
