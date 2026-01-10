@@ -710,16 +710,16 @@ section {
 .glow-text {
   background: linear-gradient(
     90deg,
+    var(--color-black),
     var(--color-cyan),
-    var(--color-magenta),
     var(--color-yellow),
-    var(--color-cyan)
+    var(--color-black)
   );
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientFlow 8s linear infinite;
+  animation: gradientFlow 32s linear infinite;
 }
 
 @keyframes gradientFlow {
