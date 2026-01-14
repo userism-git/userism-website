@@ -1,3 +1,7 @@
+// Copyright (c) 2026 Userist Collective
+// Ce code est distribué sous licence EUPL v1.2. 
+// Voir le fichier LICENSE pour plus de détails.
+
 // ==========================================
 // CONFIGURATION
 // ==========================================
@@ -487,4 +491,5 @@ function showError(container, message) {
       <button onclick="window.location.reload()">Retry</button>
     </div>
   `;
+
 }
