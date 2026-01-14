@@ -1,7 +1,7 @@
 // Copyright (c) 2026 Userist Collective
 // Ce code est distribué sous licence EUPL v1.2. 
 // Voir le fichier LICENSE pour plus de détails.
-// Les contenus (textes, images, médias) sont soumis à une licence distincte.
+// Les contenus (textes, images, médias) sont distribués sous Licence Art Libre 1.3.
 
 // ==========================================
 // CONFIGURATION
@@ -494,4 +494,5 @@ function showError(container, message) {
   `;
 
 }
+
 
