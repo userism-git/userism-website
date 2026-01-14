@@ -1,0 +1,52 @@
+{
+  "en": {
+    "headerTitle": "Articles & Ideas",
+    "headerSubtitle": "Exploring userism through articles, podcasts, reviews and much more.",
+    "article1Title": "What is userism?",
+    "article1Preview": "Consumption is more relevant than work, and with that come great opportunities.",
+    "article2Title": "Big Tech or Digital Democracy?",
+    "article2Preview": "Computation for AI is a revolution within digitalization. Four proposals to grab the opportunities that come with it.",
+    "article3Title": "Fiction and userism",
+    "article3Preview": "When userism foreshadows future behaviors. How do we create conditions where users discover their freedom by using?"
+  },
+  "fr": {
+    "headerTitle": "Articles & Idées",
+    "headerSubtitle": "Explorer le userisme à travers des articles, podcasts, critiques et bien plus.",
+    "article1Title": "Qu'est-ce que le userisme ?",
+    "article1Preview": "La consommation est plus pertinente que le travail, et avec elle viennent de grandes opportunités.",
+    "article2Title": "Big Tech ou Démocratie Digitale ?",
+    "article2Preview": "La computation pour l'IA est une révolution dans la digitalisation. Quatre propositions pour saisir les opportunités.",
+    "article3Title": "Fiction et userisme",
+    "article3Preview": "Quand le userisme préfigure les comportements futurs. Comment créer les conditions pour que les utilisateurs découvrent leur liberté en utilisant ?"
+  },
+  "it": {
+    "headerTitle": "Articoli & Idee",
+    "headerSubtitle": "Esplorare il userismo attraverso articoli, podcast, recensioni e molto altro.",
+    "article1Title": "Cos'è il userismo?",
+    "article1Preview": "Il consumo è più rilevante del lavoro, e con esso arrivano grandi opportunità.",
+    "article2Title": "Big Tech o Democrazia Digitale?",
+    "article2Preview": "Il calcolo per l'IA è una rivoluzione nella digitalizzazione. Quattro proposte per cogliere le opportunità.",
+    "article3Title": "Finzione e userismo",
+    "article3Preview": "Quando il userismo prefigura comportamenti futuri. Come creare condizioni in cui gli utenti scoprono la loro libertà usando?"
+  },
+  "es": {
+    "headerTitle": "Artículos & Ideas",
+    "headerSubtitle": "Explorando el userismo a través de artículos, podcasts, reseñas y mucho más.",
+    "article1Title": "¿Qué es el userismo?",
+    "article1Preview": "El consumo es más relevante que el trabajo, y con ello vienen grandes oportunidades.",
+    "article2Title": "¿Big Tech o Democracia Digital?",
+    "article2Preview": "El cómputo para IA es una revolución en la digitalización. Cuatro propuestas para aprovechar las oportunidades.",
+    "article3Title": "Ficción y userismo",
+    "article3Preview": "Cuando el userismo presagia comportamientos futuros. ¿Cómo crear condiciones donde los usuarios descubran su libertad usando?"
+  },
+  "zh": {
+    "headerTitle": "文章与思想",
+    "headerSubtitle": "通过文章、播客、评论等探索用户主义。",
+    "article1Title": "什么是用户主义？",
+    "article1Preview": "消费比工作更重要，这带来了巨大的机遇。",
+    "article2Title": "大科技还是数字民主？",
+    "article2Preview": "人工智能计算是数字化中的一场革命。四个把握机遇的提案。",
+    "article3Title": "虚构与用户主义",
+    "article3Preview": "当用户主义预示未来行为时。我们如何创造条件让用户在使用中发现自由？"
+  }
+}
