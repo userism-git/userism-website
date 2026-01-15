@@ -30,7 +30,7 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
 
 // About button functionality
 document.getElementById('aboutBtn').addEventListener('click', () => {
-    window.location.href = 'about.html';
+    window.location.href = '../about.html';
 });
 
 // Fallback function to copy link to clipboard
