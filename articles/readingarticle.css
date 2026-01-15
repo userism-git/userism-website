@@ -48,8 +48,8 @@ body {
 .article-meta {
     display: flex;
     justify-content: space-between;
+    position: absolute;
     padding: 20px 40px;
-    background-color: #fff;
     border-bottom: 1px solid #ddd;
 }
 
