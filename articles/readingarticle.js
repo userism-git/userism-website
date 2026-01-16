@@ -1,10 +1,10 @@
 // Back button functionality
-document.getElementById('backBtn').addEventListener('click', () => {
+document.querySelectorAll('backBtn').addEventListener('click', () => {
     window.history.back();
 });
 
 // Share button functionality
-document.getElementById('shareBtn').addEventListener('click', async () => {
+document.querySelectorAll('shareBtn').addEventListener('click', async () => {
     const shareData = {
         title: document.title,
         text: 'Check out this article on Userism',
@@ -29,7 +29,7 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
 });
 
 // About button functionality
-document.getElementById('aboutBtn').addEventListener('click', () => {
+document.querySelectorAll('aboutBtn').addEventListener('click', () => {
     window.location.href = '../about.html';
 });
 
@@ -116,3 +116,12 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Parallax effect for hero image
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const heroImage = document.querySelector('.hero-image');
+    
+    // Move image at 50% of scroll speed
+    heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
+});
