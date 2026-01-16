@@ -1,10 +1,10 @@
 // Back button functionality
-document.querySelectorAll('backBtn').addEventListener('click', () => {
+document.getElementById('backBtn').addEventListener('click', () => {
     window.history.back();
 });
 
 // Share button functionality
-document.querySelectorAll('shareBtn').addEventListener('click', async () => {
+document.getElementById('shareBtn').addEventListener('click', async () => {
     const shareData = {
         title: document.title,
         text: 'Check out this article on Userism',
@@ -29,7 +29,7 @@ document.querySelectorAll('shareBtn').addEventListener('click', async () => {
 });
 
 // About button functionality
-document.querySelectorAll('aboutBtn').addEventListener('click', () => {
+document.getElementById('aboutBtn').addEventListener('click', () => {
     window.location.href = '../about.html';
 });
 
