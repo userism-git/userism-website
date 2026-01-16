@@ -175,6 +175,10 @@ function setupLanguageButtons() {
 // ==========================================
 // HAMBURGER MENU & OVERLAY
 // ==========================================
+// detects if in subdirectory
+const isInSubdirectory = window.location.pathname.includes('/articles/');
+const pathPrefix = isInSubdirectory ? '../' : '';
+
 function initHamburgerMenu() {
   // Create hamburger button
   const hamburgerHTML = `
@@ -190,13 +194,12 @@ function initHamburgerMenu() {
     <div class="menu-overlay">
       <div class="menu-content">
         <nav class="overlay-nav">
-          <a href="index.html" data-page="index">Home</a>
-          <a href="articles.html" data-page="articles">Articles</a>
-          <a href="events.html" data-page="events">Events</a>
-          <a href="projects.html" data-page="projects">Projects</a>
-          <a href="about.html" data-page="about">About</a>
+          <a href="${pathPrefix}index.html" data-page="index">Home</a>
+          <a href="${pathPrefix}articles.html" data-page="articles">Articles</a>
+          <a href="${pathPrefix}events.html" data-page="events">Events</a>
+          <a href="${pathPrefix}projects.html" data-page="projects">Projects</a>
+          <a href="${pathPrefix}about.html" data-page="about">About</a>
         </nav>
-        
         <div class="language-selector">
           <span class="globe-icon">🌐</span>
           <a href="#" class="lang-option active">EN</a>
@@ -494,5 +497,6 @@ function showError(container, message) {
   `;
 
 }
+
 
 
