@@ -200,6 +200,7 @@ function initHamburgerMenu() {
           <a href="${pathPrefix}projects.html" data-page="projects">Projects</a>
           <a href="${pathPrefix}about.html" data-page="about">About</a>
         </nav>
+        
         <div class="language-selector">
           <span class="globe-icon">🌐</span>
           <a href="#" class="lang-option active">EN</a>
@@ -497,6 +498,7 @@ function showError(container, message) {
   `;
 
 }
+
 
 
 
