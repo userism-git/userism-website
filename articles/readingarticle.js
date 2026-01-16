@@ -1,11 +1,13 @@
 // Back button functionality
-document.getElementById('backBtn').addEventListener('click', () => {
-    window.history.back();
+document.querySelectorAll('[id^="backBtn"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        window.history.back();
 });
 
 // Share button functionality
-document.getElementById('shareBtn').addEventListener('click', async () => {
-    const shareData = {
+document.querySelectorAll('[id^="shareBtn"]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+        const shareData = {
         title: document.title,
         text: 'Check out this article on Userism',
         url: window.location.href
@@ -29,7 +31,8 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
 });
 
 // About button functionality
-document.getElementById('aboutBtn').addEventListener('click', () => {
+document.querySelectorAll('[id^="aboutBtn"]').forEach(btn => {
+    btn.addEventListener('click', () => {
     window.location.href = '../about.html';
 });
 
