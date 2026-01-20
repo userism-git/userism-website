@@ -206,12 +206,26 @@ p {
         font-size: 2rem;
         left: 20px;
         right: 20px;
-        bottom: 20px;
+        bottom: 50px;
+    }
+
+    .article-meta {
+        padding: 15px 20px;
+    }
+
+    .article-content {
+        padding: 20px;
+margin-top: 0;
     }
 
     .article-meta,
     .article-content {
         padding: 20px;
+    }
+
+.article-content .action-buttons {
+        padding-top: 20px;
+        margin-top: 0;
     }
 
     .action-buttons {
