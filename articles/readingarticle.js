@@ -1,13 +1,11 @@
 // Back button functionality
 document.getElementById('backBtn').addEventListener('click', () => {
-    btn.addEventListener('click', () => {
-        window.history.back();
+    window.history.back();
 });
 
 // Share button functionality
 document.getElementById('shareBtn').addEventListener('click', async () => {
-    btn.addEventListener('click', async () => {
-        const shareData = {
+    const shareData = {
         title: document.title,
         text: 'Check out this article on Userism',
         url: window.location.href
@@ -32,7 +30,6 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
 
 // About button functionality
 document.getElementById('aboutBtn').addEventListener('click', () => {
-    btn.addEventListener('click', () => {
     window.location.href = '../about.html';
 });
 
@@ -120,24 +117,26 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Mini buttons
+// Mini buttons (top action buttons)
 document.getElementById('backBtn2').addEventListener('click', () => {
     window.history.back();
 });
 
 document.getElementById('shareBtn2').addEventListener('click', async () => {
-    document.getElementById('shareBtn').click(); // Just trigger the main share button
+    document.getElementById('shareBtn').click(); // Trigger the main share button
 });
 
 document.getElementById('aboutBtn2').addEventListener('click', () => {
     window.location.href = '../about.html';
 });
-    
+
 // Parallax effect for hero image
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const heroImage = document.querySelector('.hero-image');
     
-    // Move image at 50% of scroll speed
-    heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
+    if (heroImage) {
+        // Move image at 50% of scroll speed
+        heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
 });
