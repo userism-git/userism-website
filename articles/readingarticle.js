@@ -1,11 +1,11 @@
 // Back button functionality
-document.querySelectorAll('[id^="backBtn"]').forEach(btn => {
+document.getElementById('backBtn').addEventListener('click', () => {
     btn.addEventListener('click', () => {
         window.history.back();
 });
 
 // Share button functionality
-document.querySelectorAll('[id^="shareBtn"]').forEach(btn => {
+document.getElementById('shareBtn').addEventListener('click', async () => {
     btn.addEventListener('click', async () => {
         const shareData = {
         title: document.title,
@@ -31,7 +31,7 @@ document.querySelectorAll('[id^="shareBtn"]').forEach(btn => {
 });
 
 // About button functionality
-document.querySelectorAll('[id^="aboutBtn"]').forEach(btn => {
+document.getElementById('aboutBtn').addEventListener('click', () => {
     btn.addEventListener('click', () => {
     window.location.href = '../about.html';
 });
@@ -120,6 +120,19 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Mini buttons
+document.getElementById('backBtn2').addEventListener('click', () => {
+    window.history.back();
+});
+
+document.getElementById('shareBtn2').addEventListener('click', async () => {
+    document.getElementById('shareBtn').click(); // Just trigger the main share button
+});
+
+document.getElementById('aboutBtn2').addEventListener('click', () => {
+    window.location.href = '../about.html';
+});
+    
 // Parallax effect for hero image
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
