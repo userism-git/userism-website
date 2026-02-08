@@ -524,7 +524,7 @@ body.about main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 11rem 1rem 11rem 1rem;
+  padding: 10rem 1rem 10rem 1rem;
   margin: 0;
   position: relative;
   
@@ -973,8 +973,8 @@ section {
   }
   
   #typewriter-text {
-    padding: 2rem 1rem 2rem 1rem;
-    margin-top: 0rem;
+    padding: 0rem 0rem 1rem 0rem;
+    margin-top: 1rem;
     text-align: left;
     font-size: clamp( 4rem, 12vw,8rem);
   }
