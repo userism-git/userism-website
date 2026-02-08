@@ -24,133 +24,169 @@ Les contenus (textes, images, médias) sont distribués sous Licence Art Libre 1
     <img src="assets/images/user.png" class="intro-logo" alt="Userism logo">
   </div>
 
- <div class="page-wrapper">
+  <div class="page-wrapper">
 
-  <!-- Landing -->
-  <section id="landing" class="page-section gradient-cmy" 
-    style="background-color: #FF00FF; 
-    display: flex; 
-    justify-content: center;">
-    <div class="content" style="display: flex; align-items: center; gap: 20px;">
-      <img src="assets/images/user.png" class="landing-logo" alt="Userism" style="margin: 0;">
-       <h1 class="glow-text" style="margin: 0;">
-        All power to the users, one bright future for all.</h1>  
-    </div>    
-    <div class="content" style="text-align: left; opacity: 0.5;">
-  <p><i>An open project by the Userist Collective.</i></p>
-</div>
-  </section>
+    <!-- Fixed Navigation Bar -->
+    <nav class="fixed-nav" id="fixedNav">
+      <div class="nav-grid">
+        <div class="nav-logo-section">
+          <a href="index.html">
+            <img src="assets/images/Userism-logo.transparent.png" alt="Userism logo" class="nav-logo-img">
+            <span class="nav-logo-text">USERISM COLLECTIVE</span>
+          </a>
+        </div>
+        <div class="nav-menu-section">
+        </div>
+        <div class="nav-hamburger-section">
+          <div class="hamburger-btn" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-  <!-- Articles -->
-  <section id="articles" class="page-section gradient-cmy" style="background-color: #00FFFF;">
-    <div class="content">
-      <div id="articles-preview" class="articles-grid">
-        <p>Loading articles...</p>
+    <!-- Full Screen Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+      <span class="close-menu" id="closeMenu">&times;</span>
+      <div class="menu-content">
+        <nav class="overlay-nav">
+          <a href="index.html" data-page="index">Home</a>
+          <a href="articles.html" data-page="articles">Articles</a>
+          <a href="events.html" data-page="events">Events</a>
+          <a href="projects.html" data-page="projects">Projects</a>
+          <a href="about.html" data-page="about">About</a>
+        </nav>
+        <div class="language-selector">
+          <span class="globe-icon">🌐</span>
+          <a href="#" class="lang-option">EN</a>
+          <a href="#" class="lang-option">FR</a>
+          <a href="#" class="lang-option">IT</a>
+          <a href="#" class="lang-option">ES</a>
+          <a href="#" class="lang-option">中文</a>
+        </div>
       </div>
     </div>
-  </section>
+
+    <main>
+      <!-- Landing -->
+      <section id="landing" class="page-section">
+        <div class="content">
+          <h1>All power to the users,<br>one bright future for all.</h1>
+          <p class="subtitle">An open project by the Userist Collective.</p>
+        </div>
+        <div class="scroll-indicator">
+          <span>Scroll to find more</span>
+          <div class="scroll-arrow"></div>
+        </div>
+      </section>
+
+      <!-- Typewriter section -->
+      <section id="typewriter-section">
+        <div id="typewriter-text"></div>
+      </section>
+
+      <!-- Main Feed -->
+      <section id="main-feed" class="page-section gradient-cmy-alt">
+        <div class="content">
+          <h2>Here's why:</h2>
+          <div class="main-feed">
+            <h3>User and the end of work</h3>
+            <p>
+              With the advent of digital, everything changes. 
+              Work, intended as phisical and mental effort to produce value, is slowly replaced by automation. 
+              Only human needs and desires remain the same, but freed from most phisical constraints. 
+              Users live freely in a truly human age.
+            </p>
+            <img src="assets/images/eniac.png" alt="Early users" class="about-photo">
+            
+            <h3>Consumers and the digital gesture</h3>
+            <p>
+              As tasks get automated and products generated, a simple gesture becomes the source of power. 
+              It's the digital gesture, such as a hand holding a device – the moment where human intention meets digital potential. 
+              Without it, no technology has meaning, and no product carries any value. 
+              Consumption, therefore, becomes far more relevant than production.
+            </p> 
+            <img src="assets/images/powerful users.jpg" alt="Later users, much more powerful" class="about-photo">
+
+            <h3>Courage and beautiful future</h3>
+            <p>
+              Humans are at their most powerful in the digital age. 
+              Today, there are better chances of a bright future for everyone than ever in history. 
+              However, digital control is unequally distrubuted across countries and societies, a hindrance to potential progress. 
+              That's why we believe it should be users right to own it, not be afraid of it nor of its consequences. 
+              As userocracy is put into place, benefits will equally unfold for everyone.
+            </p>
+            <img src="assets/images/users shop.jpg" alt="Contemporary users" class="about-photo">  
+          </div>
+        </div>
+      </section>
     
-  <!-- Upcoming events -->
-  <section id="events" class="page-section gradient-cmy" style="background-color: #FFFF00;">
-    <div class="content">
-      <div id="events-preview" class="event-list">
-        <p>Loading events...</p>
-      </div>
-    </div>
-  </section>
+      <!-- Articles -->
+      <section id="articles" class="page-section gradient-cmy" style="background-color: #ffffff;">
+        <div class="content">
+          <div id="articles-preview" class="articles-grid">
+            <p>Loading articles...</p>
+          </div>
+        </div>
+      </section>
     
-  <!-- Typewriter section -->
-  <section id="typewriter-section" 
-    style="height:100vh; 
-    background-color: #00FFFF; 
-    display: flex; 
-    align-items: center;">
-    <div id="typewriter-text"></div>
-  </section>
+      <!-- Upcoming events -->
+      <section id="events" class="page-section gradient-cmy" style="background-color: #ffffff;">
+        <div class="content">
+          <h2>Upcoming Events</h2>
+          <div id="events-preview" class="event-list">
+            <p>Loading events...</p>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Contact -->
+      <section id="contact" class="page-section gradient-cmy" style="background-color: #fafafa;">
+        <div class="content">
+          <h2>Contact us</h2>
+          <p>Interested? Share your thoughts or step in and join us. All contact options are available <a href="about.html">here</a>.</p>
+          <p>
+            We speak English, French, Italian and Spanish 
+            <br><br>Martina (🇫🇷🇪🇸🇬🇧)
+            <br>martina@baus.ec
+            <br><br>Renato (🇮🇹🇬🇧)
+            <br>renatopisani@proton.me
+            <br>+39 344 5041791
+            <br>Telegram @UsersAreCool
+          </p>
+          <h2>Social media</h2>
+          <p>
+            Follow if you want simple, direct alerts and quick pointers back to this website.
+            <br><a href="https://www.youtube.com/@UserismUpdates">YouTube</a>
+            <br><a href="https://www.instagram.com/userismupdates/">Instagram</a>
+            <br><a href="https://t.me/userismupdates">Telegram</a>
+            <br><a href="https://github.com/userism-git">GitHub</a>
+          </p>
+        </div>
+      </section>
+      
+    </main>
 
-  <!-- Main Feed -->
-  <section id="main-feed" class="page-section gradient-cmy-alt">
-    <div class="content">
-      <h2>Here's why:</h2>
-      <div class="main-feed">
-        <h3>User and the end of work</h3>
-        <p>
-          With the advent of digital, everything changes. 
-          Work, intended as phisical and mental effort to produce value, is slowly replaced by automation. 
-          Only human needs and desires remain the same, but freed from most phisical constraints. 
-          Users live freely in a truly human age.
-        </p>
-        <img src="assets/images/eniac.png" alt="Early users" class="about-photo">
-        
-        <h3>Consumers and the digital gesture</h3>
-        <p>
-          As tasks get automated and products generated, a simple gesture becomes the source of power. 
-          It's the digital gesture, such as a hand holding a device – the moment where human intention meets digital potential. 
-          Without it, no technology has meaning, and no product carries any value. 
-          Consumption, therefore, becomes far more relevant than production.
-        </p> 
-        <img src="assets/images/powerful users.jpg" alt="Later users, much more powerful" class="about-photo">
-
-        <h3>Courage and beautiful future</h3>
-        <p>
-          Humans are at their most powerful in the digital age. 
-          Today, there are better chances of a bright future for everyone than ever in history. 
-          However, digital control is unequally distrubuted across countries and societies, a hindrance to potential progress. 
-          That's why we believe it should be users right to own it, not be afraid of it nor of its consequences. 
-          As userocracy is put into place, benefits will equally unfold for everyone.
-        </p>
-        <img src="assets/images/users shop.jpg" alt="Contemporary users" class="about-photo">  
-      </div>
+    <!-- Articles modal -->
+    <div id="articleModal" class="article-modal">
+      <span class="close-modal" onclick="closeArticle()">&times;</span>
+      <div class="modal-article-content" id="modalContent"></div>
     </div>
-  </section>
-    
-  <!-- Contact -->
-  <section id="contact" class="page-section gradient-cmy" style="background-color: #FFFF00;">
-    <div class="content">
-      <h2>Contact us</h2>
-      <p>Interested? Share your thoughts or step in and join us. All contact options are available <a href="about.html">here</a>.</p>
-      <p>
-        We speak English, French, Italian and Spanish 
-        <br><br>Martina (🇫🇷🇪🇸🇬🇧)
-        <br>martina@baus.ec
-        <br><br>Renato (🇮🇹🇬🇧)
-        <br>renatopisani@proton.me
-        <br>+39 344 5041791
-        <br>Telegram @UsersAreCool
-      </p>
-      <h2>Social media</h2>
-      <p>
-        Follow if you want simple, direct alerts and quick pointers back to this website.
-        <br><a href="https://www.youtube.com/@UserismUpdates">YouTube</a>
-        <br><a href="https://www.instagram.com/userismupdates/">Instagram</a>
-        <br><a href="https://t.me/userismupdates">Telegram</a>
-        <br><a href="https://github.com/userism-git">GitHub</a>
-      </p>
-    </div>
-  </section>
-
-</div> 
-
-  <!-- Articles modal -->
-  <div id="articleModal" class="article-modal">
-    <span class="close-modal" onclick="closeArticle()">&times;</span>
-    <div class="modal-article-content" id="modalContent"></div>
-  </div>
- </div> 
+  </div> 
 
   <footer class="footer-carousel">
     <div class="scroll-text" aria-hidden="true">
-    © 2026 Userist Collective —
-    Textes, articles, images et contenus artistiques
-    sous Licence Art Libre 1.3.
-    Code source sous licence EUPL v1.2.   
+      © 2026 Userist Collective —
+      Textes, articles, images et contenus artistiques
+      sous Licence Art Libre 1.3.
+      Code source sous licence EUPL v1.2.   
     </div>
   </footer>
+  
   <!-- Load main.js - it handles everything -->
   <script src="main.js"></script>
+  
 </body>
-
 </html>
-
-
-

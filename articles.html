@@ -1,44 +1,105 @@
+<!--
+Copyright (c) 2026 Userist Collective
+Ce code est distribué sous licence EUPL v1.2. 
+Voir le fichier LICENSE pour plus de détails.
+Les contenus (textes, images, médias) sont distribués sous Licence Art Libre 1.3.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Articles — Userism</title>
-  <link rel="stylesheet" href="style.css">
-   <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles - Userism.net</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="apple-touch-icon" href="assets/favicon.png" />
-  <meta name="theme-color" content="#00FFFF">
+  <meta name="theme-color" content="#00FFFF" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  
 </head>
-
 <body class="articles">
 
   <div class="page-wrapper">
 
-  <!-- Page Header -->
-  <section class="articles-header">
-    <div class="content">
-      <h1>Articles & Ideas</h1>
-      <p>Exploring our present trough articles, podcasts, reviews and much more.</p>
+    <!-- Fixed Navigation Bar -->
+    <nav class="fixed-nav" id="fixedNav">
+      <div class="nav-grid">
+        <div class="nav-logo-section">
+          <a href="index.html">
+            <img src="assets/images/Userism-logo.transparent.png" alt="Userism logo" class="nav-logo-img">
+            <span class="nav-logo-text">USERISM COLLECTIVE — ARTICLES</span>
+          </a>
+        </div>
+        <div class="nav-menu-section">
+        </div>
+        <div class="nav-hamburger-section">
+          <div class="hamburger-btn" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Full Screen Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+      <span class="close-menu" id="closeMenu">&times;</span>
+      <div class="menu-content">
+        <nav class="overlay-nav">
+          <a href="index.html" data-page="index">Home</a>
+          <a href="articles.html" data-page="articles">Articles</a>
+          <a href="events.html" data-page="events">Events</a>
+          <a href="projects.html" data-page="projects">Projects</a>
+          <a href="about.html" data-page="about">About</a>
+        </nav>
+        <div class="language-selector">
+          <span class="globe-icon">🌐</span>
+          <a href="#" class="lang-option">EN</a>
+          <a href="#" class="lang-option">FR</a>
+          <a href="#" class="lang-option">IT</a>
+          <a href="#" class="lang-option">ES</a>
+          <a href="#" class="lang-option">中文</a>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <div class="articles-grid" id="articles-preview">
+    <main>
+      <!-- Articles Header -->
+      <section class="page-section">
+        <div class="content">
+          <h1 id="headerTitle">Articles & Ideas</h1>
+          <p id="headerSubtitle">Exploring userism through articles, podcasts, reviews and much more.</p>
+        </div>
+      </section>
 
-</div>
-</div>
+      <!-- Articles Grid -->
+      <section id="articles" class="page-section">
+        <div class="content">
+          <div id="articles-preview" class="articles-grid">
+            <p>Loading articles...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Articles modal -->
+    <div id="articleModal" class="article-modal">
+      <span class="close-modal" onclick="closeArticle()">&times;</span>
+      <div class="modal-article-content" id="modalContent"></div>
+    </div>
+  </div>
 
   <footer class="footer-carousel">
     <div class="scroll-text" aria-hidden="true">
-    © 2026 Userist Collective —
-    Textes, articles, images et contenus artistiques
-    sous Licence Art Libre 1.3.
-    Code source sous licence EUPL v1.2.
+      © 2026 Userist Collective —
+      Textes, articles, images et contenus artistiques
+      sous Licence Art Libre 1.3.
+      Code source sous licence EUPL v1.2.   
     </div>
   </footer>
-
+  
   <script src="main.js"></script>
+  
 </body>
 </html>
-

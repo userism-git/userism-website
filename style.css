@@ -28,6 +28,7 @@
 html {
   overflow-x: hidden;
   width: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -45,10 +46,10 @@ body {
 
 /* Body backgrounds per page */
 body.home { background: var(--color-white); }
-body.about { background: var(--color-yellow); }
-body.articles { background: var(--color-cyan); }
-body.projects { background: var(--color-magenta); }
-body.event { background: var(--color-yellow); }
+body.about { background: var(--color-white); }
+body.articles { background: var(--color-white); }
+body.projects { background: var(--color-white); }
+body.events { background: var(--color-white); }
 
 /* Typography */
 h1, h2, h3 {
@@ -107,58 +108,143 @@ body.loaded #intro {
   visibility: hidden !important;
   pointer-events: none !important;
 }
+/* =============================================== */
+/* FIXED NAVIGATION BAR - GRID LAYOUT */
+/* =============================================== */
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--nav-bg-color, var(--color-cyan));
+  z-index: 100001;
+  border-bottom: 1px solid var(--color-black);
+}
+
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+.nav-logo-section {
+  grid-column: 1 / 4;
+  padding: 20px;
+  border-right: 1px solid var(--color-black);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-logo-section a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: inherit;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.nav-logo-section a:hover {
+  opacity: 0.7;
+}
+
+.nav-logo-img {
+  width: 30px;
+  height: 35px;
+}
+
+.nav-logo-text {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--color-black);
+}
+
+.nav-menu-section {
+  grid-column: 4 / 12;
+  padding: 20px;
+  border-right: 1px solid var(--color-black);
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--color-black);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+  opacity: 0.6;
+}
+
+.nav-hamburger-section {
+  grid-column: 12 / 13;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* =============================================== */
-/* HAMBURGER MENU */
+/* HAMBURGER BUTTON */
 /* =============================================== */
 .hamburger-btn {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 10001;
-  background: rgba(255, 255, 255, 0);
-  border: 2px solid transparent;
-  border-radius: 8px;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  padding: 0.75rem;
-  display: flex !important;
+  padding: 0;
+  display: flex;
   flex-direction: column;
   gap: 6px;
   transition: all 0.3s ease;
+  width: 28px;
+  height: 22px;
+  position: relative;
+  z-index: 100000; 
 }
 
 .hamburger-btn:hover {
-  transform: scale(1.0);
+  transform: scale(1.1);
 }
 
 .hamburger-btn span {
   display: block;
-  width: 25px;
-  height: 3px;
+  width: 100%;
+  height: 2px;
   background: var(--color-black);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
-.hamburger-btn.active {
-  background: rgba(0, 0, 0, 0);
-  border-color: transparent;
-}
 .hamburger-btn.active span {
-  background: var(--color-white);
+  background: var(--color-black);
 }
 .hamburger-btn.active span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
+
 .hamburger-btn.active span:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger-btn.active span:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* =============================================== */
-/* OVERLAY MENU */
+/* HAMBURGER MENU & OVERLAY */
 /* =============================================== */
 .menu-overlay {
   position: fixed;
@@ -166,11 +252,12 @@ body.loaded #intro {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.95);
-  z-index: 9999;
+  background: rgba(255, 255, 255, 0.92);
+  z-index: 99999;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
+  overflow-y: auto;
 }
 
 .menu-overlay.active {
@@ -178,15 +265,30 @@ body.loaded #intro {
   visibility: visible;
 }
 
+/* Gradient fade at bottom matching page color */
+.menu-overlay::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, var(--page-bg-color, #ffffff));
+  pointer-events: none;
+  z-index: 1;
+}
+
 .menu-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  padding: 2rem;
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem;
   transform: translateY(-20px);
   transition: transform 0.4s ease;
+  position: relative;
+  z-index: 2;
 }
 
 .menu-overlay.active .menu-content {
@@ -197,41 +299,24 @@ body.loaded #intro {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  width: 100%;
 }
 
 .overlay-nav a {
-  color: var(--color-white);
-  font-size: clamp(1.5rem, 5vw, 2rem);
+  color: var(--color-black);
+  font-size: clamp(2.5rem, 8vw, 3rem);
   font-weight: 700;
   text-decoration: none;
   position: relative;
-  transition: color 0.3s ease;
+  transition: opacity 0.3s ease;
   letter-spacing: 2px;
+  text-align: center;
 }
 
 .overlay-nav a:hover {
-  color: var(--color-cyan);
-}
-
-.overlay-nav a.active {
-  color: var(--color-magenta);
-}
-
-.overlay-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: var(--color-cyan);
-  transition: width 0.3s ease;
-}
-
-.overlay-nav a:hover::after {
-  width: 100%;
+  opacity: 0.6;
 }
 
 .language-selector {
@@ -247,7 +332,7 @@ body.loaded #intro {
 }
 
 .lang-option {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.7);
   font-size: clamp(0.85rem, 2vw, 0.95rem);
   text-decoration: none;
   padding: 0.6rem 1rem; 
@@ -258,16 +343,72 @@ body.loaded #intro {
 }
 
 .lang-option:hover {
-  color: var(--color-cyan);
-  background: rgba(255, 255, 255, 0);
+  color: var(--color-magenta);
 }
 
 .lang-option.active {
-  color: var(--color-white);
-  background: rgba(255, 255, 255, 0);
-  font-weight: 700;
+  color: var(--color-black);
+  font-weight: 500;
 }
 
+/* Adjust main content for fixed nav */
+body.home main {
+  margin-top: 0;
+}
+
+body.articles main,
+body.events main,
+body.projects main,
+body.about main {
+  margin-top: 77px;
+}
+
+/* =============================================== */
+/* RESPONSIVE DESIGN FOR NAVBAR */
+/* =============================================== */
+@media (max-width: 768px) {
+  .nav-grid {
+    grid-template-columns: 1fr auto;
+  }
+
+  .nav-logo-section {
+    grid-column: 1 / 2;
+  }
+
+  .nav-logo-text {
+    font-size: 11px;
+    display: block;
+  }
+
+  .nav-menu-section {
+    display: none;
+  }
+
+  .nav-hamburger-section {
+    grid-column: 2 / 3;
+    border-left: 1px solid var(--color-black);
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-logo-text {
+    font-size: 9px;
+    display: block;
+  }
+
+  .nav-logo-section {
+    padding: 15px;
+  }
+
+  .nav-logo-img {
+    width: 25px;
+    height: 30px;
+  }
+
+  .nav-hamburger-section {
+    padding: 15px;
+  }
+}
 /* =============================================== */
 /* PAGE SECTIONS */
 /* =============================================== */
@@ -276,7 +417,7 @@ body.loaded #intro {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-block: clamp(2rem, 6vw, 4rem);
+  padding-block: clamp(1rem, 4vw, 2rem);
   width: 100%;
   overflow-x: hidden;
 }
@@ -291,6 +432,82 @@ body.loaded #intro {
 /* =============================================== */
 /* LANDING SECTION */
 /* =============================================== */
+#landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2rem 1rem 3vh 1rem;
+  background-color: var(--color-white);
+ 
+}
+
+#landing .content {
+  text-align: center;
+  width: 100%;
+  max-width:1800px;
+  margin:0 auto;
+}
+
+#landing h1 {
+  font-size: clamp(1rem, 7vw, 6rem);
+  text-transform: uppercase;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#landing .subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 400;
+  opacity: 0.6;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.7;
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scroll-arrow {
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid var(--color-magenta);
+  border-right: 2px solid var(--color-magenta);
+  transform: rotate(45deg);
+  
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
 .landing-logo {
   width: clamp(60px, 15vw, 80px);
   height: auto;
@@ -301,26 +518,62 @@ body.loaded #intro {
 /* =============================================== */
 /* TYPEWRITER SECTION */
 /* =============================================== */
+#typewriter-section {
+  
+  min-height: 0vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 1rem 10rem 1rem;
+  margin: 0;
+  position: relative;
+  
+}
+
 #typewriter-text {
-  font-size: clamp(1.5rem, 6vw, 7rem);
+  
+  font-size: clamp(2rem, 10vw, 8rem);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
   max-width: 100%;
-  margin: clamp(1rem, 5vw, 50px) auto;
   white-space: pre-wrap;
   color: var(--color-black);
-  padding: 0 clamp(1rem, 3vw, 2rem);
   word-wrap: break-word;
+  text-align: center;
+  position: relative;
+  margin-bottom: 2rem;
+  
+}
+
+#typewriter-text::after {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 1em;
+  background-color: var(--color-cyan);
+  margin-left: 0.1em;
+  animation: blink 1s infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
 }
 
 /* =============================================== */
 /* MAIN FEED SECTION */
 /* =============================================== */
+
 #main-feed p {
   font-size: clamp(0.95rem, 2vw, 1.1rem);
   line-height: 1.75;
   max-width: 700px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1rem;
   color: #111;
   padding: 0 1rem;
 }
@@ -349,11 +602,15 @@ body.loaded #intro {
 
 .article-card {
   border-radius: 12px;
+  border: 3px solid var(--color-black);
   overflow: hidden;
   background: var(--color-white);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding:0.5rem 0.5rem 0rem;
 }
 
 .article-card:hover {
@@ -363,19 +620,24 @@ body.loaded #intro {
 
 .article-card img {
   width: 100%;
-  height: auto;
+  height: 180px;
+  border: 2px solid var(--color-black);
+  border-radius: 2px;
+  object-fit: cover;
   display: block;
 }
 
 .article-card a {
   text-decoration: none;
   color: inherit;
-  padding: 1rem;
+  padding: 0rem;
   display: block;
+  flex: 1;
 }
 
 .article-card h2 {
   font-size: clamp(1.2rem, 3vw, 1.5rem);
+  text-transform: uppercase;
   margin: 0;
   padding: 0 1rem;
 }
@@ -389,7 +651,7 @@ body.loaded #intro {
 .article-preview {
   font-size: clamp(0.85rem, 2vw, 0.95rem);
   line-height: 1.5;
-  margin: 10px 0;
+  margin: 5px 0;
   padding: 0 1.5rem 1.5rem;
   color: #333;
 }
@@ -457,7 +719,6 @@ body.loaded #intro {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 192, 203, 0.95);
   z-index: 9999;
   overflow-y: auto;
 }
@@ -538,7 +799,7 @@ body.loaded #intro {
 /* PAGE WRAPPER */
 /* =============================================== */
 .page-wrapper {
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 0 auto;
   padding: 0;
   width: 100%;
@@ -560,7 +821,7 @@ section {
 .article-description {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 clamp(1rem, 4vw, 2rem);
+  padding: 0 clamp(1rem, 2vw, 2rem);
 }
 
 /* =============================================== */
@@ -624,23 +885,17 @@ section {
   body {
     font-size: 14px;
   }
+  
+  .scroll-indicator {
+    bottom: 1rem;
+  }
 
-  .hamburger-btn {
-    top: 0.75rem;
-    right: 0.75rem;
-    padding: 0.5rem;
-  }
-  
-  .hamburger-btn span {
-    width: 22px;
-  }
-  
   .overlay-nav {
-    gap: 1.5rem;
+    gap: 2rem;
   }
   
   .overlay-nav a {
-    font-size: 1.8rem;
+    font-size: clamp(3rem, 10vw, 4.5rem);
   }
   
   .language-selector {
@@ -665,9 +920,29 @@ section {
   .page-wrapper {
     padding: 0;
   }
+
+  body.articles main,
+  body.events main,
+  body.projects main,
+  body.about main {
+    margin-top: 60px;
+  }
+
+  #landing h1 {
+    font-size: clamp(3.5rem, 12vw, 6rem);
+  }
+
+  #landing .subtitle {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+  }
 }
 
 @media (max-width: 480px) {
+
+   .scroll-indicator {
+    bottom: 1rem;
+  }
+
   #articles-preview.articles-grid {
     display: grid; 
     grid-template-columns: 1fr;
@@ -676,24 +951,13 @@ section {
     padding: 0;
   }
   
-  .hamburger-btn {
-    padding: 0.4rem;
-    top: 0.5rem;
-    right: 0.5rem;
-  }
-  
-  .hamburger-btn span {
-    width: 20px;
-    height: 2.5px;
-  }
-  
   .overlay-nav a {
-    font-size: 1.5rem;
+    font-size: clamp(3.5rem, 12vw, 5rem);
     letter-spacing: 1px;
   }
 
   .overlay-nav {
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 2rem;
   }
   
@@ -704,12 +968,15 @@ section {
   
   .articles-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
     padding: 0;
   }
   
   #typewriter-text {
-    padding: 0 1rem;
+    padding: 2rem 0rem 2rem 0rem;
+    margin-top: 1rem;
+    text-align: left;
+    font-size: clamp( 4rem, 12vw,8rem);
   }
 
   p {
@@ -727,6 +994,16 @@ section {
   .content {
     padding: 0 1rem;
   }
+
+  #landing h1 {
+    font-size: clamp(2rem, 16vw, 6rem);
+    text-transform: lowercase;
+    text-align: left;
+  }
+
+  #landing .subtitle {
+    font-size: clamp(0.8rem, 4vw, 1rem);
+  }
 }
 
 /* =============================================== */
@@ -734,7 +1011,7 @@ section {
 /* =============================================== */
 @media (max-height: 500px) and (orientation: landscape) {
   .overlay-nav a {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
 
   .overlay-nav {
@@ -745,7 +1022,4 @@ section {
   .menu-content {
     padding: 1rem;
   }
-
 }
-
-

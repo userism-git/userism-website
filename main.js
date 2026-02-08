@@ -11,7 +11,7 @@ const CONFIG = {
   EVENTS_TO_SHOW: 3,
   INTRO_DELAY: 500,
   INTRO_FADE: 1000,
-  TYPEWRITER_MESSAGE: `Did you know that everytime you scroll, click or tap, you hold power?`
+  TYPEWRITER_MESSAGE: `Did you know that everytime you scroll, click or tap, you hold power ?`
 };
 
 // ==========================================
@@ -31,7 +31,7 @@ const translations = {
   "fr": {
     "headerTitle": "Articles & Idées",
     "headerSubtitle": "Explorer le userisme à travers des articles, podcasts, critiques et bien plus.",
-    "article1Title": "Qu'est-ce que le userisme ?",
+    "article1Title": "Qu'est-ce que l'userisme ?",
     "article1Preview": "La consommation est plus pertinente que le travail, et avec elle viennent de grandes opportunités.",
     "article2Title": "Big Tech ou Démocratie Digitale ?",
     "article2Preview": "La computation pour l'IA est une révolution dans la digitalisation. Quatre propositions pour saisir les opportunités.",
@@ -61,12 +61,12 @@ const translations = {
   "zh": {
     "headerTitle": "文章与思想",
     "headerSubtitle": "通过文章、播客、评论等探索用户主义。",
-    "article1Title": "什么是用户主义？",
-    "article1Preview": "消费比工作更重要，这带来了巨大的机遇。",
-    "article2Title": "大科技还是数字民主？",
+    "article1Title": "什么是用户主义?",
+    "article1Preview": "消费比工作更重要,这带来了巨大的机遇。",
+    "article2Title": "大科技还是数字民主?",
     "article2Preview": "人工智能计算是数字化中的一场革命。四个把握机遇的提案。",
     "article3Title": "虚构与用户主义",
-    "article3Preview": "当用户主义预示未来行为时。我们如何创造条件让用户在使用中发现自由？"
+    "article3Preview": "当用户主义预示未来行为时。我们如何创造条件让用户在使用中发现自由?"
   }
 };
 
@@ -75,10 +75,10 @@ let currentLanguage = 'en';
 // Change language
 function setLanguage(lang) {
   currentLanguage = lang;
-  console.log('🌍 Setting language to:', lang);
+  console.log('Setting language to:', lang);
 
   if (!translations[lang]) {
-    console.error('❌ Translation not found for:', lang);
+    console.error(' Translation not found for:', lang);
     return;
   }
 
@@ -89,13 +89,13 @@ function setLanguage(lang) {
     if (el) {
       el.textContent = translations[lang][key];
       translatedCount++;
-      console.log(`✅ Translated ${key}`);
+      console.log(` Translated ${key}`);
     } else {
-      console.warn(`⚠️ Element not found: ${key}`);
+      console.warn(` Element not found: ${key}`);
     }
   }
   
-  console.log(`📊 Total translated: ${translatedCount} elements`);
+  console.log(` Total translated: ${translatedCount} elements`);
   
   // Update active language in selector
   document.querySelectorAll('.lang-option').forEach(opt => {
@@ -115,15 +115,75 @@ function setLanguage(lang) {
 }
 
 // ==========================================
+// PAGE-SPECIFIC NAVBAR COLORS
+// ==========================================
+function setNavbarColorByPage() {
+  const path = window.location.pathname;
+  const currentPage = path.split('/').pop().replace('.html', '') || 'index';
+  
+  const pageColors = {
+    'articles': '#00FFFF',    // cyan
+    'events': '#FFFF00',      // yellow
+    'projects': '#FF00FF',    // magenta
+    'about': '#FFFF00'        // yellow
+  };
+
+  const randomColors = ['#FFFF00', '#00FFFF', '#FF00FF'];
+
+  function getRandomColor() {
+    return randomColors[Math.floor(Math.random() * randomColors.length)];
+  }
+
+  // Decide navbar color
+  let color;
+
+  if (currentPage === 'index') {
+    color = getRandomColor();
+    console.log('Random homepage navbar:', color);
+  } else {
+    color = pageColors[currentPage] || '#00FFFF';
+    console.log('Page navbar:', currentPage, '→', color);
+  }
+  
+  // Set CSS variable for navbar
+  document.documentElement.style.setProperty('--nav-bg-color', color);
+  document.documentElement.style.setProperty('--page-bg-color', color);
+}
+
+// Update nav text with current page
+function updateNavText() {
+  const path = window.location.pathname;
+  const currentPage = path.split('/').pop().replace('.html', '') || 'index';
+  
+  const pageNames = {
+    'index': 'HOME',
+    'articles': 'ARTICLES',
+    'events': 'EVENTS',
+    'projects': 'PROJECTS',
+    'about': 'ABOUT'
+  };
+  
+  const navText = document.querySelector('.nav-logo-text');
+  if (navText && currentPage !== 'index') {
+    navText.textContent = `USERISM COLLECTIVE — ${pageNames[currentPage] || ''}`;
+  }
+}
+
+// ==========================================
 // INITIALIZATION
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('🚀 Initializing Userism.net...');
+  console.log(' Initializing Userism.net...');
   
+  // Set page-specific navbar color
+  setNavbarColorByPage();
+  updateNavText();
+  
+  // Initialize hamburger menu
   initHamburgerMenu();
   initModalHandlers();
   
-  // Setup language buttons après un délai
+  // Setup language buttons
   setTimeout(() => {
     setupLanguageButtons();
   }, 500);
@@ -142,7 +202,7 @@ window.addEventListener('load', () => {
 function setupLanguageButtons() {
   const langButtons = document.querySelectorAll('.lang-option');
   
-  console.log('🔤 Language buttons found:', langButtons.length);
+  console.log('Language buttons found:', langButtons.length);
   
   langButtons.forEach((btn, index) => {
     console.log(`Button ${index}:`, btn.textContent.trim());
@@ -152,7 +212,7 @@ function setupLanguageButtons() {
       e.stopPropagation();
       
       const langText = btn.textContent.trim();
-      console.log('👆 Clicked:', langText);
+      console.log(' Clicked:', langText);
       
       const langMap = {
         'EN': 'en',
@@ -163,7 +223,7 @@ function setupLanguageButtons() {
       };
       
       const langCode = langMap[langText];
-      console.log('🔄 Language code:', langCode);
+      console.log(' Language code:', langCode);
       
       if (langCode) {
         setLanguage(langCode);
@@ -175,59 +235,26 @@ function setupLanguageButtons() {
 // ==========================================
 // HAMBURGER MENU & OVERLAY
 // ==========================================
-// detects if in subdirectory
-const isInSubdirectory = window.location.pathname.includes('/articles/');
-const pathPrefix = isInSubdirectory ? '../' : '';
-
 function initHamburgerMenu() {
-  // Create hamburger button
-  const hamburgerHTML = `
-    <button class="hamburger-btn" aria-label="Menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  `;
+  const hamburger = document.getElementById('hamburger');
+  const overlay = document.getElementById('menuOverlay');
   
-  // Create overlay menu
-  const overlayHTML = `
-    <div class="menu-overlay">
-      <div class="menu-content">
-        <nav class="overlay-nav">
-          <a href="${pathPrefix}index.html" data-page="index">Home</a>
-          <a href="${pathPrefix}articles.html" data-page="articles">Articles</a>
-          <a href="${pathPrefix}events.html" data-page="events">Events</a>
-          <a href="${pathPrefix}projects.html" data-page="projects">Projects</a>
-          <a href="${pathPrefix}about.html" data-page="about">About</a>
-        </nav>
-        
-        <div class="language-selector">
-          <span class="globe-icon">🌐</span>
-          <a href="#" class="lang-option active">EN</a>
-          <a href="#" class="lang-option">FR</a>
-          <a href="#" class="lang-option">IT</a>
-          <a href="#" class="lang-option">ES</a>
-          <a href="#" class="lang-option">中文</a>
-        </div>
-      </div>
-    </div>
-  `;
+  if (!hamburger || !overlay) {
+    console.error(' Hamburger or overlay not found!');
+    return;
+  }
   
-  // Insert into page
-  document.body.insertAdjacentHTML('afterbegin', overlayHTML);
-  document.body.insertAdjacentHTML('afterbegin', hamburgerHTML);
+  console.log(' Found hamburger and overlay elements');
   
-  // Small delay to ensure elements are in DOM
-  setTimeout(() => {
-    setupMenuListeners();
-    activateCurrentPage();
-  }, 10);
+  setupMenuListeners();
+  activateCurrentPage();
 }
 
 function setupMenuListeners() {
-  const hamburger = document.querySelector('.hamburger-btn');
-  const overlay = document.querySelector('.menu-overlay');
-  const menuLinks = document.querySelectorAll('.overlay-nav a');
+  const hamburger = document.getElementById('hamburger');
+  const overlay = document.getElementById('menuOverlay');
+  const menuLinks = document.querySelectorAll('.menu-link, .overlay-nav a');
+  const closeMenuBtn = document.getElementById('closeMenu');
   
   if (!hamburger || !overlay) {
     console.error('Menu elements not found');
@@ -238,8 +265,17 @@ function setupMenuListeners() {
   hamburger.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
+    console.log(' Hamburger clicked!');
     toggleMenu();
   });
+  
+  if (closeMenuBtn) {
+    closeMenuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeMenu();
+    });
+  }
   
   // Close when clicking outside menu content
   overlay.addEventListener('click', (e) => {
@@ -272,6 +308,7 @@ function setupMenuListeners() {
   }
   
   function openMenu() {
+    console.log(' Opening menu');
     overlay.classList.add('active');
     hamburger.classList.add('active');
     hamburger.setAttribute('aria-expanded', 'true');
@@ -279,6 +316,7 @@ function setupMenuListeners() {
   }
   
   function closeMenu() {
+    console.log(' Closing menu');
     overlay.classList.remove('active');
     hamburger.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
@@ -290,10 +328,10 @@ function activateCurrentPage() {
   const path = window.location.pathname;
   const currentPage = path.split('/').pop().replace('.html', '') || 'index';
   
-  const links = document.querySelectorAll('.overlay-nav a');
+  const links = document.querySelectorAll('.menu-link, .overlay-nav a');
   links.forEach(link => {
-    const pageName = link.getAttribute('data-page');
-    if (currentPage === pageName) {
+    const href = link.getAttribute('href');
+    if (href && (href.includes(currentPage) || (currentPage === 'index' && href.includes('index.html')))) {
       link.classList.add('active');
     }
   });
@@ -330,27 +368,48 @@ function initIntroAnimation() {
 function initTypewriterEffect() {
   const output = document.getElementById("typewriter-text");
   const section = document.getElementById("typewriter-section");
-  
-  if (!output || !section) return;
+  const landingSection = document.getElementById("landing");
 
-  let scrollTimeout;
-  
-  window.addEventListener("scroll", () => {
-    if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
-    
-    scrollTimeout = requestAnimationFrame(() => {
-      const rect = section.getBoundingClientRect();
-      const windowH = window.innerHeight;
+  if (!output || !section || !landingSection) return;
+
+  const message = CONFIG.TYPEWRITER_MESSAGE;
+  const totalChars = message.length;
+
+  let charIndex = 0;
+  let typingStarted = false;
+  let startScrollY = 0;
+
+  function updateTypewriter() {
+    const landingRect = landingSection.getBoundingClientRect();
+    const viewportCenter = window.innerHeight / 2;
+
+    // Start typing when viewport center passes the bottom of landing section
+    if (landingRect.bottom <= viewportCenter && !typingStarted) {
+      typingStarted = true;
+      startScrollY = window.scrollY;
+    }
+
+    if (typingStarted) {
+      // Calculate scroll distance since typing started
+      const scrollDistance = window.scrollY - startScrollY;
       
-      let progress = 1 - rect.top / windowH;
-      progress = Math.max(0, Math.min(1, progress));
+      // More responsive typing
+      const PIXELS_PER_CHAR = 4; // Adjust this: lower = faster typing
+      const targetIndex = Math.floor(scrollDistance / PIXELS_PER_CHAR);
       
-      const chars = Math.floor(CONFIG.TYPEWRITER_MESSAGE.length * progress);
-      output.textContent = CONFIG.TYPEWRITER_MESSAGE.substring(0, chars);
-    });
-  });
+      // Smooth interpolation
+      charIndex += (targetIndex - charIndex) * 0.15;
+      
+      const displayIndex = Math.max(0, Math.min(totalChars, Math.floor(charIndex)));
+      output.textContent = message.substring(0, displayIndex);
+    }
+
+    requestAnimationFrame(updateTypewriter);
+  }
+
+  output.textContent = ""; // start empty
+  requestAnimationFrame(updateTypewriter);
 }
-
 // ==========================================
 // CONTENT LOADING (Articles & Events)
 // ==========================================
@@ -371,7 +430,6 @@ async function loadArticlePreviews() {
 
     container.innerHTML = '';
     
-    // Détermine combien d'articles afficher
     const isHomePage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
     const articlesToShow = isHomePage ? CONFIG.ARTICLES_TO_SHOW : cards.length;
     
@@ -379,14 +437,13 @@ async function loadArticlePreviews() {
       container.appendChild(card.cloneNode(true));
     });
     
-    // Re-appliquer les traductions après chargement
     if (currentLanguage && currentLanguage !== 'en') {
       setTimeout(() => setLanguage(currentLanguage), 100);
     }
     
   } catch (error) {
     console.error('Failed to load articles:', error);
-    showError(container, 'Failed to load articles.');
+    container.innerHTML = '<p>No articles available yet.</p>';
   }
 }
 
@@ -410,7 +467,7 @@ async function loadEventPreviews() {
     
   } catch (error) {
     console.error('Failed to load events:', error);
-    showError(container, 'Failed to load events.');
+    container.innerHTML = '<p>No upcoming events yet.</p>';
   }
 }
 
@@ -496,9 +553,4 @@ function showError(container, message) {
       <button onclick="window.location.reload()">Retry</button>
     </div>
   `;
-
 }
-
-
-
-
