@@ -394,7 +394,7 @@ function initTypewriterEffect() {
       const scrollDistance = window.scrollY - startScrollY;
       
       // More responsive typing
-      const PIXELS_PER_CHAR = 4; // Adjust this: lower = faster typing
+      const PIXELS_PER_CHAR = 8; // Adjust this: lower = faster typing
       const targetIndex = Math.floor(scrollDistance / PIXELS_PER_CHAR);
       
       // Smooth interpolation

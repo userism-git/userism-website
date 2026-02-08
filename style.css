@@ -996,13 +996,13 @@ section {
   }
 
   #landing h1 {
-    font-size: clamp(2rem, 16vw, 6rem);
+    font-size: clamp(1rem, 7vw, 5rem);
     text-transform: lowercase;
-    text-align: left;
+    text-align: center;
   }
 
   #landing .subtitle {
-    font-size: clamp(0.8rem, 4vw, 1rem);
+    font-size: clamp(0.8rem, 2vw, 1rem);
   }
 }
 
