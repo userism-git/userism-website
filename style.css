@@ -753,6 +753,156 @@ body.about main {
 }
 
 /* =============================================== */
+/* ABOUT PAGE */
+/* =============================================== */
+
+.about-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-header-text {
+  flex: 1;
+}
+
+.about-header-text h1 {
+  margin-bottom: 1rem;
+}
+
+.founders-byline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.about-photo {
+  width: 220px;
+  flex-shrink: 0;
+  border-radius: 2px; /* adjust to match your site's style */
+}
+
+.about-pullquote {
+  border-left: 3px solid currentColor;
+  margin: 2rem 0 2.5rem;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  font-size: 1.15em;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-open {
+  opacity: 0.9;
+}
+
+.about-divider {
+  border: none;
+  border-top: 1px solid currentColor;
+  opacity: 0.15;
+  margin: 2.5rem 0;
+}
+
+/* Contribution cards */
+.about-contributions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.contribution-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem;
+  border-radius: 8px;
+  opacity: 0.9;
+}
+
+.contribution-articles { background: cyan; }
+.contribution-events   { background: yellow; }
+.contribution-projects { background: magenta; }
+
+.contribution-label {
+  font-weight: bold;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contribution-desc {
+  font-size: 0.9em;
+}
+
+/* Contact blocks */
+.about-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.9em;
+}
+
+.contact-role {
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.6;
+  margin-bottom: 0.1rem;
+}
+
+/* Social links */
+.about-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  padding: 0.4rem 1rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: opacity 0.15s;
+}
+
+.social-link:hover {
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .about-header {
+    flex-direction: column-reverse;
+  }
+  .about-photo {
+    width: 100%;
+  }
+  .about-contributions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =============================================== */
 /* FOOTER */
 /* =============================================== */
 .footer-carousel {
@@ -1023,4 +1173,5 @@ section {
   .menu-content {
     padding: 1rem;
   }
+
 }
