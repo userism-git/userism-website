@@ -756,61 +756,6 @@ body.about main {
 /* ABOUT PAGE */
 /* =============================================== */
 
-.about-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
-}
-
-.about-header-text {
-  flex: 1;
-}
-
-.about-header-text h1 {
-  margin-bottom: 1rem;
-}
-
-.founders-byline {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  font-size: 0.9em;
-  opacity: 0.8;
-}
-
-.about-photo {
-  width: 220px;
-  flex-shrink: 0;
-  border-radius: 2px; /* adjust to match your site's style */
-}
-
-.about-pullquote {
-  border-left: 3px solid currentColor;
-  margin: 2rem 0 2.5rem;
-  padding: 0.5rem 0 0.5rem 1.5rem;
-  font-size: 1.15em;
-  font-style: italic;
-  opacity: 0.85;
-}
-
-.about-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.about-open {
-  opacity: 0.9;
-}
-
-.about-divider {
-  border: none;
-  border-top: 1px solid currentColor;
-  opacity: 0.15;
-  margin: 2.5rem 0;
-}
 
 /* Contribution cards */
 .about-contributions {
@@ -829,9 +774,20 @@ body.about main {
   opacity: 0.9;
 }
 
-.contribution-articles { background: cyan; }
-.contribution-events   { background: yellow; }
-.contribution-projects { background: magenta; }
+.contribution-articles {
+  border: 2px solid cyan;
+  background: transparent;
+}
+
+.contribution-events {
+  border: 2px solid yellow;
+  background: transparent;
+}
+
+.contribution-projects {
+  border: 2px solid magenta;
+  background: transparent;
+}
 
 .contribution-label {
   font-weight: bold;
@@ -901,6 +857,7 @@ body.about main {
     grid-template-columns: 1fr;
   }
 }
+
 
 /* =============================================== */
 /* FOOTER */
@@ -1175,3 +1132,4 @@ section {
   }
 
 }
+
