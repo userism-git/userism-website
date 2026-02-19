@@ -137,6 +137,7 @@ body.loaded #intro {
   max-width: 100%;
   margin: 0;
   width: 100%;
+  align-items: stretch
 }
 
 .nav-logo-section {
@@ -146,6 +147,7 @@ body.loaded #intro {
   display: flex;
   align-items: center;
   gap: 15px;
+  height: 100%
 }
 
 .nav-logo-section a {
@@ -377,6 +379,13 @@ body.about main {
 /* =============================================== */
 /* RESPONSIVE DESIGN FOR NAVBAR */
 /* =============================================== */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .nav-logo-text {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-grid {
     grid-template-columns: 1fr auto;
@@ -1682,6 +1691,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
 
 
 
