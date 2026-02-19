@@ -96,10 +96,10 @@ Les contenus (textes, images, médias) sont distribués sous Licence Art Libre 1
             <!-- Block 1 — Text -->
            <div class="block block-text"
               data-type="Video"
-              data-title="The gesture economy and platform capitalism"
+              data-title="Le Far West de la technologie numérique dans un système capitaliste"
               data-desc="How every swipe, tap, and click feeds the algorithmic machinery. A deep dive into gestural labor in the digital age."
               data-url="https://www.youtube.com/watch?v=m1xBW56j4yA"
-              data-date="Jan 15, 2026">
+              data-date="Feb 15, 2026">
               <div class="block-inner">
                 <h3>The gesture economy and platform capitalism</h3>
                 <p>How every swipe, tap, and click feeds the algorithmic machinery. A deep dive into gestural labor in the digital age.</p>
@@ -215,7 +215,22 @@ Les contenus (textes, images, médias) sont distribués sous Licence Art Libre 1
 
     </main>
   
-  </div>  <!-- Close page-wrapper -->
+  </div>  
+
+  <!-- Block detail modal -->
+<div class="block-modal-overlay" id="blockModalOverlay">
+  <div class="block-modal" role="dialog" aria-modal="true">
+    <button class="block-modal-close" id="blockModalClose" aria-label="Close">×</button>
+    <img class="block-modal-image" id="blockModalImage" src="" alt="" />
+    <div class="block-modal-body">
+      <div class="block-modal-type" id="blockModalType"></div>
+      <div class="block-modal-title" id="blockModalTitle"></div>
+      <div class="block-modal-desc" id="blockModalDesc"></div>
+      <a class="block-modal-link" id="blockModalLink" href="#" target="_blank" rel="noopener noreferrer">Open reference ↗</a>
+      <div class="block-modal-meta" id="blockModalMeta"></div>
+    </div>
+  </div>
+</div>
   
   <footer class="footer-carousel">
     <div class="scroll-text" aria-hidden="true">

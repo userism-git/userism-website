@@ -577,3 +577,80 @@ function showError(container, message) {
   
   observer.observe(typewriterSection);
 })();
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    // ── Section navigation ───────────────────
+    const navBtns = document.querySelectorAll('.nav-btn[data-section]');
+    const sections = {
+      'finds': document.getElementById('finds'),
+      'our-projects': document.getElementById('our-projects')
+    };
+
+    navBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.section;
+        navBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        Object.values(sections).forEach(s => s.classList.remove('active-section'));
+        sections[target].classList.add('active-section');
+        sections[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // ── Block modal ──────────────────────────
+    const overlay    = document.getElementById('blockModalOverlay');
+    const closeBtn   = document.getElementById('blockModalClose');
+    const modalImage = document.getElementById('blockModalImage');
+    const modalType  = document.getElementById('blockModalType');
+    const modalTitle = document.getElementById('blockModalTitle');
+    const modalDesc  = document.getElementById('blockModalDesc');
+    const modalLink  = document.getElementById('blockModalLink');
+    const modalMeta  = document.getElementById('blockModalMeta');
+
+    function openModal(block) {
+      const type  = block.dataset.type  || '';
+      const title = block.dataset.title || '';
+      const desc  = block.dataset.desc  || '';
+      const url   = block.dataset.url   || '';
+      const date  = block.dataset.date  || '';
+      const img   = block.querySelector('img');
+
+      modalType.textContent  = type;
+      modalTitle.textContent = title;
+      modalDesc.textContent  = desc;
+      modalMeta.textContent  = date;
+
+      if (img) {
+        modalImage.src           = img.src;
+        modalImage.alt           = img.alt;
+        modalImage.style.display = 'block';
+      } else {
+        modalImage.style.display = 'none';
+      }
+
+      if (url) {
+        modalLink.href           = url;
+        modalLink.style.display  = 'inline-flex';
+      } else {
+        modalLink.style.display  = 'none';
+      }
+
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.block').forEach(block => {
+      block.addEventListener('click', () => openModal(block));
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  });
