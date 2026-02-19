@@ -73,6 +73,7 @@ p {
   line-height: 1.75;
   font-size: clamp(0.95rem, 2vw, 1.1rem);
   max-width: 100%;
+  text-align: justify;
 }
 
 /* =============================================== */
@@ -361,7 +362,7 @@ body.articles main,
 body.events main,
 body.projects main,
 body.about main {
-  margin-top: 60px;
+  margin-top: 1rem;
 }
 
 /* =============================================== */
@@ -1672,5 +1673,6 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
 
 
