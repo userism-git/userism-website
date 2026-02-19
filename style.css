@@ -58,6 +58,14 @@ h1, h2, h3 {
   margin-top: 2rem;
 }
 
+h1, {
+  margin-top: 0;
+}
+
+h2, h3 {
+  margin-top: 2rem;
+}
+
 h1 { 
   font-size: clamp(1.8rem, 5vw, 2.5rem);
 }
@@ -120,6 +128,7 @@ body.loaded #intro {
   background: var(--nav-bg-color, var(--color-cyan));
   z-index: 100001;
   border-bottom: 1px solid var(--color-black);
+  height: 75px;
 }
 
 .nav-grid {
@@ -362,7 +371,7 @@ body.articles main,
 body.events main,
 body.projects main,
 body.about main {
-  margin-top: 1rem;
+  margin-top: 80px;
 }
 
 /* =============================================== */
@@ -1673,6 +1682,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
 
 
 
