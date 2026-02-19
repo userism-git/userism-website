@@ -55,6 +55,7 @@ body.events { background: var(--color-white); }
 h1, h2, h3 {
   font-weight: 800;
   margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 h1 { 
@@ -1671,3 +1672,4 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
