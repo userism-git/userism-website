@@ -1,13 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <img src="../assets/images/article1.jpg" alt="Article hero image" class="hero-image">
-    <title>Farewell from userism.net</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About/Contact</title>
+  <link rel="stylesheet" href="style.css">
+ <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+  <meta name="theme-color" content="#00FFFF" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <h1>We are proud you decided to leave.</h1>
+<body class="about"> 
+
+  <div class="page-wrapper">
+
+<!-- Fixed Navigation Bar -->
+    <nav class="fixed-nav" id="fixedNav">
+      <div class="nav-grid">
+        <div class="nav-logo-section">
+         <a href="index.html">
+          <img src="assets/images/Asset 2.png" alt="Userism logo" class="nav-logo-img">
+          <span class="nav-logo-text">USERISM COLLECTIVE</span>
+          </a> 
+        </div>
+        <div class="nav-menu-section">
+        </div>
+        <div class="nav-hamburger-section">
+          <div class="hamburger-btn" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Full Screen Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+      <span class="close-menu" id="closeMenu">&times;</span>
+      <div class="menu-content">
+        <nav class="overlay-nav">
+          <a href="index.html" data-page="index">Home</a>
+          <a href="articles.html" data-page="articles">Articles</a>
+          <a href="events.html" data-page="events">Events</a>
+          <a href="projects.html" data-page="projects">Projects</a>
+          <a href="about.html" data-page="about">About</a>
+        </nav>
+        <div class="language-selector">
+          <span class="globe-icon">🌐</span>
+          <a href="#" class="lang-option">EN</a>
+          <a href="#" class="lang-option">FR</a>
+          <a href="#" class="lang-option">IT</a>
+          <a href="#" class="lang-option">ES</a>
+          <a href="#" class="lang-option">中文</a>
+        </div>
+      </div>
+    </div>
+
+    <main>
+
+<section class="page-section">
+  <div class="content">
+        <h1>We are proud you decided to leave.</h1>
+      <img src="assets/images/article1.jpg" alt="bye bye" class="about-photo">
     <p>
         Your choice to unsubscribe is clear and deliberate. Cool!
     </p>
