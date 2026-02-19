@@ -394,7 +394,7 @@ function initTypewriterEffect() {
       const scrollDistance = window.scrollY - startScrollY;
       
       // More responsive typing
-      const PIXELS_PER_CHAR = 8; // Adjust this: lower = faster typing
+      const PIXELS_PER_CHAR =10;// Adjust this: lower = faster typing
       const targetIndex = Math.floor(scrollDistance / PIXELS_PER_CHAR);
       
       // Smooth interpolation
@@ -554,3 +554,26 @@ function showError(container, message) {
     </div>
   `;
 }
+// Hide scroll indicator when typewriter section is visible
+(function () {
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  const typewriterSection = document.getElementById('typewriter-section');
+  
+  if (!scrollIndicator || !typewriterSection) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        scrollIndicator.style.opacity = '0';
+        scrollIndicator.style.pointerEvents = 'none';
+      } else {
+        scrollIndicator.style.opacity = '0.7';
+        scrollIndicator.style.pointerEvents = 'auto';
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+  
+  observer.observe(typewriterSection);
+})();

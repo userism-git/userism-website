@@ -252,7 +252,7 @@ body.loaded #intro {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.966);
   z-index: 99999;
   opacity: 0;
   visibility: hidden;
@@ -272,7 +272,7 @@ body.loaded #intro {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 150px;
+  height:30px;
   background: linear-gradient(to bottom, transparent, var(--page-bg-color, #ffffff));
   pointer-events: none;
   z-index: 1;
@@ -524,7 +524,7 @@ body.about main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20rem 1rem 13rem 1rem;
+  padding: 20rem 1rem 20rem 1rem; 
   margin: 0;
   position: relative;
   
@@ -569,24 +569,165 @@ body.about main {
 /* MAIN FEED SECTION */
 /* =============================================== */
 
-#main-feed p {
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
-  line-height: 1.75;
-  max-width: 700px;
-  margin: 0 auto 1rem;
-  color: #111;
-  padding: 0 1rem;
+#main-feed {
+  width: 100%;
+  background: #fff;
 }
 
-.about-photo {
-  width: 90%;
-  max-width: 300px;
-  border-radius: 11px;
+.mf-intro {
+  padding: 5rem 2rem 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.mf-intro h2 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 800;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════
+   DESKTOP LAYOUT (side-by-side)
+   ══════════════════════════════════════════════ */
+@media (min-width: 769px) {
+
+  .mf-slide {
+    display: grid;
+    grid-template-columns: 2fr 3fr; /* text 40%, image 60% */
+    min-height: 85vh;
+    position: relative;
+  }
+
+  .mf-slide--reverse {
+    grid-template-columns: 3fr 2fr; /* image 60%, text 40% */
+  }
+
+  /* ── Text side ────────────────────────────── */
+  .mf-text-side {
+    display: flex;
+    align-items: center;
+    padding: clamp(3rem, 6vw, 8rem) clamp(2rem, 5vw, 6rem);
+    background: #fff;
+    position: relative;
+  }
+
+  .mf-text-content {
+    max-width: 520px;
+  }
+
+  /* ── Image side ───────────────────────────── */
+  .mf-img-side {
+    position: relative;
+    overflow: hidden;
+    background: #f5f5f5;
+  }
+
+  .mf-img-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Last slide — fade to white */
+  .mf-slide:last-child::after {
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, #ffffff);
+  }
+}
+
+/* ══════════════════════════════════════════════
+   MOBILE LAYOUT (stacked: text → big image)
+   ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  .mf-slide {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  /* Text comes FIRST */
+  .mf-text-side {
+    order: 1;
+    padding: 2rem 1.5rem 1.5rem;
+    background: #fff;
+  }
+
+  .mf-text-content {
+    max-width: 100%;
+  }
+
+  /* Image comes SECOND — takes most of viewport */
+  .mf-img-side {
+    order: 2;
+    width: 100%;
+    height: auto; 
+    min-height: 400px;
+    max-height: 600px;
+    overflow: hidden;
+    background: #f5f5f5;
+    position: relative;
+  }
+
+  .mf-img-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: auto;
+    display: block;
+  }
+
+  /* Last image — full fade to white */
+  .mf-slide:last-child .mf-img-side::after {
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, #ffffff);
+  }
+
+  /* Same order for reversed slides on mobile */
+  .mf-slide--reverse {
+    flex-direction: column;
+  }
+
+  .mf-slide--reverse .mf-text-side {
+    order: 1;
+  }
+
+  .mf-slide--reverse .mf-img-side {
+    order: 2;
+  }
+
+  .mf-intro {
+    padding: 3rem 1.5rem 2rem;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   SHARED TYPOGRAPHY
+   ══════════════════════════════════════════════ */
+
+.mf-number {
   display: block;
-  margin: 40px auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 1.5rem;
 }
 
+.mf-text-content h3 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  color: #000;
+}
+
+.mf-text-content p {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+  color: #333;
+  max-width: 100%;
+}
 /* =============================================== */
 /* ARTICLES GRID */
 /* =============================================== */
@@ -845,6 +986,14 @@ body.about main {
   opacity: 0.6;
 }
 
+.about-photo {
+  position: center;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 0px;
+  object-fit: cover;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .about-header {
@@ -868,16 +1017,20 @@ body.about main {
   padding: 1rem 0;
   background: transparent;
   font-size: clamp(0.8rem, 2vw, 1rem);
-  width: 100%;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .scroll-text {
   display: inline-block;
-  animation: scroll 20s linear infinite;
+  animation: scroll 40s linear infinite;
+  
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
@@ -1132,4 +1285,274 @@ section {
   }
 
 }
+/* ══════════════════════════════════════════════
+   PROJECTS PAGE 
+   ══════════════════════════════════════════════ */
 
+/* ── Navigation Buttons ─────────────────────── */
+.projects-nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.nav-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #000;
+  background: #fff;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: #000;
+  display: inline-block;
+}
+
+.nav-btn:hover {
+  background: var(--color-cyan, #00FFFF);
+  transform: translateY(-2px);
+}
+
+.nav-btn.active {
+  background: #000;
+  color: #fff;
+}
+
+.nav-btn.arena-link {
+  margin-left: auto;
+  border-color: var(--color-magenta, #FF00FF);
+  color: var(--color-magenta, #FF00FF);
+}
+
+.nav-btn.arena-link:hover {
+  background: var(--color-magenta, #FF00FF);
+  color: #fff;
+}
+
+/* ── Section Visibility ─────────────────────── */
+.finds-section,
+.our-projects-section {
+  display: none;
+  padding: 3rem 2rem;
+}
+
+.finds-section.active-section,
+.our-projects-section.active-section {
+  display: block;
+}
+
+/* ── Wide content container for grid ───────── */
+.content-wide {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ══════════════════════════════════════════════
+   MASONRY GRID
+   ══════════════════════════════════════════════ */
+
+.arena-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  grid-auto-flow: dense;
+}
+
+/* ── Arena Block (card/item) ───────────────── */
+.arena-block {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  transition: all 0.2s;
+  position: relative;
+  break-inside: avoid;
+}
+
+.arena-block:hover {
+  border-color: #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+/* Text blocks */
+.block-text .block-inner {
+  padding: 1.5rem;
+}
+
+.block-text h3 {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.block-text p {
+  font-size: clamp(0.9rem, 1.8vw, 0.95rem);
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+}
+
+/* Quote variant */
+.block-quote blockquote {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-style: italic;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-cyan, #00FFFF);
+}
+
+/* Image blocks */
+.block-image {
+  padding: 0;
+}
+
+.block-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.block-caption {
+  padding: 0.75rem 1rem;
+  background: #fafafa;
+  border-top: 1px solid #e0e0e0;
+}
+
+.block-caption p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Link blocks */
+.block-link .block-inner {
+  padding: 1.5rem;
+}
+
+.block-link-title {
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+
+.block-link-title:hover {
+  color: var(--color-magenta, #FF00FF);
+}
+
+.block-link-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #666;
+  margin: 0;
+}
+
+/* Block metadata (date/type) */
+.block-meta {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f0f0f0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #999;
+}
+
+.block-type {
+  margin-left: auto;
+  padding: 0.2rem 0.5rem;
+  background: #f5f5f5;
+  border-radius: 2px;
+}
+
+/* ── Larger blocks (span 2 columns) ────────── */
+.arena-block.block-large {
+  grid-column: span 2;
+}
+
+/* ══════════════════════════════════════════════
+   OUR PROJECTS 
+   ══════════════════════════════════════════════ */
+
+.our-projects-section {
+  background: #fafafa;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.construction-notice {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.construction-notice p {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  line-height: 1.8;
+  color: #666;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ══════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .arena-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .arena-block.block-large {
+    grid-column: span 1; /* No spanning on smaller screens */
+  }
+
+  .content-wide {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-btn.arena-link {
+    margin-left: 0;
+  }
+
+  .arena-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .finds-section,
+  .our-projects-section {
+    padding: 2rem 1rem;
+  }
+
+  .content-wide {
+    padding: 0 1rem;
+  }
+}

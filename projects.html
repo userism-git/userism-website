@@ -9,18 +9,18 @@
   <link rel="apple-touch-icon" href="assets/favicon.png" />
   <meta name="theme-color" content="#00FFFF">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  
 </head>
 
 <body class="projects">
 
   <div class="page-wrapper">
+
 <!-- Fixed Navigation Bar -->
     <nav class="fixed-nav" id="fixedNav">
       <div class="nav-grid">
         <div class="nav-logo-section">
           <a href="index.html">
-          <img src="assets/images/Userism-logo.transparent.png" alt="Userism logo" class="nav-logo-img">
+          <img src="assets/images/Asset 2.png" alt="Userism logo" class="nav-logo-img">
           <span class="nav-logo-text">USERISM COLLECTIVE</span>
           </a>
         </div>
@@ -59,105 +59,201 @@
     </div>
 
     <main>
-  <!-- Page Header -->
-  <section class="page-section projects-header">
-    <div class="content">
-      <h1>Projects</h1>
-<p>
-We’re still building this section. <br>Explore our <a href="articles.html">articles</a> in the meantime.
-</p>
-    </div>
-  </section>
 
-<!-- 
-  Projects Grid
-  <section class="page-section projects-grid">
-    <div class="content">
-      
-  </section>
-<!-- PROJECTS SCROLLER BAR
-<section class="projects-scroller-section">
-  <h2 class="scroller-title">Browse All Projects</h2>
+  <!-- Page Header with Navigation Buttons -->
+      <section class="page-section projects-header">
+        <div class="content">
+          <h1>Projects</h1>
+          <p>A collection of things we find interesting and our own work.</p>
+          
+          <!-- Navigation Buttons -->
+          <div class="projects-nav">
+            <button class="nav-btn active" data-section="finds">
+              Things We Find Interesting
+            </button>
+            <button class="nav-btn" data-section="our-projects">
+              Our Projects
+            </button>
+            <a href="https://www.are.na/userism-collective" target="_blank" class="nav-btn arena-link">
+              Visit Our Are.na →
+            </a>
+          </div>
+        </div>
+      </section>
 
-  <!-- Search bar
-  <input 
-    type="text" 
-    id="projectSearch" 
-    placeholder="Search projects..." 
-    class="project-search"
-  />
+      <!-- SECTION 1: Things We Find Interesting (Are.na-style grid) -->
+      <section class="page-section finds-section active-section" id="finds">
+        <div class="content-wide">
+          
+          <div class="arena-grid">
 
-  <!-- Horizontal scroller
-  <div class="projects-scroller" id="projectsScroller">
+            <!-- Block 1 — Text -->
+            <div class="arena-block block-text">
+              <div class="block-inner">
+                <h3>The gesture economy and platform capitalism</h3>
+                <p>
+                  How every swipe, tap, and click feeds the algorithmic machinery. 
+                  A deep dive into gestural labor in the digital age.
+                  https://www.youtube.com/watch?v=m1xBW56j4yA
+                </p>
+                <div class="block-meta">
+                  <span class="block-date">Jan 15, 2026</span>
+                  <span class="block-type">Video</span>
+                </div>
+              </div>
+            </div>
 
-    <!-- Example items – duplicate & edit as needed
-    <div class="project-item" data-title="Big Tech or Digital Democracy?" data-description="Four proposals and a perspective from Italy">
-      <h3>Big Tech or Digital Democracy?</h3>
-      <p>Four proposals and a perspective from Italy</p>
-    </div>
+            <!-- Block 2 — Image -->
+            <div class="arena-block block-image">
+              <img src="assets/images/eniac.png" alt="Early computing">
+              <div class="block-caption">
+                <p>ENIAC operators, 1946</p>
+              </div>
+            </div>
 
-    <div class="project-item" data-title="" data-description="">
-      <h3></h3>
-      <p></p>
-    </div>
+            <!-- Block 3 — Link -->
+            <div class="arena-block block-link">
+              <div class="block-inner">
+                <a href="https://designmanifestos.org/john-perry-barlow-a-declaration-of-the-independence-of-cyberspace/" target="_blank" class="block-link-title"></a>
+                  John Perry Barlow's Declaration of the Independence of Cyberspace
+                </a>
+                <p class="block-link-desc">
+                  Written in 1996, this manifesto envisioned a free digital realm. 
+                  How does it hold up 30 years later?
+                </p>
+                <div class="block-meta">
+                  <span class="block-date">Dec 22, 2025</span>
+                  <span class="block-type">Link</span>
+                </div>
+              </div>
+            </div>
 
-    <div class="project-item" data-title="" data-description="">
-      <h3></h3>
-      <p></p>
-    </div>
+            <!-- Block 4 — Text -->
+            <div class="arena-block block-text">
+              <div class="block-inner">
+                <h3>Fiction as a design tool</h3>
+                <p>
+                  Revisiting Sens-Fiction: what if designers worked backwards from fictional futures?
+                </p>
+                <div class="block-meta">
+                  <span class="block-date">Nov 8, 2025</span>
+                  <span class="block-type">Text</span>
+                </div>
+              </div>
+            </div>
 
-    <!-- Add more project-item elements here
+            <!-- Block 5 — Image -->
+            <div class="arena-block block-image">
+              <img src="assets/images/powerful users.jpg" alt="Digital users">
+              <div class="block-caption">
+                <p>The user at the center</p>
+              </div>
+            </div>
 
-  </div>
-</section>
+            <!-- Block 6 — Quote -->
+            <div class="arena-block block-text block-quote">
+              <div class="block-inner">
+                <blockquote>
+                  "The interface is a border zone where digital intention meets human gesture."
+                </blockquote>
+                <div class="block-meta">
+                  <span class="block-date">Oct 2025</span>
+                  <span class="block-type">Quote</span>
+                </div>
+              </div>
+            </div>
 
-<!-- MODAL
-<div id="projectModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <h2 id="modalTitle"></h2>
-    <p id="modalDescription"></p>
-  </div>
-</div>
-  -->
-   </div>
+            <!-- Block 7 — Link -->
+            <div class="arena-block block-link">
+              <div class="block-inner">
+                <a href="#" target="_blank" class="block-link-title">
+                  User sovereignty in the age of AI agents
+                </a>
+                <p class="block-link-desc">
+                  As AI assistants mediate more interactions, who really holds power?
+                </p>
+                <div class="block-meta">
+                  <span class="block-date">Oct 30, 2025</span>
+                  <span class="block-type">Link</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Block 8 — Image -->
+            <div class="arena-block block-image">
+              <img src="assets/images/users shop.jpg" alt="Contemporary users">
+              <div class="block-caption">
+                <p>Digital commerce landscape</p>
+              </div>
+            </div>
+
+            <!-- Add more blocks as needed -->
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: Our Projects (Under Construction) -->
+      <section class="page-section our-projects-section" id="our-projects">
+        <div class="content">
+          <div class="construction-notice">
+            <p>
+              🚧 This section is under construction. <br>
+              We're working on showcasing our own projects here. <br>
+              Check back soon.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
   
-    <footer class="footer-carousel">
+  </div>  <!-- Close page-wrapper -->
+  
+  <footer class="footer-carousel">
     <div class="scroll-text" aria-hidden="true">
-    © 2026 Userist Collective —
-    Textes, articles, images et contenus artistiques
-    sous Licence Art Libre 1.3.
-    Code source sous licence EUPL v1.2.   
+      © 2026 Userist Collective —
+      Textes, articles, images et contenus artistiques
+      sous Licence Art Libre 1.3.
+      Code source sous licence EUPL v1.2. — 
+      © 2026 Userist Collective —
+      Textes, articles, images et contenus artistiques
+      sous Licence Art Libre 1.3.
+      Code source sous licence EUPL v1.2.
     </div>
   </footer>
-  
-  <!-- Include your JS for menu, language switcher, etc. -->
-  <script src="js/global.js"></script>
-  <script>// Language switcher
-    (function () {
-      const langBtn = document.querySelector('.lang-btn');
-      const langSwitcher = document.querySelector('.lang-switcher');
-      const langMenu = document.querySelector('.lang-menu');
 
-      langBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const expanded = langBtn.getAttribute('aria-expanded') === 'true';
-        langBtn.setAttribute('aria-expanded', String(!expanded));
-        langMenu.style.display = expanded ? 'none' : 'flex';
-      });
-
-      // Close on outside click
-      document.addEventListener('click', (e) => {
-        if (!langSwitcher.contains(e.target)) {
-          langBtn.setAttribute('aria-expanded', 'false');
-          langMenu.style.display = 'none';
-        }
-      });
-    })();</script>
-  
   <script src="main.js"></script>
+  
+  <!-- Projects page navigation script -->
+  <script>
+    (function() {
+      const navBtns = document.querySelectorAll('.nav-btn[data-section]');
+      const sections = {
+        'finds': document.getElementById('finds'),
+        'our-projects': document.getElementById('our-projects')
+      };
+
+      navBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetSection = btn.dataset.section;
+          
+          // Update button states
+          navBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          // Update section visibility
+          Object.values(sections).forEach(section => {
+            section.classList.remove('active-section');
+          });
+          sections[targetSection].classList.add('active-section');
+          
+          // Smooth scroll to top of section
+          sections[targetSection].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    })();
+  </script>
   
 </body>
 </html>
-
-
