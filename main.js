@@ -165,7 +165,7 @@ function updateNavText() {
   
   const navText = document.querySelector('.nav-logo-text');
   if (navText && currentPage !== 'index') {
-    navText.textContent = `USERISM COLLECTIVE — ${pageNames[currentPage] || ''}`;
+    navText.textContent = `USERIST COLLECTIVE — ${pageNames[currentPage] || ''}`;
   }
 }
 
@@ -652,5 +652,6 @@ document.addEventListener('DOMContentLoaded', function() {
     closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
 
   });
