@@ -379,7 +379,7 @@ body.about main {
 /* =============================================== */
 /* RESPONSIVE DESIGN FOR NAVBAR */
 /* =============================================== */
-@media (min-width: 769px) and (max-width: 1100px) {
+@media (min-width: 769px) and (max-width: 1110px) {
   .nav-logo-text {
     font-size: 11px;
     letter-spacing: 0.5px;
@@ -1697,6 +1697,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
 
 
 
