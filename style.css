@@ -993,18 +993,24 @@ body.about main {
   gap: 0.75rem;
   margin-top: 1rem;
 }
-
 .social-link {
   padding: 0.4rem 1rem;
-  border: 1px solid currentColor;
+  border: 1px solid magenta;
   border-radius: 999px;
   text-decoration: none;
   font-size: 0.9em;
-  transition: opacity 0.15s;
+  color: magenta;
+  background-color: transparent;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
 }
-
 .social-link:hover {
-  opacity: 0.6;
+  color: cyan;
+  border-color: cyan;
+}
+.social-link:active {
+  color: cyan;
+  border-color: cyan;
+  background-color: rgba(0, 255, 255, 0.15);
 }
 
 .about-photo {
@@ -1691,6 +1697,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
 
 
 
