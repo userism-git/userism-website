@@ -72,45 +72,17 @@ const translations = {
 
 let currentLanguage = 'en';
 
-// Change language
 function setLanguage(lang) {
   currentLanguage = lang;
-  console.log('Setting language to:', lang);
-
-  if (!translations[lang]) {
-    console.error(' Translation not found for:', lang);
-    return;
-  }
-
-  let translatedCount = 0;
-  
+  if (!translations[lang]) return;
   for (const key in translations[lang]) {
     const el = document.getElementById(key);
-    if (el) {
-      el.textContent = translations[lang][key];
-      translatedCount++;
-      console.log(` Translated ${key}`);
-    } else {
-      console.warn(` Element not found: ${key}`);
-    }
+    if (el) el.textContent = translations[lang][key];
   }
-  
-  console.log(` Total translated: ${translatedCount} elements`);
-  
-  // Update active language in selector
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.classList.remove('active');
-    const optText = opt.textContent.trim();
-    const langMap = {
-      'EN': 'en',
-      'FR': 'fr',
-      'IT': 'it',
-      'ES': 'es',
-      '中文': 'zh'
-    };
-    if (langMap[optText] === lang) {
-      opt.classList.add('active');
-    }
+    const langMap = { 'EN': 'en', 'FR': 'fr', 'IT': 'it', 'ES': 'es', '中文': 'zh' };
+    if (langMap[opt.textContent.trim()] === lang) opt.classList.add('active');
   });
 }
 
@@ -120,52 +92,22 @@ function setLanguage(lang) {
 function setNavbarColorByPage() {
   const path = window.location.pathname;
   const currentPage = path.split('/').pop().replace('.html', '') || 'index';
-  
-  const pageColors = {
-    'articles': '#00FFFF',    // cyan
-    'events': '#FFFF00',      // yellow
-    'projects': '#FF00FF',    // magenta
-    'about': '#FFFF00'        // yellow
-  };
-
+  const pageColors = { 'articles': '#00FFFF', 'events': '#FFFF00', 'projects': '#FF00FF', 'about': '#FFFF00' };
   const randomColors = ['#FFFF00', '#00FFFF', '#FF00FF'];
-
-  function getRandomColor() {
-    return randomColors[Math.floor(Math.random() * randomColors.length)];
-  }
-
-  // Decide navbar color
-  let color;
-
-  if (currentPage === 'index') {
-    color = getRandomColor();
-    console.log('Random homepage navbar:', color);
-  } else {
-    color = pageColors[currentPage] || '#00FFFF';
-    console.log('Page navbar:', currentPage, '→', color);
-  }
-  
-  // Set CSS variable for navbar
+  const color = currentPage === 'index'
+    ? randomColors[Math.floor(Math.random() * randomColors.length)]
+    : (pageColors[currentPage] || '#00FFFF');
   document.documentElement.style.setProperty('--nav-bg-color', color);
   document.documentElement.style.setProperty('--page-bg-color', color);
 }
 
-// Update nav text with current page
 function updateNavText() {
   const path = window.location.pathname;
   const currentPage = path.split('/').pop().replace('.html', '') || 'index';
-  
-  const pageNames = {
-    'index': 'HOME',
-    'articles': 'ARTICLES',
-    'events': 'EVENTS',
-    'projects': 'PROJECTS',
-    'about': 'ABOUT'
-  };
-  
+  const pageNames = { 'index': 'HOME', 'articles': 'ARTICLES', 'events': 'EVENTS', 'projects': 'PROJECTS', 'about': 'ABOUT' };
   const navText = document.querySelector('.nav-logo-text');
   if (navText && currentPage !== 'index') {
-    navText.textContent = `USERIST COLLECTIVE — ${pageNames[currentPage] || ''}`;
+    navText.textContent = ` ${pageNames[currentPage] || ''}`;
   }
 }
 
@@ -173,20 +115,11 @@ function updateNavText() {
 // INITIALIZATION
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-  console.log(' Initializing Userism.net...');
-  
-  // Set page-specific navbar color
   setNavbarColorByPage();
   updateNavText();
-  
-  // Initialize hamburger menu
   initHamburgerMenu();
   initModalHandlers();
-  
-  // Setup language buttons
-  setTimeout(() => {
-    setupLanguageButtons();
-  }, 500);
+  setTimeout(() => { setupLanguageButtons(); }, 500);
 });
 
 window.addEventListener('load', () => {
@@ -200,34 +133,13 @@ window.addEventListener('load', () => {
 // LANGUAGE BUTTONS SETUP
 // ==========================================
 function setupLanguageButtons() {
-  const langButtons = document.querySelectorAll('.lang-option');
-  
-  console.log('Language buttons found:', langButtons.length);
-  
-  langButtons.forEach((btn, index) => {
-    console.log(`Button ${index}:`, btn.textContent.trim());
-    
+  const langMap = { 'EN': 'en', 'FR': 'fr', 'IT': 'it', 'ES': 'es', '中文': 'zh' };
+  document.querySelectorAll('.lang-option').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      
-      const langText = btn.textContent.trim();
-      console.log(' Clicked:', langText);
-      
-      const langMap = {
-        'EN': 'en',
-        'FR': 'fr',
-        'IT': 'it',
-        'ES': 'es',
-        '中文': 'zh'
-      };
-      
-      const langCode = langMap[langText];
-      console.log(' Language code:', langCode);
-      
-      if (langCode) {
-        setLanguage(langCode);
-      }
+      const langCode = langMap[btn.textContent.trim()];
+      if (langCode) setLanguage(langCode);
     });
   });
 }
@@ -238,14 +150,7 @@ function setupLanguageButtons() {
 function initHamburgerMenu() {
   const hamburger = document.getElementById('hamburger');
   const overlay = document.getElementById('menuOverlay');
-  
-  if (!hamburger || !overlay) {
-    console.error(' Hamburger or overlay not found!');
-    return;
-  }
-  
-  console.log(' Found hamburger and overlay elements');
-  
+  if (!hamburger || !overlay) return;
   setupMenuListeners();
   activateCurrentPage();
 }
@@ -255,81 +160,35 @@ function setupMenuListeners() {
   const overlay = document.getElementById('menuOverlay');
   const menuLinks = document.querySelectorAll('.menu-link, .overlay-nav a');
   const closeMenuBtn = document.getElementById('closeMenu');
-  
-  if (!hamburger || !overlay) {
-    console.error('Menu elements not found');
-    return;
-  }
-  
-  // Toggle menu with hamburger
-  hamburger.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log(' Hamburger clicked!');
-    toggleMenu();
-  });
-  
-  if (closeMenuBtn) {
-    closeMenuBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      closeMenu();
-    });
-  }
-  
-  // Close when clicking outside menu content
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      closeMenu();
-    }
-  });
-  
-  // Close when clicking nav links
-  menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      closeMenu();
-    });
-  });
-  
-  // Close on escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('active')) {
-      closeMenu();
-    }
-  });
-  
-  function toggleMenu() {
-    const isOpen = overlay.classList.contains('active');
-    if (isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  }
-  
+  if (!hamburger || !overlay) return;
+
   function openMenu() {
-    console.log(' Opening menu');
     overlay.classList.add('active');
     hamburger.classList.add('active');
     hamburger.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
-  
   function closeMenu() {
-    console.log(' Closing menu');
     overlay.classList.remove('active');
     hamburger.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
+  function toggleMenu() {
+    overlay.classList.contains('active') ? closeMenu() : openMenu();
+  }
+
+  hamburger.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); toggleMenu(); });
+  if (closeMenuBtn) closeMenuBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); closeMenu(); });
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeMenu(); });
+  menuLinks.forEach(link => link.addEventListener('click', () => closeMenu()));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('active')) closeMenu(); });
 }
 
 function activateCurrentPage() {
   const path = window.location.pathname;
   const currentPage = path.split('/').pop().replace('.html', '') || 'index';
-  
-  const links = document.querySelectorAll('.menu-link, .overlay-nav a');
-  links.forEach(link => {
+  document.querySelectorAll('.menu-link, .overlay-nav a').forEach(link => {
     const href = link.getAttribute('href');
     if (href && (href.includes(currentPage) || (currentPage === 'index' && href.includes('index.html')))) {
       link.classList.add('active');
@@ -338,111 +197,79 @@ function activateCurrentPage() {
 }
 
 // ==========================================
-// ANIMATIONS
+// INTRO ANIMATION
 // ==========================================
 function initIntroAnimation() {
   const intro = document.getElementById("intro");
-  
-  if (!intro) {
-    console.warn('No intro element found - skipping animation');
-    document.body.classList.add("loaded");
-    return;
-  }
-
-  console.log('Starting intro animation...');
-  
+  if (!intro) { document.body.classList.add("loaded"); return; }
   setTimeout(() => {
     intro.style.opacity = "0";
     intro.style.transition = `opacity ${CONFIG.INTRO_FADE}ms ease`;
-    
     setTimeout(() => {
       intro.style.display = "none";
       intro.style.visibility = "hidden";
       document.body.classList.add("loaded");
       document.body.style.overflow = '';
-      console.log('Intro animation complete');
     }, CONFIG.INTRO_FADE);
   }, CONFIG.INTRO_DELAY);
 }
 
+// ==========================================
+// TYPEWRITER — STICKY SCROLL
+// ==========================================
 function initTypewriterEffect() {
   const output = document.getElementById("typewriter-text");
-  const section = document.getElementById("typewriter-section");
-  const landingSection = document.getElementById("landing");
+  const tunnel = document.getElementById("typewriter-tunnel");
 
-  if (!output || !section || !landingSection) return;
+  if (!output) { console.warn('[Typewriter] #typewriter-text not found'); return; }
+  if (!tunnel) { console.warn('[Typewriter] #typewriter-tunnel not found — wrap the section in <div id="typewriter-tunnel">'); return; }
 
-  const message = CONFIG.TYPEWRITER_MESSAGE;
+  const message    = CONFIG.TYPEWRITER_MESSAGE;
   const totalChars = message.length;
+  const PAUSE_FRACTION = 0.30; // last 30% of scroll = full sentence sits still
 
-  let charIndex = 0;
-  let typingStarted = false;
-  let startScrollY = 0;
+  output.textContent = "";
 
-  function updateTypewriter() {
-    const landingRect = landingSection.getBoundingClientRect();
-    const viewportCenter = window.innerHeight / 2;
+  function tick() {
+    const tunnelTop    = tunnel.getBoundingClientRect().top + window.scrollY; // absolute top
+    const tunnelHeight = tunnel.offsetHeight;
+    const viewH        = window.innerHeight;
 
-    // Start typing when viewport center passes the bottom of landing section
-    if (landingRect.bottom <= viewportCenter && !typingStarted) {
-      typingStarted = true;
-      startScrollY = window.scrollY;
-    }
+    // Sticky travel: scrollY goes from tunnelTop → tunnelTop + (tunnelHeight - viewH)
+    const stickyRange  = tunnelHeight - viewH;
+    const scrolled     = Math.max(0, window.scrollY - tunnelTop);
+    const rawProgress  = Math.min(1, scrolled / stickyRange);
 
-    if (typingStarted) {
-      // Calculate scroll distance since typing started
-      const scrollDistance = window.scrollY - startScrollY;
-      
-      // More responsive typing
-      const PIXELS_PER_CHAR =10;// Adjust this: lower = faster typing
-      const targetIndex = Math.floor(scrollDistance / PIXELS_PER_CHAR);
-      
-      // Smooth interpolation
-      charIndex += (targetIndex - charIndex) * 0.15;
-      
-      const displayIndex = Math.max(0, Math.min(totalChars, Math.floor(charIndex)));
-      output.textContent = message.substring(0, displayIndex);
-    }
+    // Typing window = first (1 - PAUSE_FRACTION) of scroll
+    const typingWindow = 1 - PAUSE_FRACTION;
+    const typeProgress = Math.min(1, rawProgress / typingWindow);
+    const charCount    = Math.round(typeProgress * totalChars);
 
-    requestAnimationFrame(updateTypewriter);
+    output.textContent = message.substring(0, charCount);
+    requestAnimationFrame(tick);
   }
 
-  output.textContent = ""; // start empty
-  requestAnimationFrame(updateTypewriter);
+  requestAnimationFrame(tick);
 }
+
 // ==========================================
 // CONTENT LOADING (Articles & Events)
 // ==========================================
 async function loadArticlePreviews() {
   const container = document.getElementById('articles-preview');
   if (!container) return;
-
   try {
-    const html = await fetchHTML('articles-list.html'); 
+    const html = await fetchHTML('articles-list.html');
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
     const cards = Array.from(doc.querySelectorAll('.article-card'));
-    
-    if (cards.length === 0) {
-      container.innerHTML = '<p>No articles available yet.</p>';
-      return;
-    }
-
+    if (cards.length === 0) { container.innerHTML = '<p>No articles available yet.</p>'; return; }
     container.innerHTML = '';
-    
     const isHomePage = window.location.pathname.includes('index.html') || window.location.pathname === '/';
     const articlesToShow = isHomePage ? CONFIG.ARTICLES_TO_SHOW : cards.length;
-    
-    cards.slice(0, articlesToShow).forEach(card => {
-      container.appendChild(card.cloneNode(true));
-    });
-    
-    if (currentLanguage && currentLanguage !== 'en') {
-      setTimeout(() => setLanguage(currentLanguage), 100);
-    }
-    
+    cards.slice(0, articlesToShow).forEach(card => container.appendChild(card.cloneNode(true)));
+    if (currentLanguage && currentLanguage !== 'en') setTimeout(() => setLanguage(currentLanguage), 100);
   } catch (error) {
-    console.error('Failed to load articles:', error);
     container.innerHTML = '<p>No articles available yet.</p>';
   }
 }
@@ -450,23 +277,13 @@ async function loadArticlePreviews() {
 async function loadEventPreviews() {
   const container = document.getElementById('events-preview');
   if (!container) return;
-
   try {
     const html = await fetchHTML('events.html');
     const items = parseElements(html, '.event-item');
-    
-    if (items.length === 0) {
-      container.innerHTML = '<p>No upcoming events yet.</p>';
-      return;
-    }
-
+    if (items.length === 0) { container.innerHTML = '<p>No upcoming events yet.</p>'; return; }
     container.innerHTML = '';
-    items.slice(0, CONFIG.EVENTS_TO_SHOW).forEach(item => {
-      container.appendChild(item.cloneNode(true));
-    });
-    
+    items.slice(0, CONFIG.EVENTS_TO_SHOW).forEach(item => container.appendChild(item.cloneNode(true)));
   } catch (error) {
-    console.error('Failed to load events:', error);
     container.innerHTML = '<p>No upcoming events yet.</p>';
   }
 }
@@ -477,20 +294,12 @@ async function loadEventPreviews() {
 function initModalHandlers() {
   window.toggleArticle = toggleArticle;
   window.closeArticle = closeArticle;
-
   const modal = document.getElementById('articleModal');
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeArticle();
-    });
-  }
-
+  if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeArticle(); });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       const modal = document.getElementById('articleModal');
-      if (modal && modal.classList.contains('active')) {
-        closeArticle();
-      }
+      if (modal && modal.classList.contains('active')) closeArticle();
     }
   });
 }
@@ -499,12 +308,7 @@ function toggleArticle(element) {
   const content = element.nextElementSibling;
   const modal = document.getElementById('articleModal');
   const modalContent = document.getElementById('modalContent');
-  
-  if (!modal || !modalContent || !content) {
-    console.error('Modal elements not found');
-    return;
-  }
-  
+  if (!modal || !modalContent || !content) return;
   modalContent.innerHTML = content.innerHTML;
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -513,7 +317,6 @@ function toggleArticle(element) {
 function closeArticle() {
   const modal = document.getElementById('articleModal');
   if (!modal) return;
-  
   modal.classList.remove('active');
   document.body.style.overflow = '';
 }
@@ -529,7 +332,6 @@ async function fetchHTML(url, retries = 2) {
       return await response.text();
     } catch (error) {
       if (i === retries - 1) throw error;
-      console.warn(`Fetch attempt ${i + 1} failed, retrying...`);
       await new Promise(resolve => setTimeout(resolve, 1000));
     }
   }
@@ -540,118 +342,79 @@ function parseElements(html, selector) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
     return Array.from(doc.querySelectorAll(selector));
-  } catch (error) {
-    console.error('Error parsing HTML:', error);
-    return [];
-  }
+  } catch (error) { return []; }
 }
 
-function showError(container, message) {
-  container.innerHTML = `
-    <div class="error-state">
-      <p>${message}</p>
-      <button onclick="window.location.reload()">Retry</button>
-    </div>
-  `;
-}
-// Hide scroll indicator when typewriter section is visible
+// ==========================================
+// SCROLL INDICATOR — hide when typewriter visible
+// ==========================================
 (function () {
   const scrollIndicator = document.querySelector('.scroll-indicator');
-  const typewriterSection = document.getElementById('typewriter-section');
-  
-  if (!scrollIndicator || !typewriterSection) return;
-  
+  const typewriterTunnel = document.getElementById('typewriter-tunnel');
+  if (!scrollIndicator || !typewriterTunnel) return;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        scrollIndicator.style.opacity = '0';
-        scrollIndicator.style.pointerEvents = 'none';
-      } else {
-        scrollIndicator.style.opacity = '0.7';
-        scrollIndicator.style.pointerEvents = 'auto';
-      }
+      scrollIndicator.style.opacity = entry.isIntersecting ? '0' : '0.7';
+      scrollIndicator.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
     });
-  }, {
-    threshold: 0.1
-  });
-  
-  observer.observe(typewriterSection);
+  }, { threshold: 0.1 });
+  observer.observe(typewriterTunnel);
 })();
 
+// ==========================================
+// PROJECTS PAGE — section nav + block modal
+// ==========================================
 document.addEventListener('DOMContentLoaded', function() {
-
-    // ── Section navigation ───────────────────
-    const navBtns = document.querySelectorAll('.nav-btn[data-section]');
-    const sections = {
-      'finds': document.getElementById('finds'),
-      'our-projects': document.getElementById('our-projects')
-    };
-
-    navBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.dataset.section;
-        navBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        Object.values(sections).forEach(s => s.classList.remove('active-section'));
+  const navBtns = document.querySelectorAll('.nav-btn[data-section]');
+  const sections = {
+    'finds': document.getElementById('finds'),
+    'our-projects': document.getElementById('our-projects')
+  };
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.section;
+      navBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      Object.values(sections).forEach(s => s && s.classList.remove('active-section'));
+      if (sections[target]) {
         sections[target].classList.add('active-section');
         sections[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-
-    // ── Block modal ──────────────────────────
-    const overlay    = document.getElementById('blockModalOverlay');
-    const closeBtn   = document.getElementById('blockModalClose');
-    const modalImage = document.getElementById('blockModalImage');
-    const modalType  = document.getElementById('blockModalType');
-    const modalTitle = document.getElementById('blockModalTitle');
-    const modalDesc  = document.getElementById('blockModalDesc');
-    const modalLink  = document.getElementById('blockModalLink');
-    const modalMeta  = document.getElementById('blockModalMeta');
-
-    function openModal(block) {
-      const type  = block.dataset.type  || '';
-      const title = block.dataset.title || '';
-      const desc  = block.dataset.desc  || '';
-      const url   = block.dataset.url   || '';
-      const date  = block.dataset.date  || '';
-      const img   = block.querySelector('img');
-
-      modalType.textContent  = type;
-      modalTitle.textContent = title;
-      modalDesc.textContent  = desc;
-      modalMeta.textContent  = date;
-
-      if (img) {
-        modalImage.src           = img.src;
-        modalImage.alt           = img.alt;
-        modalImage.style.display = 'block';
-      } else {
-        modalImage.style.display = 'none';
       }
-
-      if (url) {
-        modalLink.href           = url;
-        modalLink.style.display  = 'inline-flex';
-      } else {
-        modalLink.style.display  = 'none';
-      }
-
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('.block').forEach(block => {
-      block.addEventListener('click', () => openModal(block));
     });
-
-    closeBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-
   });
+
+  const overlay    = document.getElementById('blockModalOverlay');
+  const closeBtn   = document.getElementById('blockModalClose');
+  const modalImage = document.getElementById('blockModalImage');
+  const modalType  = document.getElementById('blockModalType');
+  const modalTitle = document.getElementById('blockModalTitle');
+  const modalDesc  = document.getElementById('blockModalDesc');
+  const modalLink  = document.getElementById('blockModalLink');
+  const modalMeta  = document.getElementById('blockModalMeta');
+
+  if (!overlay) return;
+
+  function openModal(block) {
+    modalType.textContent  = block.dataset.type  || '';
+    modalTitle.textContent = block.dataset.title || '';
+    modalDesc.textContent  = block.dataset.desc  || '';
+    modalMeta.textContent  = block.dataset.date  || '';
+    const img = block.querySelector('img');
+    if (img) { modalImage.src = img.src; modalImage.alt = img.alt; modalImage.style.display = 'block'; }
+    else { modalImage.style.display = 'none'; }
+    const url = block.dataset.url || '';
+    if (url) { modalLink.href = url; modalLink.style.display = 'inline-flex'; }
+    else { modalLink.style.display = 'none'; }
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.block').forEach(block => block.addEventListener('click', () => openModal(block)));
+  closeBtn && closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+});

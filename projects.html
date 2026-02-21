@@ -1,313 +1,321 @@
 <!--
 Copyright (c) 2026 Userist Collective
-Ce code est distribué sous licence EUPL v1.2. 
-Voir le fichier LICENSE pour plus de détails.
-Les contenus (textes, images, médias) sont distribués sous Licence Art Libre 1.3.
+Ce code est distribué sous licence EUPL v1.2.
+Les contenus sous Licence Art Libre 1.3.
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects — Userism</title>
+  <title>Projects</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/favicon.png" />
-  <meta name="theme-color" content="#00FFFF">
+  <meta name="theme-color" content="#FF00FF">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Nav pills ── */
+    .projects-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 1.5rem;
+      align-items: center;
+    }
+    .projects-nav .nav-btn,
+    .projects-nav .arena-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4rem 0.95rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      border: 2px solid currentColor;
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      white-space: nowrap;
+      border-radius: 999px;
+      transition: background 0.15s, color 0.15s;
+      width: auto !important;
+      flex: 0 0 auto;
+    }
+    .projects-nav .nav-btn.active,
+    .projects-nav .nav-btn:hover,
+    .projects-nav .arena-link:hover {
+      background: #00000000;
+      color: #FF00FF;
+      border-color: #000;
+    }
+
+    /* ── Blog-style entry list ── */
+    .project-list {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .project-entry {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      padding: 1.6rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.13);
+      transition: opacity 0.14s;
+    }
+    .project-entry:first-child { border-top: 1px solid rgba(0,0,0,0.13); }
+    .project-entry:hover { opacity: 0.7; }
+
+    /* hidden when filtered out */
+    .project-entry.hidden { display: none; }
+
+    .entry-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.45rem;
+    }
+    .entry-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FF00FF;
+      border: 1.5px solid #FF00FF;
+      border-radius: 999px;
+      padding: 0.15rem 0.55rem;
+      line-height: 1.4;
+    }
+    .entry-date {
+      font-size: 0.74rem;
+      color: #999;
+    }
+
+    .entry-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+    }
+
+    .entry-preview {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.65;
+      max-width: 60ch;
+    }
+
+    .entry-arrow {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #FF00FF;
+      letter-spacing: 0.04em;
+    }
+
+    /* empty state */
+    .empty-state {
+      padding: 3rem 0;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
 </head>
 
 <body class="projects">
-  
-<!-- Fixed Navigation Bar -->
-    <nav class="fixed-nav" id="fixedNav">
-      <div class="nav-grid">
-        <div class="nav-logo-section">
-          <a href="index.html">
+
+  <!-- Fixed Navigation Bar -->
+  <nav class="fixed-nav" id="fixedNav">
+    <div class="nav-grid">
+      <div class="nav-logo-section">
+        <a href="index.html">
           <img src="assets/images/Asset 2.png" alt="Userism logo" class="nav-logo-img">
-          <span class="nav-logo-text">USERIST COLLECTIVE - PROJECTS</span>
-          </a>
-        </div>
-        <div class="nav-menu-section">
-        </div>
-        <div class="nav-hamburger-section">
-          <div class="hamburger-btn" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
+          <span class="nav-logo-text"> PROJECTS</span>
+        </a>
       </div>
-    </nav>
-    
-    <!-- Full Screen Menu Overlay -->
-    <div class="menu-overlay" id="menuOverlay">
-      <span class="close-menu" id="closeMenu">&times;</span>
-      <div class="menu-content">
-        <nav class="overlay-nav">
-          <a href="index.html" data-page="index">Home</a>
-          <a href="articles.html" data-page="articles">Articles</a>
-          <a href="events.html" data-page="events">Events</a>
-          <a href="projects.html" data-page="projects">Projects</a>
-          <a href="about.html" data-page="about">About</a>
-        </nav>
-        <div class="language-selector">
-          <span class="globe-icon">🌐</span>
-          <a href="#" class="lang-option">EN</a>
-          <a href="#" class="lang-option">FR</a>
-          <a href="#" class="lang-option">IT</a>
-          <a href="#" class="lang-option">ES</a>
-          <a href="#" class="lang-option">中文</a>
+      <div class="nav-menu-section"></div>
+      <div class="nav-hamburger-section">
+        <div class="hamburger-btn" id="hamburger">
+          <span></span><span></span><span></span>
         </div>
       </div>
     </div>
-  
+  </nav>
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay">
+    <span class="close-menu" id="closeMenu">&times;</span>
+    <div class="menu-content">
+      <nav class="overlay-nav">
+        <a href="index.html">Home</a>
+        <a href="articles.html">Articles</a>
+        <a href="events.html">Events</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+      </nav>
+      <div class="language-selector">
+        <span class="globe-icon">🌐</span>
+        <a href="#" class="lang-option">EN</a>
+        <a href="#" class="lang-option">FR</a>
+        <a href="#" class="lang-option">IT</a>
+        <a href="#" class="lang-option">ES</a>
+        <a href="#" class="lang-option">中文</a>
+      </div>
+    </div>
+  </div>
+
   <div class="page-wrapper">
-    
     <main>
 
-  <!-- Page Header with Navigation Buttons -->
+      <!-- Header -->
       <section class="page-section projects-header">
         <div class="content">
           <h1>Projects</h1>
-          <p>A collection of things we find interesting and our own work.</p>
-          
-          <!-- Navigation Buttons -->
+          <p>Things we find interesting, and work of our own.</p>
           <div class="projects-nav">
-            <button class="nav-btn active" data-section="finds">
-              Things We Find Interesting
-            </button>
-            <button class="nav-btn" data-section="our-projects">
-              Our Projects
-            </button>
-            <a href="https://www.are.na/userism-collective" target="_blank" class="nav-btn arena-link">
-              Visit Our Are.na →
-            </a>
+            <button class="nav-btn active" data-filter="all">All</button>
+            <button class="nav-btn" data-filter="finds">Things We Find Interesting</button>
+            <button class="nav-btn" data-filter="ours">Our Projects</button>
+            <a href="https://www.are.na/userism-collective" target="_blank" class="nav-btn arena-link">Are.na →</a>
           </div>
         </div>
       </section>
 
-      <!-- SECTION 1: Things We Find Interesting  -->
-      <section class="page-section finds-section active-section" id="finds">
-        <div class="content-wide">
-          
-          <div class="grid">
+      <!-- Entry list -->
+      <section class="page-section">
+        <div class="project-list" id="projectList">
 
-            <!-- Block 1 — Text -->
-           <div class="block block-text"
-              data-type="Video"
-              data-title="Le Far West de la technologie numérique dans un système capitaliste"
-              data-desc="How every swipe, tap, and click feeds the algorithmic machinery. A deep dive into gestural labor in the digital age."
-              data-url="https://www.youtube.com/watch?v=m1xBW56j4yA"
-              data-date="Feb 15, 2026">
-              <div class="block-inner">
-                <h3>The gesture economy and platform capitalism</h3>
-                <p>How every swipe, tap, and click feeds the algorithmic machinery. A deep dive into gestural labor in the digital age.</p>
-                <div class="block-meta">
-                  <span class="block-date">Feb 15, 2026</span>
-                  <span class="block-type">Video</span>
-                </div>
-              </div>
+          <!-- ═══════════════════════════════════
+               OUR PROJECTS — add yours here
+          ════════════════════════════════════ -->
+
+          <!-- Example: Your Project -->
+          <a class="project-entry" data-category="ours" href="projects/userism-manifesto.html">
+            <div class="entry-meta">
+              <span class="entry-tag">Our Project</span>
+              <span class="entry-date">Feb 2026</span>
             </div>
+            <div class="entry-title">The Userism Manifesto</div>
+            <div class="entry-preview">A working document outlining the political, philosophical, and practical stakes of userism as a framework for thinking about digital life.</div>
+            <span class="entry-arrow">Read more →</span>
+          </a>
 
-            <!-- Block 2 — Image -->
-            <div class="block block-image">
-              <img src="assets/images/eniac.png" alt="Early computing">
-              <div class="block-caption">
-                <p>ENIAC operators, 1946</p>
-              </div>
+          <!-- ═══════════════════════════════════
+               FINDS — things we find interesting
+          ════════════════════════════════════ -->
+
+          <a class="project-entry" data-category="finds" href="projects/gesture-economy.html">
+            <div class="entry-meta">
+              <span class="entry-tag">Video</span>
+              <span class="entry-date">Feb 15, 2026</span>
             </div>
+            <div class="entry-title">The gesture economy and platform capitalism</div>
+            <div class="entry-preview">How every swipe, tap, and click feeds the algorithmic machinery. A deep dive into gestural labor in the digital age.</div>
+            <span class="entry-arrow">Read more →</span>
+          </a>
 
-            <!-- Block 3 — Link -->
-            <div class="block block-link">
-              <div class="block-inner">
-                <a href="https://designmanifestos.org/john-perry-barlow-a-declaration-of-the-independence-of-cyberspace/" target="_blank" class="block-link-title"></a>
-                  John Perry Barlow's Declaration of the Independence of Cyberspace
-                </a>
-                <p class="block-link-desc">
-                  Written in 1996, this manifesto envisioned a free digital realm. 
-                  How does it hold up 30 years later?
-                </p>
-                <div class="block-meta">
-                  <span class="block-date">Dec 22, 2025</span>
-                  <span class="block-type">Link</span>
-                </div>
-              </div>
+          <a class="project-entry" data-category="finds" href="projects/bratton-user-layer.html">
+            <div class="entry-meta">
+              <span class="entry-tag">Book</span>
+              <span class="entry-date">Jan 2026</span>
             </div>
+            <div class="entry-title">The User Layer — Benjamin Bratton, <em>The Stack</em></div>
+            <div class="entry-preview">What if "the user" is not a person but a position? Bratton's framework dissolves the humanist myth at the heart of UX design.</div>
+            <span class="entry-arrow">Read more →</span>
+          </a>
 
-            <!-- Block 4 — Text -->
-            <div class="block block-text">
-              <div class="block-inner">
-                <h3>Fiction as a design tool</h3>
-                <p>
-                  Revisiting Sens-Fiction: what if designers worked backwards from fictional futures?
-                </p>
-                <div class="block-meta">
-                  <span class="block-date">Nov 8, 2025</span>
-                  <span class="block-type">Text</span>
-                </div>
-              </div>
+          <a class="project-entry" data-category="finds" href="projects/barlow-declaration.html">
+            <div class="entry-meta">
+              <span class="entry-tag">Manifesto</span>
+              <span class="entry-date">Dec 22, 2025</span>
             </div>
+            <div class="entry-title">A Declaration of the Independence of Cyberspace — John Perry Barlow</div>
+            <div class="entry-preview">Written in 1996, this manifesto envisioned a free digital realm. How does it hold up 30 years later?</div>
+            <span class="entry-arrow">Read more →</span>
+          </a>
 
-            <!-- Block 5 — Image -->
-            <div class="block block-image">
-              <img src="assets/images/powerful users.jpg" alt="Digital users">
-              <div class="block-caption">
-                <p>The user at the center</p>
-              </div>
+          <a class="project-entry" data-category="finds" href="projects/pasta-and-vinegar.html">
+            <div class="entry-meta">
+              <span class="entry-tag">Blog</span>
+              <span class="entry-date">Dec 2025</span>
             </div>
+            <div class="entry-title">Pasta & Vinegar — Nicolas Nova</div>
+            <div class="entry-preview">A long-running field notes blog at the intersection of technology, culture, and careful observation. One of the rare places on the web that still treats noticing as a method.</div>
+            <span class="entry-arrow">Read more →</span>
+          </a>
 
-            <!-- Block 6 — Quote -->
-            <div class="block block-text block-quote">
-              <div class="block-inner">
-                <blockquote>
-                  "The interface is a border zone where digital intention meets human gesture."
-                </blockquote>
-                <div class="block-meta">
-                  <span class="block-date">Oct 2025</span>
-                  <span class="block-type">Quote</span>
-                </div>
-              </div>
+          <a class="project-entry" data-category="finds" href="projects/franklin-real-world.html">
+            <div class="entry-meta">
+              <span class="entry-tag">Book</span>
+              <span class="entry-date">Nov 2025</span>
             </div>
+            <div class="entry-title">The Real World of Technology — Ursula Franklin</div>
+            <div class="entry-preview">Holistic vs prescriptive technologies — a 1989 framework that cuts through contemporary digital rhetoric with uncomfortable clarity.</div>
+            <span class="entry-arrow">Read more →</span>
+          </a>
 
-            <!-- Block 7 — Link -->
-            <div class="block block-link">
-              <div class="block-inner">
-                <a href="#" target="_blank" class="block-link-title">
-                  User sovereignty in the age of AI agents
-                </a>
-                <p class="block-link-desc">
-                  As AI assistants mediate more interactions, who really holds power?
-                </p>
-                <div class="block-meta">
-                  <span class="block-date">Oct 30, 2025</span>
-                  <span class="block-type">Link</span>
-                </div>
-              </div>
+          <a class="project-entry" data-category="finds" href="projects/yuk-hui-cosmotechnics.html">
+            <div class="entry-meta">
+              <span class="entry-tag">Essay</span>
+              <span class="entry-date">Oct 2025</span>
             </div>
+            <div class="entry-title">Cosmotechnics as Cosmopolitics — Yuk Hui</div>
+            <div class="entry-preview">Against the universalism of Silicon Valley: technology is not one thing but many, each rooted in a different cosmology and moral order.</div>
+            <span class="entry-arrow">Read more →</span>
+          </a>
 
-            <!-- Block 8 — Image -->
-            <div class="block block-image">
-              <img src="assets/images/users shop.jpg" alt="Contemporary users">
-              <div class="block-caption">
-                <p>Digital commerce landscape</p>
-              </div>
+          <a class="project-entry" data-category="finds" href="projects/bridle-new-dark-age.html">
+            <div class="entry-meta">
+              <span class="entry-tag">Book</span>
+              <span class="entry-date">Sep 2025</span>
             </div>
+            <div class="entry-title">New Dark Age — James Bridle</div>
+            <div class="entry-preview">More data, more complexity, less understanding. Bridle maps the cognitive collapse hiding inside our information systems.</div>
+            <span class="entry-arrow">Read more →</span>
+          </a>
 
-            <!-- Add more blocks as needed -->
-
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 2: Our Projects (Under Construction) -->
-      <section class="page-section our-projects-section" id="our-projects">
-        <div class="content">
-          <div class="construction-notice">
-            <p>
-              🚧 This section is under construction. <br>
-              We're working on showcasing our own projects here. <br>
-              Check back soon.
-            </p>
-          </div>
         </div>
       </section>
 
     </main>
-  
-  </div>  
-
-  <!-- Block detail modal -->
-<div class="block-modal-overlay" id="blockModalOverlay">
-  <div class="block-modal" role="dialog" aria-modal="true">
-    <button class="block-modal-close" id="blockModalClose" aria-label="Close">×</button>
-    <img class="block-modal-image" id="blockModalImage" src="" alt="" />
-    <div class="block-modal-body">
-      <div class="block-modal-type" id="blockModalType"></div>
-      <div class="block-modal-title" id="blockModalTitle"></div>
-      <div class="block-modal-desc" id="blockModalDesc"></div>
-      <a class="block-modal-link" id="blockModalLink" href="#" target="_blank" rel="noopener noreferrer">Open reference ↗</a>
-      <div class="block-modal-meta" id="blockModalMeta"></div>
-    </div>
   </div>
-</div>
-  
- <footer class="footer-carousel">
-   <div style="display: flex; justify-content: center;">
-      <div style="flex: 1; max-width: 800px; margin: 20px; padding: 0 20px; box-sizing: border-box;">
-         <style>
-            .custom-link {
-                color: magenta;
-                text-decoration: none;
-            }
-            .custom-link:hover {
-                color: cyan;
-            }
-            .footer-text {
-                color: white;
-                text-align: center;
-                white-space: normal;
-            }
-         </style>
-         <p class="footer-text">
-            <a class="custom-link" href="https://www.tiktok.com/@userism.updates?_r=1&_t=ZN-9422mE0uTTS">TikTok</a> |
-            <a class="custom-link" href="https://bsky.app/profile/userismupdates.bsky.social"> Bluesky</a> |
-            <a class="custom-link" href="https://t.me/userismupdates"> Telegram</a> |
-            <a class="custom-link" href="https://www.instagram.com/userismupdates/">Instagram</a> |
-            <a class="custom-link" href="https://www.youtube.com/@UserismUpdates"> YouTube</a> |
-            <a class="custom-link" href="https://github.com/userism-git"> GitHub</a>
-            <br><br>
-            Interested? Share your thoughts or step in and join us. All contact information is available <a class="custom-link" href="https://userism.net/about.html">here</a>. We speak English, French, Italian, and Spanish.
-            <br>
-         </p>
-      </div>
-   </div>
-   <div class="scroll-text" aria-hidden="true">
-       © 2026 Userist Collective —
-       Textes, articles, images et contenus artistiques
-       sous Licence Art Libre 1.3.
-       Code source sous licence EUPL v1.2. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       © 2026 Userist Collective —
-       Textes, articles, images et contenus artistiques
-       sous Licence Art Libre 1.3.
-       Code source sous licence EUPL v1.2. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   </div>
-</footer>
+
+  <footer class="footer-carousel">
+    <div class="scroll-text" aria-hidden="true">
+      © 2026 Userist Collective — Textes, articles, images et contenus artistiques sous Licence Art Libre 1.3. Code source sous licence EUPL v1.2. —
+      © 2026 Userist Collective — Textes, articles, images et contenus artistiques sous Licence Art Libre 1.3. Code source sous licence EUPL v1.2.
+    </div>
+  </footer>
 
   <script src="main.js"></script>
-  
-  <!-- Projects page navigation script -->
-  <script>
-    (function() {
-      const navBtns = document.querySelectorAll('.nav-btn[data-section]');
-      const sections = {
-        'finds': document.getElementById('finds'),
-        'our-projects': document.getElementById('our-projects')
-      };
 
-      navBtns.forEach(btn => {
+  <script>
+    // Filter by category
+    (function () {
+      const btns = document.querySelectorAll('.nav-btn[data-filter]');
+      const entries = document.querySelectorAll('.project-entry');
+
+      btns.forEach(btn => {
         btn.addEventListener('click', () => {
-          const targetSection = btn.dataset.section;
-          
-          // Update button states
-          navBtns.forEach(b => b.classList.remove('active'));
+          const filter = btn.dataset.filter;
+
+          // Update active button
+          btns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          
-          // Update section visibility
-          Object.values(sections).forEach(section => {
-            section.classList.remove('active-section');
+
+          // Show / hide entries
+          entries.forEach(entry => {
+            const cat = entry.dataset.category;
+            const show = filter === 'all' || cat === filter;
+            entry.classList.toggle('hidden', !show);
           });
-          sections[targetSection].classList.add('active-section');
-          
-          // Smooth scroll to top of section
-          sections[targetSection].scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       });
     })();
   </script>
-  
+
 </body>
-
 </html>
-
-
