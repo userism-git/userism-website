@@ -1053,7 +1053,7 @@ body.about main {
 .scroll-text {
   display: inline-block;
   animation: scroll 40s linear infinite;
-  colour: white;
+  color: white;
   
 }
 
@@ -1698,6 +1698,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
 
 
 
