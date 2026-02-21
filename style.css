@@ -565,7 +565,6 @@ body.articles main, body.events main, body.projects main, body.about main { marg
     min-height: 400px;
     max-height: 600px;
     overflow: hidden;
-    background: #f5f5f5;
   }
   .mf-img-side img { width: 100%; height: 100%; object-fit: auto; display: block; }
   .mf-slide:last-child .mf-img-side::after { height: 100px; background: linear-gradient(to bottom, transparent, #ffffff); }
