@@ -122,12 +122,13 @@ body.loaded #intro {
   max-width: 100%;
   margin: 0;
   width: 100%;
+  height: 75px;
   align-items: stretch;
 }
 
 .nav-logo-section {
   grid-column: 1 / 4;
-  padding: 20px;
+  padding: 0 20px;
   border-right: 1px solid var(--color-black);
   display: flex;
   align-items: center;
@@ -158,7 +159,7 @@ body.loaded #intro {
 
 .nav-menu-section {
   grid-column: 4 / 12;
-  padding: 20px;
+  padding: 0 20px;
   border-right: 1px solid var(--color-black);
   display: flex;
   align-items: center;
@@ -178,7 +179,7 @@ body.loaded #intro {
 
 .nav-hamburger-section {
   grid-column: 12 / 13;
-  padding: 20px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: center;
