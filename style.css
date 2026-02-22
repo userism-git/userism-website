@@ -333,10 +333,10 @@ body.articles main, body.events main, body.projects main, body.about main { marg
 }
 
 @media (max-width: 480px) {
-  .nav-logo-text { font-size: 9px; display: block; }
-  .nav-logo-section { padding: 15px; }
-  .nav-logo-img { width: 25px; height: 30px; }
-  .nav-hamburger-section { padding: 15px; }
+  .nav-logo-text { font-size: 12px; display: block; }
+  .nav-logo-section { padding: 0 17px; }
+  .nav-logo-img { width: 50px; height: 65px; }
+  .nav-hamburger-section { padding: 0 12px; }
 }
 
 /* =============================================== */

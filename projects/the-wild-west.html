@@ -1,0 +1,254 @@
+<!--
+Copyright (c) 2026 Userist Collective
+Ce code est distribué sous licence EUPL v1.2.
+Les contenus sous Licence Art Libre 1.3.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Far West de la technologie numérique dans un système capitaliste</title><!-- [EDIT] -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/png" href="../assets/favicon.png" />
+  <meta name="theme-color" content="#FF00FF">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    .entry-page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 5rem;
+    }
+
+    /* back link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #FF00FF;
+      margin-bottom: 2.5rem;
+      transition: opacity 0.14s;
+    }
+    .back-link:hover { opacity: 0.65; }
+
+    /* header block */
+    .entry-header { margin-bottom: 2rem; }
+
+    .entry-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+    .entry-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FF00FF;
+      border: 1.5px solid #FF00FF;
+      border-radius: 999px;
+      padding: 0.15rem 0.55rem;
+    }
+    .entry-date { font-size: 0.78rem; color: #999; }
+
+    .entry-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .entry-subtitle {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+
+    /* external link button */
+    .entry-cta {
+      display: inline-block;
+      padding: 0.5rem 1.1rem;
+      background: #FF00FF;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.14s;
+      margin-bottom: 2rem;
+    }
+    .entry-cta:hover { background: #cc00cc; }
+
+    /* optional cover image */
+    .entry-cover {
+      width: 100%;
+      max-height: 380px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 2rem;
+    }
+
+    /* body text */
+    .entry-body {
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: #222;
+    }
+    .entry-body p { margin-bottom: 1.25rem; }
+    .entry-body h2 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin: 2rem 0 0.6rem;
+    }
+    .entry-body blockquote {
+      border-left: 3px solid #FF00FF;
+      margin: 1.5rem 0;
+      padding: 0.5rem 0 0.5rem 1.25rem;
+      color: #444;
+      font-style: italic;
+    }
+    .entry-body a {
+      color: #FF00FF;
+      text-underline-offset: 3px;
+    }
+
+    /* divider */
+    .entry-divider {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.12);
+      margin: 2.5rem 0;
+    }
+
+    /* further reading */
+    .further-reading { font-size: 0.85rem; color: #555; }
+    .further-reading strong { display: block; margin-bottom: 0.5rem; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #FF00FF; }
+    .further-reading a { color: inherit; text-decoration: underline; display: block; margin-bottom: 0.3rem; }
+  </style>
+</head>
+
+<body class="projects">
+
+  <!-- Fixed Navigation Bar -->
+  <nav class="fixed-nav" id="fixedNav">
+    <div class="nav-grid">
+      <div class="nav-logo-section">
+        <a href="../index.html">
+          <img src="../assets/images/Asset 2.png" alt="Userism logo" class="nav-logo-img">
+          <span class="nav-logo-text">PROJECTS</span>
+        </a>
+      </div>
+      <div class="nav-menu-section"></div>
+      <div class="nav-hamburger-section">
+        <div class="hamburger-btn" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay">
+    <span class="close-menu" id="closeMenu">&times;</span>
+    <div class="menu-content">
+      <nav class="overlay-nav">
+        <a href="../index.html">Home</a>
+        <a href="../articles.html">Articles</a>
+        <a href="../events.html">Events</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../about.html">About</a>
+      </nav>
+      <div class="language-selector">
+        <span class="globe-icon">🌐</span>
+        <a href="#" class="lang-option">EN</a>
+        <a href="#" class="lang-option">FR</a>
+        <a href="#" class="lang-option">IT</a>
+        <a href="#" class="lang-option">ES</a>
+        <a href="#" class="lang-option">中文</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <main>
+      <div class="entry-page">
+
+        <!-- Back link -->
+        <a href="../projects.html" class="back-link">← Back to Projects</a>
+
+        <!-- Header -->
+        <div class="entry-header">
+          <div class="entry-meta">
+            <span class="entry-tag">Conference</span>
+            <span class="entry-date">Feb 15, 2026</span>
+          </div>
+          <h1 class="entry-title">The Wild West of Digital Technology in a Capitalist System</h1>
+          <p class="entry-subtitle">Exerpt from the conference by Nexus 2025, « Apocalypse Now : The revelation of our time », in Amsterdam.</p>
+
+          <!-- External link — delete if not applicable -->
+          <a href="https://www.youtube.com/watch?v=m1xBW56j4yA" target="_blank" rel="noopener" class="entry-cta">
+            Open original ↗
+          </a>
+        </div>
+
+        <!-- Cover image — delete if not applicable -->
+        <!-- <img src="../assets/images/your-image.jpg" alt="[EDIT: description]" class="entry-cover"> -->
+
+        <!-- Body — write freely here -->
+        <div class="entry-body">
+
+          <p>
+            Connor Leahy, Leon Wieseltier and Gaya Herrington discuss digital technology, climate change and the limits of capitalism. 
+          </p>
+
+          <p>
+            [EDIT: Second paragraph. You can quote the work here, describe a key idea, 
+            or explain how you came across it.]
+          </p>
+
+          <!-- Optional pull-quote -->
+          <blockquote>
+            "[EDIT: A key quote from the work, if relevant.]"
+          </blockquote>
+
+          <p>
+            [EDIT: Third paragraph — what does this open up? What question does it leave us with?]
+          </p>
+
+          <!-- Optional second section heading — delete if not needed -->
+          <!-- <h2>[EDIT: Section heading]</h2>
+          <p>[EDIT: More content]</p> -->
+
+        </div>
+
+        <hr class="entry-divider">
+
+        <!-- Further reading — delete if not needed -->
+        <div class="further-reading">
+          <strong>Further reading</strong>
+          <a href="[EDIT: link]" target="_blank">[EDIT: Related title — Author]</a>
+          <a href="[EDIT: link]" target="_blank">[EDIT: Related title — Author]</a>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer-carousel">
+    <div class="scroll-text" aria-hidden="true">
+      © 2026 Userist Collective — Textes, articles, images et contenus artistiques sous Licence Art Libre 1.3. Code source sous licence EUPL v1.2. —
+      © 2026 Userist Collective — Textes, articles, images et contenus artistiques sous Licence Art Libre 1.3. Code source sous licence EUPL v1.2.
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+
+</body>
+</html>
