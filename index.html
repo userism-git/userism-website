@@ -4,18 +4,36 @@ Ce code est distribué sous licence EUPL v1.2.
 Voir le fichier LICENSE pour plus de détails.
 Les contenus (textes, images, médias) sont distribués sous Licence Art Libre 1.3.
 -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Userism.net</title>
-  <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="stylesheet" href="style.css?v=3" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="apple-touch-icon" href="assets/favicon.png" />
   <meta name="theme-color" content="#00FFFF" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    /* Shimmer override — inline to guarantee it wins */
+    @keyframes shimmerSweep {
+      0%   { background-position: 150% center; }
+      100% { background-position: -50% center; }
+    }
+    .footer-links-wrapper.shimmer-active .custom-link {
+      background: linear-gradient(90deg,
+        magenta 0%, magenta 35%,
+        white 50%,
+        magenta 65%, magenta 100%
+      ) !important;
+      background-size: 300% auto !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      animation: shimmerSweep 1.8s ease forwards !important;
+    }
+  </style>
 </head>
 <body class="home">
 
@@ -23,53 +41,48 @@ Les contenus (textes, images, médias) sont distribués sous Licence Art Libre 1
   <div id="intro">
     <img src="assets/images/Asset 1.png" class="intro-logo" alt="Userism logo">
   </div>
-  
-    <!-- Fixed Navigation Bar -->
-    <nav class="fixed-nav" id="fixedNav">
-      <div class="nav-grid">
-        <div class="nav-logo-section">
-          <a href="index.html">
-            <img src="assets/images/Asset 2.png" alt="Userism logo" class="nav-logo-img">
-            <span class="nav-logo-text"></span>
-          </a>
-        </div>
-        <div class="nav-menu-section">
-        </div>
-        <div class="nav-hamburger-section">
-          <div class="hamburger-btn" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </div>
-    </nav>
 
-    <!-- Full Screen Menu Overlay -->
-    <div class="menu-overlay" id="menuOverlay">
-      <div class="menu-content">
-        <nav class="overlay-nav">
-          <a href="index.html" data-page="index">Home</a>
-          <a href="articles.html" data-page="articles">Articles</a>
-          <a href="events.html" data-page="events">Events</a>
-          <a href="projects.html" data-page="projects">Projects</a>
-          <a href="about.html" data-page="about">About</a>
-        </nav>
-        <div class="language-selector">
-          <span class="globe-icon">🌐</span>
-          <a href="#" class="lang-option">EN</a>
-          <a href="#" class="lang-option">FR</a>
-          <a href="#" class="lang-option">IT</a>
-          <a href="#" class="lang-option">ES</a>
-          <a href="#" class="lang-option">中文</a>
+  <!-- Fixed Navigation Bar -->
+  <nav class="fixed-nav" id="fixedNav">
+    <div class="nav-grid">
+      <div class="nav-logo-section">
+        <a href="index.html">
+          <img src="assets/images/Asset 2.png" alt="Userism logo" class="nav-logo-img">
+          <span class="nav-logo-text"></span>
+        </a>
+      </div>
+      <div class="nav-menu-section"></div>
+      <div class="nav-hamburger-section">
+        <div class="hamburger-btn" id="hamburger">
+          <span></span><span></span><span></span>
         </div>
       </div>
     </div>
+  </nav>
+
+  <!-- Full Screen Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay">
+    <div class="menu-content">
+      <nav class="overlay-nav">
+        <a href="index.html" data-page="index">Home</a>
+        <a href="articles.html" data-page="articles">Articles</a>
+        <a href="events.html" data-page="events">Events</a>
+        <a href="projects.html" data-page="projects">Projects</a>
+        <a href="about.html" data-page="about">About</a>
+      </nav>
+      <div class="language-selector">
+        <a href="#" class="lang-option">EN</a>
+        <a href="#" class="lang-option">FR</a>
+        <a href="#" class="lang-option">IT</a>
+        <a href="#" class="lang-option">ES</a>
+        <a href="#" class="lang-option">中文</a>
+      </div>
+    </div>
+  </div>
 
   <div class="page-wrapper">
-
-
     <main>
+
       <!-- Landing -->
       <section id="landing" class="page-section">
         <div class="content">
@@ -83,93 +96,69 @@ Les contenus (textes, images, médias) sont distribués sous Licence Art Libre 1
       </section>
 
       <!-- Typewriter section -->
-  
       <div id="typewriter-tunnel">
-  <section id="typewriter-section">
-    <div id="typewriter-text"></div>
-  </section>
-</div>
+        <section id="typewriter-section">
+          <div id="typewriter-text"></div>
+        </section>
+      </div>
 
       <!-- Main Feed -->
-      
-<section id="main-feed">
+      <section id="main-feed">
+        <div class="mf-intro">
+          <h2>Here's why:</h2>
+        </div>
 
-  <div class="mf-intro">
-    <h2>Here's why:</h2>
-  </div>
+        <!-- SLIDE 1 -->
+        <div class="mf-slide" data-index="0">
+          <div class="mf-text-side">
+            <div class="mf-text-content">
+              <h3>User and the end of work</h3>
+              <p>With the advent of digital, everything changes. Work, intended as physical and mental effort to produce value, is slowly replaced by automation. Only human needs and desires remain the same, but freed from most physical constraints. Users live freely in a truly human age.</p>
+            </div>
+          </div>
+          <div class="mf-img-side">
+            <img src="assets/images/eniac.png" alt="Early users">
+          </div>
+        </div>
 
-  <!-- SLIDE 1 — image right, text left -->
-  <div class="mf-slide" data-index="0">
-    <div class="mf-text-side">
-      <div class="mf-text-content">
-        <h3>User and the end of work</h3>
-        <p>
-          With the advent of digital, everything changes.
-          Work, intended as physical and mental effort to produce value,
-          is slowly replaced by automation.
-          Only human needs and desires remain the same, but freed from most physical constraints.
-          Users live freely in a truly human age.
-        </p>
-      </div>
-    </div>
-    <div class="mf-img-side">
-      <img src="assets/images/eniac.png" alt="Early users">
-    </div>
-  </div>
+        <!-- SLIDE 2 -->
+        <div class="mf-slide mf-slide--reverse" data-index="1">
+          <div class="mf-img-side">
+            <img src="assets/images/powerful users.jpg" alt="Later users, much more powerful">
+          </div>
+          <div class="mf-text-side">
+            <div class="mf-text-content">
+              <h3>Consumers and the digital gesture</h3>
+              <p>As tasks get automated and products generated, a simple gesture becomes the source of power. It's the digital gesture, the moment where human intention meets digital potential. Without it, no technology has meaning, and no product carries any value. Consumption, therefore, becomes far more relevant than production.</p>
+            </div>
+          </div>
+        </div>
 
-  <!-- SLIDE 2 — image left, text right -->
-  <div class="mf-slide mf-slide--reverse" data-index="1">
-    <div class="mf-img-side">
-      <img src="assets/images/powerful users.jpg" alt="Later users, much more powerful">
-    </div>
-    <div class="mf-text-side">
-      <div class="mf-text-content">
-        <h3>Consumers and the digital gesture</h3>
-        <p>
-          As tasks get automated and products generated,
-          a simple gesture becomes the source of power.
-          It's the digital gesture, the moment where human intention meets digital potential.
-          Without it, no technology has meaning, and no product carries any value.
-          Consumption, therefore, becomes far more relevant than production.
-        </p>
-      </div>
-    </div>
-  </div>
+        <!-- SLIDE 3 -->
+        <div class="mf-slide" data-index="2">
+          <div class="mf-text-side">
+            <div class="mf-text-content">
+              <h3>Courage and beautiful future</h3>
+              <p>Humans are at their most powerful in the digital age. Today, there are better chances of a bright future for everyone than ever in history. However, digital control is unequally distributed across countries and societies, and this is an obstacle to potential progress. That's why we believe it should be users' right to own it, not be afraid of it, or of its consequences. As userocracy is put into place, benefits will equally unfold for everyone.</p>
+            </div>
+          </div>
+          <div class="mf-img-side">
+            <img src="assets/images/users shop.jpg" alt="Contemporary users">
+          </div>
+        </div>
+      </section>
 
-  <!-- SLIDE 3 — image right, text left -->
-  <div class="mf-slide" data-index="2">
-    <div class="mf-text-side">
-      <div class="mf-text-content">
-        <h3>Courage and beautiful future</h3>
-        <p>
-          Humans are at their most powerful in the digital age.
-          Today, there are better chances of a bright future for everyone than ever in history.
-          However, digital control is unequally distributed across countries and societies, and this is
-          an obstacle to potential progress.
-          That's why we believe it should be users' right to own it,
-          not be afraid of it, or of its consequences.
-          As userocracy is put into place, benefits will equally unfold for everyone.
-        </p>
-      </div>
-    </div>
-    <div class="mf-img-side">
-      <img src="assets/images/users shop.jpg" alt="Contemporary users">
-    </div>
-  </div>
-
-</section>
-    
       <!-- Articles -->
-      <section id="articles" class="page-section gradient-cmy" style="background-color: #ffffff;">
+      <section id="articles" class="page-section" style="background-color:#ffffff;">
         <div class="content">
           <div id="articles-preview" class="articles-grid">
             <p>Loading articles...</p>
           </div>
         </div>
       </section>
-    
+
       <!-- Upcoming events -->
-      <section id="events" class="page-section gradient-cmy" style="background-color: #ffffff;">
+      <section id="events" class="page-section" style="background-color:#ffffff;">
         <div class="content">
           <h2>Upcoming Events</h2>
           <div id="events-preview" class="event-list">
@@ -177,71 +166,58 @@ Les contenus (textes, images, médias) sont distribués sous Licence Art Libre 1
           </div>
         </div>
       </section>
+
     </main>
 
-<footer class="footer-carousel">
-   <div style="display: flex; justify-content: center;">
-      <div style="flex: 1; max-width: 800px; margin: 5px; padding: 0 20px; box-sizing: border-box;">
-         <style>
-            .custom-link {
-                color: magenta;
-                text-decoration: none;
-              font-size: 12px;
-            }
-            .custom-link:hover {
-                color: cyan;
-            }
-            .footer-text {
-                color: white;
-                text-align: center;
-                white-space: normal;
-              font-size: 12px;
-            }
-         </style>
-         <p class="footer-text">
-            Contacts and information are available <a class="custom-link" href="https://userism.net/about.html">here</a>.
-           <br>
-           <a class="custom-link" href="https://www.tiktok.com/@userism.updates?_r=1&_t=ZN-9422mE0uTTS">TikTok</a> |
-            <a class="custom-link" href="https://bsky.app/profile/userismupdates.bsky.social"> Bluesky</a> |
-            <a class="custom-link" href="https://t.me/userismupdates"> Telegram</a> |
-            <a class="custom-link" href="https://www.instagram.com/userismupdates/">Instagram</a> |
-            <a class="custom-link" href="https://www.youtube.com/@UserismUpdates"> YouTube</a> |
-            <a class="custom-link" href="https://github.com/userism-git"> GitHub</a>
-         </p>
+    <!-- FOOTER -->
+    <footer class="footer-carousel">
+      <div class="footer-links-row">
+        <div class="footer-links-wrapper" id="footerLinksWrapper"><!--
+          Copy 1 (real links)
+        --><span class="footer-links-inner">
+            <a class="custom-link" href="https://userism.net/about.html">Info &amp; contacts</a>
+            <span class="footer-sep"> &nbsp;|&nbsp; </span>
+            <a class="custom-link" href="https://www.tiktok.com/@userism.updates?_r=1&_t=ZN-9422mE0uTTS">TikTok</a>
+            <span class="footer-sep"> &nbsp;|&nbsp; </span>
+            <a class="custom-link" href="https://bsky.app/profile/userismupdates.bsky.social">Bluesky</a>
+            <span class="footer-sep"> &nbsp;|&nbsp; </span>
+            <a class="custom-link" href="https://t.me/userismupdates">Telegram</a>
+            <span class="footer-sep"> &nbsp;|&nbsp; </span>
+            <a class="custom-link" href="https://www.instagram.com/userismupdates/">Instagram</a>
+            <span class="footer-sep"> &nbsp;|&nbsp; </span>
+            <a class="custom-link" href="https://www.youtube.com/@UserismUpdates">YouTube</a>
+            <span class="footer-sep"> &nbsp;|&nbsp; </span>
+            <a class="custom-link" href="https://github.com/userism-git">GitHub</a>
+            <span class="footer-sep"> &nbsp;&nbsp;|&nbsp;&nbsp; </span>
+          </span><!--
+          Copy 2 (aria-hidden duplicate for seamless loop)
+        --><span class="footer-links-inner" aria-hidden="true">
+            <a class="custom-link" href="https://userism.net/about.html">Info &amp; contacts</a>
+            <span class="footer-sep"> &nbsp;|&nbsp; </span>
+            <a class="custom-link" href="https://www.tiktok.com/@userism.updates?_r=1&_t=ZN-9422mE0uTTS">TikTok</a>
+            <span class="footer-sep"> &nbsp;|&nbsp; </span>
+            <a class="custom-link" href="https://bsky.app/profile/userismupdates.bsky.social">Bluesky</a>
+            <span class="footer-sep"> &nbsp;|&nbsp; </span>
+            <a class="custom-link" href="https://t.me/userismupdates">Telegram</a>
+            <span class="footer-sep"> &nbsp;|&nbsp; </span>
+            <a class="custom-link" href="https://www.instagram.com/userismupdates/">Instagram</a>
+            <span class="footer-sep"> &nbsp;|&nbsp; </span>
+            <a class="custom-link" href="https://www.youtube.com/@UserismUpdates">YouTube</a>
+            <span class="footer-sep"> &nbsp;|&nbsp; </span>
+            <a class="custom-link" href="https://github.com/userism-git">GitHub</a>
+          </span>
+        </div>
       </div>
-   </div>
-   <div class="scroll-text" aria-hidden="true">
-       © 2026 Userist Collective —
-       Textes, articles, images et contenus artistiques
-       sous Licence Art Libre 1.3.
-       Code source sous licence EUPL v1.2. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       © 2026 Userist Collective —
-       Textes, articles, images et contenus artistiques
-       sous Licence Art Libre 1.3.
-       Code source sous licence EUPL v1.2. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   </div>
-</footer>
+      <div class="footer-ticker-wrap">
+        <div class="scroll-text">
+          © 2026 Userist Collective — Textes, articles, images et contenus artistiques sous Licence Art Libre 1.3. Code source sous licence EUPL v1.2. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          © 2026 Userist Collective — Textes, articles, images et contenus artistiques sous Licence Art Libre 1.3. Code source sous licence EUPL v1.2. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+      </div>
+    </footer>
 
-  
-  <!-- Load main.js - it handles everything -->
+  </div>
+
   <script src="main.js"></script>
-  
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -222,29 +222,24 @@ function initTypewriterEffect() {
   const tunnel = document.getElementById("typewriter-tunnel");
 
   if (!output) { console.warn('[Typewriter] #typewriter-text not found'); return; }
-  if (!tunnel) { console.warn('[Typewriter] #typewriter-tunnel not found — wrap the section in <div id="typewriter-tunnel">'); return; }
+  if (!tunnel) { console.warn('[Typewriter] #typewriter-tunnel not found'); return; }
 
   const message    = CONFIG.TYPEWRITER_MESSAGE;
   const totalChars = message.length;
-  const PAUSE_FRACTION = 0.30; // last 30% of scroll = full sentence sits still
+  const PAUSE_FRACTION = 0.30;
 
   output.textContent = "";
 
   function tick() {
-    const tunnelTop    = tunnel.getBoundingClientRect().top + window.scrollY; // absolute top
+    const tunnelTop    = tunnel.getBoundingClientRect().top + window.scrollY;
     const tunnelHeight = tunnel.offsetHeight;
     const viewH        = window.innerHeight;
-
-    // Sticky travel: scrollY goes from tunnelTop → tunnelTop + (tunnelHeight - viewH)
     const stickyRange  = tunnelHeight - viewH;
     const scrolled     = Math.max(0, window.scrollY - tunnelTop);
     const rawProgress  = Math.min(1, scrolled / stickyRange);
-
-    // Typing window = first (1 - PAUSE_FRACTION) of scroll
     const typingWindow = 1 - PAUSE_FRACTION;
     const typeProgress = Math.min(1, rawProgress / typingWindow);
     const charCount    = Math.round(typeProgress * totalChars);
-
     output.textContent = message.substring(0, charCount);
     requestAnimationFrame(tick);
   }
@@ -417,4 +412,65 @@ document.addEventListener('DOMContentLoaded', function() {
   closeBtn && closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+});
+
+// ==========================================
+// FOOTER — cylinder scroll (mobile) + shimmer
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+  const wrapper = document.getElementById('footerLinksWrapper');
+  if (!wrapper) return;
+
+  const isMobile = () => window.innerWidth <= 768;
+
+  // MOBILE ONLY: infinite cylinder scroll
+  if (isMobile()) {
+    const inners = wrapper.querySelectorAll('.footer-links-inner');
+    if (inners.length >= 2) {
+      requestAnimationFrame(() => {
+        const singleWidth = inners[0].getBoundingClientRect().width;
+        const gap = window.innerWidth; // one full screen of blank space each side
+
+        wrapper.style.paddingLeft  = gap + 'px';
+        wrapper.style.paddingRight = gap + 'px';
+
+        // Start at the first copy
+        wrapper.scrollLeft = gap;
+
+        wrapper.addEventListener('scroll', () => {
+          const pos = wrapper.scrollLeft;
+          // Scrolled into second copy — jump back silently
+          if (pos >= gap + singleWidth) {
+            wrapper.scrollLeft = gap + (pos - gap - singleWidth);
+          }
+          // Scrolled back into left blank space — jump forward silently
+          if (pos < gap * 0.2) {
+            wrapper.scrollLeft = gap + singleWidth - (gap * 0.2 - pos);
+          }
+        }, { passive: true });
+      });
+    }
+  }
+
+  // MOBILE ONLY: shimmer — stops once user scrolls
+  let userHasScrolled = false;
+  let shimmerInterval = null;
+
+  wrapper.addEventListener('scroll', () => {
+    if (!userHasScrolled) {
+      userHasScrolled = true;
+      if (shimmerInterval) clearInterval(shimmerInterval);
+    }
+  }, { passive: true });
+
+  const triggerShimmer = () => {
+    if (!isMobile() || userHasScrolled) return;
+    wrapper.classList.add('shimmer-active');
+    setTimeout(() => wrapper.classList.remove('shimmer-active'), 1800);
+  };
+
+  setTimeout(() => {
+    triggerShimmer();
+    shimmerInterval = setInterval(triggerShimmer, 6000);
+  }, 2500);
 });

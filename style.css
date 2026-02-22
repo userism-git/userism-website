@@ -290,8 +290,6 @@ body.loaded #intro {
   padding-bottom: clamp(0.5rem, 2dvh, 1rem);
 }
 
-.globe-icon { font-size: 1.5rem; }
-
 .lang-option {
   color: rgba(0, 0, 0, 0.7);
   font-size: clamp(0.75rem, 1.5vw, 0.95rem);
@@ -333,10 +331,10 @@ body.articles main, body.events main, body.projects main, body.about main { marg
 }
 
 @media (max-width: 480px) {
-  .nav-logo-text { font-size: 12px; display: block; }
-  .nav-logo-section { padding: 0 17px; }
-  .nav-logo-img { width: 50px; height: 65px; }
-  .nav-hamburger-section { padding: 0 12px; }
+  .nav-logo-text { font-size: 15px; display: block; }
+  .nav-logo-section { padding: 0 3px; }
+  .nav-logo-img { width: 60px; height: 70px; }
+  .nav-hamburger-section { padding: 0 15px; }
 }
 
 /* =============================================== */
@@ -349,7 +347,6 @@ body.articles main, body.events main, body.projects main, body.about main { marg
   justify-content: center;
   padding-block: clamp(1rem, 4vw, 2rem);
   width: 100%;
-  /* CRITICAL: clip not hidden */
   overflow-x: clip;
 }
 
@@ -494,7 +491,7 @@ body.articles main, body.events main, body.projects main, body.about main { marg
 @media (max-width: 768px) {
   #typewriter-tunnel { height: 350vh; }
   #typewriter-text {
-    font-size: clamp(2.2rem, 9vw, 5rem);
+    font-size: clamp(4.4rem, 9vw, 10rem);
     text-align: left;
     padding: 0 1.5rem;
   }
@@ -503,7 +500,7 @@ body.articles main, body.events main, body.projects main, body.about main { marg
 @media (max-width: 480px) {
   #typewriter-tunnel { height: 300vh; }
   #typewriter-text {
-    font-size: clamp(2rem, 10vw, 4rem);
+    font-size: clamp(4rem, 10vw, 8rem);
     padding: 0 1.2rem;
   }
 }
@@ -715,29 +712,102 @@ body.articles main, body.events main, body.projects main, body.about main { marg
   .about-photo { width: 100%; }
   .about-contributions { grid-template-columns: 1fr; }
 }
-
 /* =============================================== */
-/* FOOTER */
+/* FOOTER                                          */
 /* =============================================== */
 .footer-carousel {
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 1rem 0;
   background: black;
-  font-size: clamp(0.8rem, 2vw, 1rem);
   width: 100vw;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  padding: 0.4rem 0 0;
 }
 
-.scroll-text { display: inline-block; animation: scroll 40s linear infinite; color: white; }
+.footer-links-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 0.3rem 0;
+}
 
-@keyframes scroll {
+/* Fade-out edge on mobile */
+@media (max-width: 768px) {
+  .footer-links-row::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 0;
+    width: 50px; height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1));
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+.footer-links-wrapper {
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  box-sizing: border-box;
+  /* Desktop: centered */
+  text-align: center;
+}
+
+.footer-links-wrapper::-webkit-scrollbar { display: none; }
+
+.footer-links-inner {
+  display: inline;
+  font-size: 12px;
+}
+
+/* Desktop: hide the duplicate copy */
+@media (min-width: 769px) {
+  .footer-links-inner + .footer-links-inner {
+    display: none;
+  }
+}
+
+.custom-link {
+  color: magenta;
+  text-decoration: none;
+  font-size: 12px;
+  transition: color 0.2s;
+}
+
+.custom-link:hover  { color: cyan; }
+.custom-link:active { color: cyan; }
+.custom-link:focus  { color: cyan; outline: none; }
+
+.footer-sep {
+  color: white;
+  font-size: 12px;
+}
+
+/* Shimmer animation — applied via inline <style> in HTML head
+   to guarantee it wins over any other CSS rule.
+   See the <style> block in index.html <head>. */
+
+.footer-ticker-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.4rem 0;
+  width: 100%;
+}
+
+.footer-ticker-wrap .scroll-text {
+  display: inline-block;
+  white-space: nowrap;
+  color: white;
+  font-size: 12px;
+  animation: footerScroll 40s linear infinite;
+}
+
+@keyframes footerScroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
 /* =============================================== */
 /* ERROR & LOADING STATES */
 /* =============================================== */
@@ -940,3 +1010,4 @@ section { margin-bottom: 0; width: 100%; }
 .block-modal-link { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.2rem; background: #000; color: #fff; text-decoration: none; font-size: 0.875rem; font-weight: 600; transition: background 0.15s; }
 .block-modal-link:hover { background: #333; }
 .block-modal-meta { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #eee; font-size: 0.75rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.05em; }
+
