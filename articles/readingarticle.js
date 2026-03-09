@@ -1,6 +1,10 @@
 // Back button functionality
 document.getElementById('backBtn').addEventListener('click', () => {
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
         window.location.href = 'https://userism.net/articles.html';
+    }
 });
 
 // Share button functionality
@@ -33,8 +37,8 @@ document.getElementById('aboutBtn').addEventListener('click', () => {
     window.location.href = '../about.html';
 });
 
-// Fallback function to copy link to clipboard
-function fallbackCopyToClipboard() {
+// Fall function to copy link to clipboard
+function fallCopyToClipboard() {
     const url = window.location.href;
     
     // Try using the modern Clipboard API
@@ -45,7 +49,7 @@ function fallbackCopyToClipboard() {
             })
             .catch(err => {
                 console.error('Failed to copy: ', err);
-                // Fallback to older method
+                // Fall to older method
                 legacyCopyToClipboard(url);
             });
     } else {
@@ -86,7 +90,7 @@ function showCopyNotification() {
         bottom: 100px;
         left: 50%;
         transform: translateX(-50%);
-        background-color: #000;
+        ground-color: #000;
         color: #fff;
         padding: 12px 24px;
         border-radius: 8px;
@@ -119,7 +123,11 @@ document.head.appendChild(style);
 
 // Mini buttons (top action buttons)
 document.getElementById('backBtn2').addEventListener('click', () => {
-    window.history.back();
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        window.location.href = 'https://userism.net/articles.html';
+    }
 });
 
 document.getElementById('shareBtn2').addEventListener('click', async () => {
