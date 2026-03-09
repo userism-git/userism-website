@@ -123,15 +123,11 @@ document.head.appendChild(style);
 
 // Mini buttons (top action buttons)
 document.getElementById('backBtn2').addEventListener('click', () => {
-    if (window.history.length > 1) {
-        window.history.back();
-    } else {
-        window.location.href = 'https://userism.net/articles.html';
-    }
+    document.getElementById('backBtn').click();
 });
 
 document.getElementById('shareBtn2').addEventListener('click', async () => {
-    document.getElementById('shareBtn').click(); // Trigger the main share button
+    document.getElementById('shareBtn').click();
 });
 
 document.getElementById('aboutBtn2').addEventListener('click', () => {
