@@ -1,6 +1,10 @@
 // Back button functionality
 document.getElementById('backBtn').addEventListener('click', () => {
-    window.history.back();
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        window.location.href = 'https://userism.net/articles.html';
+    }
 });
 
 // Share button functionality
