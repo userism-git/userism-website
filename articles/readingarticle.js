@@ -1,6 +1,6 @@
 // Back button functionality
 document.getElementById('backBtn').addEventListener('click', () => {
-    if (window.history.length > 1) {
+    if (document.referrer && document.referrer.includes(window.location.hostname)) {
         window.history.back();
     } else {
         window.location.href = 'https://userism.net/articles.html';
