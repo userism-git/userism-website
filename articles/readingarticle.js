@@ -1,3 +1,21 @@
+// Hide/show header on scroll
+let lastScrollTop = 0;
+const nav = document.getElementById('fixedNav');
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scrolling down - hide nav
+        nav.style.transform = 'translateY(-100%)';
+    } else {
+        // Scrolling up - show nav
+        nav.style.transform = 'translateY(0)';
+    }
+    
+    lastScrollTop = scrollTop;
+}, false);
+
 // Back button functionality
 document.getElementById('backBtn').addEventListener('click', () => {
     if (window.history.length > 1) {
