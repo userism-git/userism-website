@@ -117,11 +117,11 @@ body {
 }
 
 .intro {
-    font-size: 1.1rem;
-    font-weight: 400; /* Extra Light */
+    font-size: 1.2rem;
+    font-weight: 400; 
     color: #666;
     margin-bottom: 40px;
-    line-height: 1.2;
+    line-height: 1.6;
 }
 
 h2 {
@@ -132,11 +132,11 @@ h2 {
 }
 
 p {
-    font-size: 1rem;
-    font-weight: 200;
+    font-size: 1.1rem;
+    font-weight: 300;
     margin-bottom: 20px;
     text-align: justify;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .additional-notes {
