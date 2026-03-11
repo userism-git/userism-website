@@ -404,6 +404,7 @@ body.articles main, body.events main, body.projects main, body.about main { marg
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 0.5rem;
   opacity: 0.7;
   animation: bounce 2s infinite;
@@ -1010,6 +1011,7 @@ section { margin-bottom: 0; width: 100%; }
 .block-modal-link { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.2rem; background: #000; color: #fff; text-decoration: none; font-size: 0.875rem; font-weight: 600; transition: background 0.15s; }
 .block-modal-link:hover { background: #333; }
 .block-modal-meta { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #eee; font-size: 0.75rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.05em; }
+
 
 
 
