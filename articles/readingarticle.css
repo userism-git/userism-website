@@ -132,11 +132,28 @@ h2 {
 }
 
 p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 300;
     margin-bottom: 20px;
     text-align: justify;
     line-height: 1.6;
+}
+
+ul {
+    margin: 20px 0;
+    padding-left: 40px;
+}
+
+li {
+    font-size: 1.15rem;
+    font-weight: 300;
+    margin-bottom: 12px;
+    line-height: 1.75;
+    text-align: justify;
+}
+
+ul li::marker {
+    color: cyan; 
 }
 
 .additional-notes {
