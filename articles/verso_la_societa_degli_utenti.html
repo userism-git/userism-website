@@ -14,8 +14,43 @@
 </head>
 
 <body>
-    <!-- Header will be loaded by main.js -->
-    <div id="header-container"></div>
+<nav class="fixed-nav" id="fixedNav">
+  <div class="nav-grid">
+    <div class="nav-logo-section">
+      <a href="../index.html">
+        <img src="../assets/images/Asset 2.png" alt="Userism logo" class="nav-logo-img">
+        <span class="nav-logo-text"> ARTICLES</span>
+      </a>
+    </div>
+    <div class="nav-menu-section"></div>
+    <div class="nav-hamburger-section">
+      <div class="hamburger-btn" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Full Screen Menu Overlay -->
+<div class="menu-overlay" id="menuOverlay">
+  <span class="close-menu" id="closeMenu">&times;</span>
+  <div class="menu-content">
+    <nav class="overlay-nav">
+      <a href="../index.html">Home</a>
+      <a href="../articles.html">Articles</a>
+      <a href="../events.html">Events</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../about.html">About</a>
+    </nav>
+    <div class="language-selector">
+      <a href="#" class="lang-option">EN</a>
+      <a href="#" class="lang-option">FR</a>
+      <a href="#" class="lang-option">IT</a>
+      <a href="#" class="lang-option">ES</a>
+      <a href="#" class="lang-option">中文</a>
+    </div>
+  </div>
+</div>
 
     <main class="article-container">
         <div class="hero-section">
@@ -37,7 +72,7 @@
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </button>
-                    <span class="btn-label">Condividi</span>
+                    <span class="btn-label"></span>
                 </div>
                 <div class="btn-with-label">
                     <button id="aboutBtn2" class="action-btn about-btn" aria-label="About">
@@ -46,7 +81,7 @@
                             <path d="M24 24L30 30" stroke="black" stroke-width="3" stroke-linecap="round" />
                         </svg>
                     </button>
-                    <span class="btn-label">Chi siamo</span>
+                    <span class="btn-label"></span>
                 </div>
                 <div class="btn-with-label">
                     <button id="backBtn2" class="action-btn back-btn" aria-label="Go back">
@@ -55,7 +90,7 @@
                                 stroke-linejoin="round" />
                         </svg>
                     </button>
-                    <span class="btn-label">Articoli</span>
+                    <span class="btn-label"></span>
                 </div>
             </div>
 
