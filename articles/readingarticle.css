@@ -273,3 +273,8 @@ margin-top: 0;
 .fw-bold { font-weight: 700; }
 .fw-extrabold { font-weight: 800; }
 .fw-black { font-weight: 900; }
+
+/* Nav bar */
+.fixed-nav {
+    transition: transform 0.3s ease-in-out;
+}
