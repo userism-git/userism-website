@@ -539,15 +539,16 @@ body.articles main, body.events main, body.projects main, body.about main { marg
     display: block;
   }
 
-  .mf-img-side {
-    position: absolute;
-    inset: -15% 0;
-    height: 130%;
-    width: 100%;
-    z-index: 0;
-    overflow: hidden;
-    padding: 0;
-  }
+.mf-img-side {
+  position: absolute;
+  inset: -15% 0;
+  height: 130%;
+  width: 120%;
+  left: -10%;
+  z-index: 0;
+  overflow: hidden;
+  padding: 0;
+}
 
   .mf-img-side img {
     width: 100%;
