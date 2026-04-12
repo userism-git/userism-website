@@ -349,16 +349,17 @@ function parseElements(html, selector) {
 
   const STRENGTH = 80; // px di spostamento massimo
 
-  function updateParallax() {
+function updateParallax() {
     slides.forEach(slide => {
       const img = slide.querySelector('.mf-img-side');
       if (!img) return;
       const rect = slide.getBoundingClientRect();
       const vh   = window.innerHeight;
-      // progress: -1 (slide sopra lo schermo) → +1 (slide sotto lo schermo)
       const progress = (rect.top + rect.height / 2 - vh / 2) / (vh / 2 + rect.height / 2);
       const clamped  = Math.max(-1, Math.min(1, progress));
-      img.style.transform = `translateY(${clamped * STRENGTH}px)`;
+      const isReverse = slide.classList.contains('mf-slide--reverse');
+      const direction = isReverse ? -1 : 1;
+      img.style.transform = `translateX(${clamped * STRENGTH * direction}px)`;
     });
   }
 
