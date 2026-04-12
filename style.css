@@ -70,6 +70,11 @@ p {
   text-align: justify;
 }
 
+h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* =============================================== */
 /* PRELOADER / INTRO ANIMATION */
 /* =============================================== */
@@ -490,7 +495,7 @@ body.articles main, body.events main, body.projects main, body.about main { marg
 }
 
 @media (max-width: 768px) {
-  #typewriter-tunnel { height: 350vh; }
+  #typewriter-tunnel { height: 450vh; }
   #typewriter-text {
     font-size: clamp(4.4rem, 9vw, 10rem);
     text-align: left;
@@ -499,7 +504,7 @@ body.articles main, body.events main, body.projects main, body.about main { marg
 }
 
 @media (max-width: 480px) {
-  #typewriter-tunnel { height: 300vh; }
+  #typewriter-tunnel { height: 400vh; }
   #typewriter-text {
     font-size: clamp(4rem, 10vw, 8rem);
     padding: 0 1.2rem;
@@ -509,7 +514,14 @@ body.articles main, body.events main, body.projects main, body.about main { marg
 /* =============================================== */
 /* MAIN FEED SECTION */
 /* =============================================== */
-#main-feed { width: 100%; background: #fff; }
+#main-feed {
+  width: 100%;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  margin-top: -100vh;
+  box-shadow: 0 -8px 40px rgba(0,0,0,0.12);
+}
 
 .mf-intro {
   padding: 5rem 2rem 3rem;
@@ -521,31 +533,55 @@ body.articles main, body.events main, body.projects main, body.about main { marg
 
 @media (min-width: 769px) {
   .mf-slide {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    min-height: 85vh;
     position: relative;
+    min-height: 85vh;
+    overflow: hidden;
+    display: block;
   }
 
-  .mf-slide--reverse { grid-template-columns: 3fr 2fr; }
+  .mf-img-side {
+    position: absolute;
+    inset: -15% 0;
+    height: 130%;
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .mf-img-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+  }
+
+  /* Dark overlay for readability */
+  .mf-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+  }
 
   .mf-text-side {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
-    padding: clamp(3rem, 6vw, 8rem) clamp(2rem, 5vw, 6rem);
-    background: #fff;
+    padding: clamp(4rem, 8vw, 10rem) clamp(3rem, 6vw, 8rem);
+    background: transparent;
+    min-height: 85vh;
+    max-width: 700px;
+  }
+
+  .mf-slide--reverse .mf-text-side {
+    margin-left: auto;
   }
 
   .mf-text-content { max-width: 520px; }
-
-  .mf-img-side {
-    position: relative;
-    overflow: hidden;
-    padding: 2rem;
-    height: 85vh;
-  }
-
-  .mf-img-side img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
   .mf-slide:last-child::after {
     height: 120px;
@@ -554,22 +590,55 @@ body.articles main, body.events main, body.projects main, body.about main { marg
 }
 
 @media (max-width: 768px) {
-  .mf-slide { display: flex; flex-direction: column; margin-bottom: 1rem; }
-  .mf-text-side { order: 1; padding: 2rem 1.5rem 1.5rem; background: #fff; }
-  .mf-text-content { max-width: 100%; }
+  .mf-slide {
+    position: relative;
+    min-height: 100svh;
+    overflow: hidden;
+    display: block;
+    margin-bottom: 0;
+  }
+
   .mf-img-side {
-    order: 2;
+    position: absolute;
+    inset: -15% 0;
+    height: 130%;
     width: 100%;
-    height: auto;
-    min-height: 400px;
-    max-height: 600px;
+    z-index: 0;
     overflow: hidden;
   }
-  .mf-img-side img { width: 100%; height: 100%; object-fit: auto; display: block; }
-  .mf-slide:last-child .mf-img-side::after { height: 100px; background: linear-gradient(to bottom, transparent, #ffffff); }
-  .mf-slide--reverse { flex-direction: column; }
-  .mf-slide--reverse .mf-text-side { order: 1; }
-  .mf-slide--reverse .mf-img-side { order: 2; }
+
+  .mf-img-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    will-change: transform;
+  }
+
+  /* Dark overlay for readability */
+  .mf-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+  }
+
+  .mf-text-side {
+    position: relative;
+    z-index: 2;
+    order: unset;
+    padding: 4rem 1.5rem 3rem;
+    background: transparent;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+  }
+
+  .mf-text-content { max-width: 100%; }
+  .mf-slide--reverse { flex-direction: unset; }
+  .mf-slide--reverse .mf-text-side { order: unset; }
+  .mf-slide--reverse .mf-img-side { order: unset; }
   .mf-intro { padding: 3rem 1.5rem 2rem; }
 }
 
@@ -578,10 +647,10 @@ body.articles main, body.events main, body.projects main, body.about main { marg
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 1.5rem;
-  color: #000;
+  color: #fff;
 }
 
-.mf-text-content p { font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.7; color: #333; }
+.mf-text-content p { font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.7; color: rgba(255,255,255,0.88); }
 
 /* =============================================== */
 /* ARTICLES GRID */
@@ -623,7 +692,7 @@ body.articles main, body.events main, body.projects main, body.about main { marg
   gap: 2.5rem;
   max-width: 800px;
   margin: 0 auto;
-  padding: clamp(2rem, 5vw, 4rem) 0;
+  padding: 0 0 clamp(2rem, 5vw, 4rem) 0;
 }
 
 .event-item {
@@ -1011,7 +1080,6 @@ section { margin-bottom: 0; width: 100%; }
 .block-modal-link { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.2rem; background: #000; color: #fff; text-decoration: none; font-size: 0.875rem; font-weight: 600; transition: background 0.15s; }
 .block-modal-link:hover { background: #333; }
 .block-modal-meta { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #eee; font-size: 0.75rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.05em; }
-
 
 
 
