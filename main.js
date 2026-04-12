@@ -347,7 +347,7 @@ function parseElements(html, selector) {
   const slides = document.querySelectorAll('.mf-slide');
   if (!slides.length) return;
 
-  const STRENGTH = 40;
+  const STRENGTH = 15;
 
 function updateParallax() {
     slides.forEach(slide => {
