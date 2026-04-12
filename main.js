@@ -7,7 +7,7 @@
 // CONFIGURATION
 // ==========================================
 const CONFIG = {
-  ARTICLES_TO_SHOW: 3,
+  ARTICLES_TO_SHOW: 4,
   EVENTS_TO_SHOW: 3,
   INTRO_DELAY: 500,
   INTRO_FADE: 1000,
@@ -339,6 +339,33 @@ function parseElements(html, selector) {
     return Array.from(doc.querySelectorAll(selector));
   } catch (error) { return []; }
 }
+
+// ==========================================
+// PARALLAX — immagini "Here's why"
+// ==========================================
+(function () {
+  const slides = document.querySelectorAll('.mf-slide');
+  if (!slides.length) return;
+
+  const STRENGTH = 80; // px di spostamento massimo
+
+  function updateParallax() {
+    slides.forEach(slide => {
+      const img = slide.querySelector('.mf-img-side');
+      if (!img) return;
+      const rect = slide.getBoundingClientRect();
+      const vh   = window.innerHeight;
+      // progress: -1 (slide sopra lo schermo) → +1 (slide sotto lo schermo)
+      const progress = (rect.top + rect.height / 2 - vh / 2) / (vh / 2 + rect.height / 2);
+      const clamped  = Math.max(-1, Math.min(1, progress));
+      img.style.transform = `translateY(${clamped * STRENGTH}px)`;
+    });
+  }
+
+  window.addEventListener('scroll', updateParallax, { passive: true });
+  window.addEventListener('resize', updateParallax, { passive: true });
+  updateParallax();
+})();
 
 // ==========================================
 // SCROLL INDICATOR — hide when typewriter visible
