@@ -495,7 +495,7 @@ body.articles main, body.events main, body.projects main, body.about main { marg
 }
 
 @media (max-width: 768px) {
-  #typewriter-tunnel { height: 450vh; }
+  #typewriter-tunnel { height: 550vh; }
   #typewriter-text {
     font-size: clamp(4.4rem, 9vw, 10rem);
     text-align: left;
@@ -504,7 +504,7 @@ body.articles main, body.events main, body.projects main, body.about main { marg
 }
 
 @media (max-width: 480px) {
-  #typewriter-tunnel { height: 400vh; }
+  #typewriter-tunnel { height: 500vh; }
   #typewriter-text {
     font-size: clamp(4rem, 10vw, 8rem);
     padding: 0 1.2rem;
