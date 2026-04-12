@@ -599,14 +599,15 @@ body.articles main, body.events main, body.projects main, body.about main { marg
     margin-bottom: 0;
   }
 
-  .mf-img-side {
-    position: absolute;
-    inset: -15% 0;
-    height: 130%;
-    width: 100%;
-    z-index: 0;
-    overflow: hidden;
-  }
+.mf-img-side {
+  position: absolute;
+  inset: -15% 0;
+  height: 130%;
+  width: 106%;
+  left: -3%;
+  z-index: 0;
+  overflow: hidden;
+}
 
   .mf-img-side img {
     width: 100%;
