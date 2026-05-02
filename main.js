@@ -11,7 +11,7 @@ const CONFIG = {
   EVENTS_TO_SHOW: 3,
   INTRO_DELAY: 500,
   INTRO_FADE: 1000,
-  TYPEWRITER_MESSAGE: `Did you know that everytime you scroll, click or tap, you hold power ?`
+  TYPEWRITER_MESSAGE: `Did you know that everytime you scroll, click or tap, you hold power ?`,
   TYPEWRITER_MESSAGE_MOBILE: `Did you\nknow that\neverytime\nyou scroll,\nclick or\ntap, you\nhold\npower ?`
 };
 
