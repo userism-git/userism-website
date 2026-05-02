@@ -225,11 +225,16 @@ function initTypewriterEffect() {
   if (!output) { console.warn('[Typewriter] #typewriter-text not found'); return; }
   if (!tunnel) { console.warn('[Typewriter] #typewriter-tunnel not found'); return; }
 
-  // Create a coloured duplicate of the text, clipped from the bottom up
+  // Wrap output in a relative container, then append the coloured duplicate inside it
+  const wrapper = document.createElement('div');
+  wrapper.className = 'typewriter-wrapper';
+  output.parentNode.insertBefore(wrapper, output);
+  wrapper.appendChild(output);
+
   const colorEl = document.createElement('div');
   colorEl.id = 'typewriter-color';
   colorEl.setAttribute('aria-hidden', 'true');
-  document.getElementById('typewriter-section').appendChild(colorEl);
+  wrapper.appendChild(colorEl);
 
   const isMobile = window.innerWidth < 768;
   const message  = isMobile ? CONFIG.TYPEWRITER_MESSAGE_MOBILE : CONFIG.TYPEWRITER_MESSAGE;
