@@ -12,6 +12,7 @@ const CONFIG = {
   INTRO_DELAY: 500,
   INTRO_FADE: 1000,
   TYPEWRITER_MESSAGE: `Did you know that everytime you scroll, click or tap, you hold power ?`
+  TYPEWRITER_MESSAGE_MOBILE: `Did you\nknow that\neverytime\nyou scroll,\nclick or\ntap, you\nhold\npower ?`
 };
 
 // ==========================================
@@ -230,7 +231,8 @@ function initTypewriterEffect() {
   colorEl.setAttribute('aria-hidden', 'true');
   document.getElementById('typewriter-section').appendChild(colorEl);
 
-  const message    = CONFIG.TYPEWRITER_MESSAGE;
+  const isMobile = window.innerWidth < 768;
+  const message  = isMobile ? CONFIG.TYPEWRITER_MESSAGE_MOBILE : CONFIG.TYPEWRITER_MESSAGE;
   const totalChars = message.length;
 
   // Phase fractions (within the sticky scroll range):
@@ -246,14 +248,17 @@ function initTypewriterEffect() {
   colorEl.style.color = navColor;
 
   output.textContent = "";
-
+  
+  let maxProgress = 0;
+  
   function tick() {
     const tunnelTop    = tunnel.getBoundingClientRect().top + window.scrollY;
     const tunnelHeight = tunnel.offsetHeight;
     const viewH        = window.innerHeight;
     const stickyRange  = tunnelHeight - viewH;
     const scrolled     = Math.max(0, window.scrollY - tunnelTop);
-    const rawProgress  = Math.min(1, scrolled / stickyRange);
+    maxProgress = Math.max(maxProgress, Math.min(1, scrolled / stickyRange)); 
+    const rawProgress = maxProgress;
 
     // --- Phase 1: typing ---
     const typeProgress = Math.min(1, rawProgress / TYPING_FRACTION);
