@@ -506,6 +506,7 @@ body.articles main, body.events main, body.projects main, body.about main { marg
     font-size: clamp(4.4rem, 9vw, 10rem);
     text-align: left;
     padding: 0 1.5rem;
+    width: 100%;
   }
 }
 
@@ -514,6 +515,7 @@ body.articles main, body.events main, body.projects main, body.about main { marg
   #typewriter-text {
     font-size: clamp(4rem, 10vw, 8rem);
     padding: 0 1.2rem;
+    width: 100%;
   }
 }
 
